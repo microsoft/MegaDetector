@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "megadetector-ai"
+version = "0.1.0"
+description = "MegaDetector: AI-powered wildlife detection for camera trap images. A simplified interface to MegaDetector via PyTorch Wildlife."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Microsoft AI for Good Lab", email = "zhongqimiao@microsoft.com"},
+]
+keywords = [
+    "megadetector",
+    "camera traps",
+    "wildlife detection",
+    "animal detection",
+    "conservation",
+    "computer vision",
+    "object detection",
+    "deep learning",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "PytorchWildlife",
+]
+
+[project.urls]
+Homepage = "https://github.com/microsoft/MegaDetector"
+Documentation = "https://microsoft.github.io/CameraTraps/"
+Repository = "https://github.com/microsoft/MegaDetector"
+"Source Code" = "https://github.com/microsoft/CameraTraps"
+"Bug Tracker" = "https://github.com/microsoft/CameraTraps/issues"
+
+[project.scripts]
+megadetector = "megadetector_ai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
