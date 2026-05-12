@@ -6,6 +6,9 @@ Usage:
     megadetector detect --input photo.jpg --output results.json
     megadetector detect --input ./images/ --model MDV6-apa-rtdetr-e --threshold 0.2
     megadetector detect --input ./images/ --device cpu
+    megadetector train --config ./config.yaml
+    megadetector validate --config ./config.yaml
+    megadetector inference --config ./config.yaml
 """
 
 import argparse
@@ -99,6 +102,51 @@ def _format_detections(image_path, results, threshold):
     }
 
 
+def train(args):
+    """Train a detection model."""
+    from megadetector_ai.training import train as run_training
+
+    config_path = args.config
+    if not Path(config_path).exists():
+        print(f"Error: Config file {config_path} does not exist", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Starting training with config: {config_path}")
+    results = run_training(config_path)
+    print("Training completed successfully")
+    return results
+
+
+def validate(args):
+    """Validate a detection model."""
+    from megadetector_ai.training import validate as run_validation
+
+    config_path = args.config
+    if not Path(config_path).exists():
+        print(f"Error: Config file {config_path} does not exist", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Starting validation with config: {config_path}")
+    metrics = run_validation(config_path)
+    print("Validation completed successfully")
+    return metrics
+
+
+def inference(args):
+    """Run inference on test data."""
+    from megadetector_ai.training import inference as run_inference
+
+    config_path = args.config
+    if not Path(config_path).exists():
+        print(f"Error: Config file {config_path} does not exist", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Starting inference with config: {config_path}")
+    results = run_inference(config_path)
+    print("Inference completed successfully")
+    return results
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="megadetector",
@@ -130,6 +178,30 @@ def main():
         help="Device: cuda:0, cpu, mps (default: auto-detect)",
     )
 
+    train_parser = subparsers.add_parser(
+        "train", help="Train a detection model"
+    )
+    train_parser.add_argument(
+        "--config", "-c", default="./config.yaml",
+        help="Path to training config file (default: ./config.yaml)",
+    )
+
+    validate_parser = subparsers.add_parser(
+        "validate", help="Validate a detection model"
+    )
+    validate_parser.add_argument(
+        "--config", "-c", default="./config.yaml",
+        help="Path to validation config file (default: ./config.yaml)",
+    )
+
+    inference_parser = subparsers.add_parser(
+        "inference", help="Run inference on test data"
+    )
+    inference_parser.add_argument(
+        "--config", "-c", default="./config.yaml",
+        help="Path to inference config file (default: ./config.yaml)",
+    )
+
     args = parser.parse_args()
     if args.command is None:
         parser.print_help()
@@ -137,6 +209,12 @@ def main():
 
     if args.command == "detect":
         detect(args)
+    elif args.command == "train":
+        train(args)
+    elif args.command == "validate":
+        validate(args)
+    elif args.command == "inference":
+        inference(args)
 
 
 if __name__ == "__main__":
