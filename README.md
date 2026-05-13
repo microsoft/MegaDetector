@@ -33,6 +33,8 @@ results = model.batch_image_detection("path/to/image_folder/")
 
 That's it. Three lines to detect animals in your camera-trap images.
 
+Need the local `megadetector` CLI or fine-tuning? See [Install from source](#install-from-source-for-fine-tuning-or-cli-use) and [Fine-Tuning](#fine-tuning) below.
+
 **Try it without installing anything:**
 - [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) — upload images in your browser
 - [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing) — free cloud GPU
@@ -110,6 +112,22 @@ pip install PytorchWildlife
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
+### Install from source (for fine-tuning or CLI use)
+
+For the local `megadetector` command-line tool and to fine-tune V6 weights on
+your own dataset, install this repository in editable mode:
+
+```bash
+git clone https://github.com/microsoft/MegaDetector
+cd MegaDetector
+pip install -e .
+```
+
+This installs the `megadetector_ai` Python package and exposes the
+`megadetector` shell command (`megadetector detect|train|validate|inference`).
+The `pyproject.toml` covers the full dependency set — no separate
+`requirements.txt` is needed.
+
 Full installation guide: [microsoft.github.io/MegaDetector/installation/](https://microsoft.github.io/MegaDetector/installation/)
 
 
@@ -182,7 +200,7 @@ MegaDetector is one model in a larger open-source ecosystem from the AI for Good
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in remote field locations |
 | [microsoft/MegaDetector-Acoustics](https://github.com/microsoft/MegaDetector-Acoustics) | Bioacoustic models for audio-based wildlife monitoring |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
-| [/SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
+| [SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
 
 MegaDetector is the entry point for most users. SPARROW Studio is the full platform. SPARROW is the field-hardened edge device.
 
@@ -216,6 +234,49 @@ See the [full list](https://github.com/microsoft/PytorchWildlife#who-uses-megade
 At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU with the compact model, about 3.9 days.
 
 Every V6 variant is faster than V5 (139.9M params). The compact V6 is 2% the size.
+
+
+## Fine-Tuning
+
+MegaDetector V6 ships with a fine-tuning pipeline (built on the
+[ultralytics](https://github.com/ultralytics/ultralytics) framework) so you can
+adapt a V6 model to your own camera-trap dataset. Fine-tuning is useful when
+the off-the-shelf V6 models miss animals that look different from the training
+distribution — for example, an under-represented species, a specific
+environment (forest canopy, snow, night-vision IR), or a new sensor.
+
+**Quick path:**
+
+```bash
+# 1. Clone and install in editable mode (from a fresh venv or conda env).
+git clone https://github.com/microsoft/MegaDetector
+cd MegaDetector
+pip install -e .
+
+# 2. Copy the reference config and edit `data:` to point at your dataset YAML.
+cp examples/config_training.yaml ./config.yaml
+
+# 3. Train, validate, and run inference with the same CLI.
+megadetector train    --config ./config.yaml
+megadetector validate --config ./config.yaml
+megadetector inference --config ./config.yaml
+```
+
+**Supported fine-tuning model variants:**
+
+- `MDV6-yolov9-c` — compact YOLOv9
+- `MDV6-yolov9-e` — extra-large YOLOv9
+- `MDV6-yolov10-c` — compact YOLOv10 (2.3M params)
+- `MDV6-yolov10-e` — extra-large YOLOv10
+- `MDV6-rtdetr-c` — compact RT-DETR
+
+Training outputs (weights, plots, metrics) land under `./runs/` keyed by the
+`exp_name` field in your config. Fine-tuned `.pt` weights can be loaded back
+into `MegaDetectorV6(weights="path/to/best.pt")` for inference.
+
+**Full reference:** [docs/training_guide.md](docs/training_guide.md) covers
+data layout, the full config schema, conda environment setup, and the Python
+API equivalents of each CLI subcommand.
 
 
 ## Version History

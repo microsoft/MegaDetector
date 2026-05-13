@@ -47,10 +47,10 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/microsoft/MegaDetector"
-Documentation = "https://microsoft.github.io/CameraTraps/"
+Documentation = "https://microsoft.github.io/MegaDetector/"
 Repository = "https://github.com/microsoft/MegaDetector"
-"Source Code" = "https://github.com/microsoft/CameraTraps"
-"Bug Tracker" = "https://github.com/microsoft/CameraTraps/issues"
+"Source Code" = "https://github.com/microsoft/MegaDetector"
+"Bug Tracker" = "https://github.com/microsoft/MegaDetector/issues"
 
 [project.scripts]
 megadetector = "megadetector_ai.cli:main"

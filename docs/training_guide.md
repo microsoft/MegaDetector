@@ -1,5 +1,7 @@
 # MegaDetector Model Fine-tuning Guide
 
+← Back to [main README](../README.md).
+
 This guide covers training and fine-tuning detection models for MegaDetector using the ultralytics framework. This module is designed to help both programmers and biologists train a detection model for animal identification. The output weights of this training process can be easily integrated with MegaDetector inference.
 
 ## Installation
@@ -8,11 +10,16 @@ Before you start, ensure you have Python installed on your machine. This project
 
 To install the required libraries and dependencies, follow these steps:
 
-### Using pip and `requirements.txt`
+### Using pip (editable install from source)
 
 ```bash
-pip install -r requirements.txt
+pip install -e .
 ```
+
+Run this from the repository root. The project's `pyproject.toml` lists all
+required runtime dependencies (PyTorch Wildlife, ultralytics, munch, wget,
+PyYAML, torch), so no separate `requirements.txt` is needed. The editable
+install also exposes the `megadetector` command-line entry point used below.
 
 ### Using conda and `environment.yaml`
 
@@ -20,7 +27,7 @@ Create and activate a Conda environment with Python 3.10:
 
 ```bash
 conda env create -f environment.yaml
-conda activate PW_Finetuning_Detection
+conda activate megadetector-finetuning
 ```
 
 ## Data Preparation
@@ -85,7 +92,13 @@ Below you find the models that you can use for fine-tuning, along with their res
 
 ## Configuration
 
-Before training your model, you need to configure the training and data parameters in the `config.yaml` file. Here's a brief explanation of the parameters to help both technical and non-technical users understand their purposes:
+The shipped reference configuration is [`examples/config_training.yaml`](../examples/config_training.yaml). Copy it to a working location and edit it to match your dataset and training preferences:
+
+```bash
+cp examples/config_training.yaml ./config.yaml
+```
+
+The CLI accepts any path via `--config`; the examples below assume you saved your copy as `./config.yaml`. Below is a brief explanation of the parameters to help both technical and non-technical users understand their purposes:
 
 ### General Parameters
 

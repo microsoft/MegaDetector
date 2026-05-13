@@ -1,4 +1,13 @@
-name: PW_Finetuning_Detection
+# MegaDetector fine-tuning conda environment.
+#
+# Platform notes:
+# - The conda block below is heavily pinned to Linux x86_64 conda-forge builds
+#   (e.g. libgcc-ng=14.1.0=h69a702a_1) and will NOT solve on macOS or Windows.
+# - macOS / Windows users: prefer a fresh venv plus `pip install -e .` from
+#   the repo root (the pyproject.toml dependency set covers the full runtime).
+# - Only the `pip:` subtree below is platform-portable.
+#
+name: megadetector-finetuning
 channels:
   - conda-forge
 dependencies:

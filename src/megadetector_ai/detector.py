@@ -42,6 +42,9 @@ class MegaDetectorV6(pw_detection.MegaDetectorV6):
 class MegaDetectorV5(pw_detection.MegaDetectorV5):
     """MegaDetector V5 — the previous generation, based on YOLOv5.
 
+    MegaDetectorV5 detects three classes: animals (class 0), people
+    (class 1), and vehicles (class 2).
+
     Still available for backward compatibility. We recommend V6 for
     new projects — it is smaller, faster, and offers permissive
     license options.
