@@ -73,6 +73,7 @@ nav:
     - Overview: index.md
     - Installation: installation.md
     - Model Zoo: model_zoo.md
+    - Tags: tags.md
   - Fine-tuning:
     - Training Guide: training_guide.md
   - Cite Us: cite.md
@@ -102,3 +103,5 @@ markdown_extensions:
 plugins:
   - search
   - meta
+  - tags:
+      tags_file: tags.md
