@@ -1,4 +1,19 @@
+---
+description: "MegaDetector fine-tuning guide: train custom detection models using MegaDetectorV6 architectures (YOLOv9, YOLOv10, RT-DETR) with the ultralytics framework for wildlife detection."
+tags:
+  - MegaDetector fine-tuning
+  - MegaDetectorV6
+  - custom wildlife detection
+  - ultralytics training
+  - camera trap model training
+  - YOLOv9
+  - YOLOv10
+---
+
 # MegaDetector Model Fine-tuning Guide
+
+> [!TIP]
+> This guide covers fine-tuning MegaDetectorV6 models on your own data. For general inference usage, see the [Overview](index.md) and [Model Zoo](model_zoo.md).
 
 This guide covers training and fine-tuning detection models for MegaDetector using the ultralytics framework. This module is designed to help both programmers and biologists train a detection model for animal identification. The output weights of this training process can be easily integrated with MegaDetector inference.
 
@@ -69,7 +84,7 @@ The `.txt` files inside each folder of `./data/labels/` must be structured conta
 
 ### Demo Data
 
-You can download some example [demo data](https://zenodo.org/records/15376499/files/demo_data_det.zip?download=1) to test the codebase. Before using the data, make sure to decompress the zip file following the [data directory structure](#data-structure), and check if the `data` and `test_data` entries in the [config file](../examples/config_training.yaml) are pointing to the data directory. The testing demo data also has an annotation example showing how the preferred annotation format looks like.
+You can download some example [demo data](https://zenodo.org/records/15376499/files/demo_data_det.zip?download=1) to test the codebase. Before using the data, make sure to decompress the zip file following the [data directory structure](#data-structure), and check if the `data` and `test_data` entries in the [config file](https://github.com/microsoft/MegaDetector/blob/main/examples/config_training.yaml) are pointing to the data directory. The testing demo data also has an annotation example showing how the preferred annotation format looks like.
 
 ## Detection Models Available for Fine-tuning
 
@@ -173,4 +188,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Support
 
-If you encounter any issues or have questions, please feel free to open an issue on the GitHub repository page. We aim to make this tool as accessible as possible and will gladly provide assistance.
+If you encounter any issues or have questions, please open an issue at [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues) or join the community on [Discord](https://discord.gg/TeEVxzaYtm). For ecosystem-wide questions, see [microsoft/Biodiversity/discussions](https://github.com/microsoft/Biodiversity/discussions).

@@ -2,7 +2,7 @@
 
 **MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
-MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch Wildlife](https://github.com/microsoft/PytorchWildlife) framework. It is free, open-source, and available under permissive licenses.
+MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch-Wildlife](https://github.com/microsoft/PytorchWildlife) framework. It is free, open-source, and available under permissive licenses.
 
 [![PyPI](https://img.shields.io/pypi/v/PytorchWildlife?color=limegreen)](https://pypi.org/project/PytorchWildlife)
 [![Downloads](https://static.pepy.tech/badge/pytorchwildlife)](https://pypi.org/project/PytorchWildlife)
@@ -136,7 +136,7 @@ for xyxy in det_results["detections"].xyxy:
     print(f"Species: {cls_result['prediction']}")
 ```
 
-**Available classifiers in PyTorch Wildlife:**
+**Available classifiers in PyTorch-Wildlife:**
 
 | Classifier | Region | Classes | License |
 | --- | --- | --- | --- |
@@ -243,7 +243,7 @@ At the core of our mission is the desire to create a harmonious space where cons
 
 ## Citing MegaDetector
 
-**PyTorch Wildlife (the framework):**
+**PyTorch-Wildlife (the framework):**
 ```bibtex
 @misc{hernandez2024pytorchwildlife,
       title={Pytorch-Wildlife: A Collaborative Deep Learning Framework for Conservation},
