@@ -4,7 +4,7 @@ MegaDetector command-line interface.
 Usage:
     megadetector detect --input ./images/
     megadetector detect --input photo.jpg --output results.json
-    megadetector detect --input ./images/ --model MDV6-apa-rtdetr-e --threshold 0.2
+    megadetector detect --input ./images/ --model MDV6-yolov10-e --threshold 0.2
     megadetector detect --input ./images/ --device cpu
     megadetector train --config ./config.yaml
     megadetector validate --config ./config.yaml
@@ -15,6 +15,15 @@ import argparse
 import json
 import sys
 from pathlib import Path
+
+
+SUPPORTED_DETECT_VERSIONS = (
+    "MDV6-yolov9-c",
+    "MDV6-yolov9-e",
+    "MDV6-yolov10-c",
+    "MDV6-yolov10-e",
+    "MDV6-rtdetr-c",
+)
 
 
 def detect(args):
@@ -112,7 +121,11 @@ def train(args):
         sys.exit(1)
 
     print(f"Starting training with config: {config_path}")
-    results = run_training(config_path)
+    try:
+        results = run_training(config_path)
+    except (ValueError, KeyError, AttributeError, FileNotFoundError) as e:
+        print(f"Error: training failed — {type(e).__name__}: {e}", file=sys.stderr)
+        sys.exit(1)
     print("Training completed successfully")
     return results
 
@@ -127,7 +140,11 @@ def validate(args):
         sys.exit(1)
 
     print(f"Starting validation with config: {config_path}")
-    metrics = run_validation(config_path)
+    try:
+        metrics = run_validation(config_path)
+    except (ValueError, KeyError, AttributeError, FileNotFoundError) as e:
+        print(f"Error: validation failed — {type(e).__name__}: {e}", file=sys.stderr)
+        sys.exit(1)
     print("Validation completed successfully")
     return metrics
 
@@ -142,7 +159,11 @@ def inference(args):
         sys.exit(1)
 
     print(f"Starting inference with config: {config_path}")
-    results = run_inference(config_path)
+    try:
+        results = run_inference(config_path)
+    except (ValueError, KeyError, AttributeError, FileNotFoundError) as e:
+        print(f"Error: inference failed — {type(e).__name__}: {e}", file=sys.stderr)
+        sys.exit(1)
     print("Inference completed successfully")
     return results
 
@@ -167,7 +188,9 @@ def main():
     )
     detect_parser.add_argument(
         "--model", "-m", default="MDV6-yolov9-c",
-        help="Model variant (default: MDV6-yolov9-c)",
+        choices=SUPPORTED_DETECT_VERSIONS,
+        help="Model variant (default: MDV6-yolov9-c). "
+             f"Supported: {', '.join(SUPPORTED_DETECT_VERSIONS)}",
     )
     detect_parser.add_argument(
         "--threshold", "-t", type=float, default=0.2,

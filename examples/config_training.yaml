@@ -18,10 +18,10 @@ patience: 5
 save_period: 1
 val: True
 resume: False
-weights: None # Path to weight to resume training
+weights: null # Path to .pt to resume from when resume=True
 
 # Validation
 save_json: True
-plot: True
+plots: True
 device_val: 0
 batch_size_val: 12
