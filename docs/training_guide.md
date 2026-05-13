@@ -12,7 +12,7 @@ tags:
 
 # MegaDetector Model Fine-tuning Guide
 
-← Back to [main README](../README.md).
+← Back to [main README](https://github.com/microsoft/MegaDetector/blob/main/README.md).
 > [!TIP]
 > This guide covers fine-tuning MegaDetectorV6 models on your own data. For general inference usage, see the [Overview](index.md) and [Model Zoo](model_zoo.md).
 
@@ -106,7 +106,7 @@ Below you find the models that you can use for fine-tuning, along with their res
 
 ## Configuration
 
-The shipped reference configuration is [`examples/config_training.yaml`](../examples/config_training.yaml). Copy it to a working location and edit it to match your dataset and training preferences:
+The shipped reference configuration is [`examples/config_training.yaml`](https://github.com/microsoft/MegaDetector/blob/main/examples/config_training.yaml). Copy it to a working location and edit it to match your dataset and training preferences:
 
 ```bash
 cp examples/config_training.yaml ./config.yaml
