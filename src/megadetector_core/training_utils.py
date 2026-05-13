@@ -24,6 +24,12 @@ def get_model_path(model):
 
     if not os.path.exists(os.path.join(torch.hub.get_dir(), "checkpoints", model_name)):
         os.makedirs(os.path.join(torch.hub.get_dir(), "checkpoints"), exist_ok=True)
+        if not os.access(".", os.W_OK):
+            raise PermissionError(
+                "wget.download() requires a writable current working directory "
+                "(it creates a temp file in CWD). CWD %r is not writable. "
+                "Re-run from a writable directory." % os.getcwd()
+            )
         model_path = wget.download(url, out=os.path.join(torch.hub.get_dir(), "checkpoints"))
     else:
         model_path = os.path.join(torch.hub.get_dir(), "checkpoints", model_name)

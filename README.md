@@ -33,6 +33,8 @@ results = model.batch_image_detection("path/to/image_folder/")
 
 That's it. Three lines to detect animals in your camera-trap images.
 
+Need the local `megadetector` CLI or fine-tuning? See [Install from source](#install-from-source-for-fine-tuning-or-cli-use) and [Fine-Tuning](#fine-tuning) below.
+
 **Try it without installing anything:**
 - [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) — upload images in your browser
 - [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing) — free cloud GPU
@@ -49,42 +51,36 @@ MegaDetector is intentionally a **detector**, not a classifier. "Animal vs. back
 
 ## MegaDetector V6
 
-The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility** — **SMALLER, FASTER, BETTER**.
+The latest release focuses on **efficiency** and **modern architectures** — **SMALLER, FASTER, BETTER**.
 
 ### Highlights
 
 - **50x smaller**: The compact YOLOv10 variant has **2.3M parameters** — 2% of MegaDetector V5's 139.9M — with comparable accuracy
 - **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR — pick the one that fits your hardware
-- **Permissive licenses**: MIT and Apache-2.0 options alongside AGPL-3.0
 - **Ongoing fine-tuning**: V6 models are continuously fine-tuned on newly collected public and private data to further improve generalization
 
 ### Model Variants
 
 | Model | Params | Animal Recall | mAP50 | License |
 | --- | --- | --- | --- | --- |
-| MDV6-apa-rtdetr-e | 76M | 82.9% | 94.1% | Apache-2.0 |
 | MDV6-yolov10-e | 29.5M | 82.8% | 92.8% | AGPL-3.0 |
 | MDV6-yolov9-e | 58.1M | 82.1% | 88.6% | AGPL-3.0 |
 | MDV6-rtdetr-c | 31.9M | 81.6% | 89.9% | AGPL-3.0 |
-| MDV6-apa-rtdetr-c | 20M | 81.1% | 91.0% | Apache-2.0 |
 | MDV6-yolov9-c | 25.5M | 78.4% | 87.9% | AGPL-3.0 |
 | MDV6-yolov10-c | 2.3M | 76.8% | 87.2% | AGPL-3.0 |
-| MDV6-mit-yolov9-e | 51M | 76.1% | 71.5% | MIT |
-| MDV6-mit-yolov9-c | 9.7M | 74.8% | 87.6% | MIT |
 
 Model names are standardized into **MDV6-Compact** and **MDV6-Extra** for the two model sizes within each architecture, reducing confusion across variants.
 
 **Which should I use?**
-- **Best accuracy**: MDV6-apa-rtdetr-e (82.9% recall, Apache-2.0)
+- **Best accuracy**: MDV6-yolov10-e (82.8% recall, AGPL-3.0)
 - **Best for laptops/edge**: MDV6-yolov10-c (2.3M params, runs on CPU)
 - **Best balance**: MDV6-yolov10-e (29.5M params, 82.8% recall)
-- **Need MIT license?**: MDV6-mit-yolov9-c
 
 ```python
 # Load a specific variant
 from PytorchWildlife.models import detection as pw_detection
 
-model = pw_detection.MegaDetectorV6(version="MDV6-apa-rtdetr-e")
+model = pw_detection.MegaDetectorV6(version="MDV6-yolov10-e")
 ```
 
 
@@ -109,6 +105,22 @@ pip install PytorchWildlife
 ```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
+
+### Install from source (for fine-tuning or CLI use)
+
+For the local `megadetector` command-line tool and to fine-tune V6 weights on
+your own dataset, install this repository in editable mode:
+
+```bash
+git clone https://github.com/microsoft/MegaDetector
+cd MegaDetector
+pip install -e .
+```
+
+This installs the `megadetector_core` Python package and exposes the
+`megadetector` shell command (`megadetector detect|train|validate|inference`).
+The `pyproject.toml` covers the full dependency set — no separate
+`requirements.txt` is needed.
 
 Full installation guide: [microsoft.github.io/MegaDetector/installation/](https://microsoft.github.io/MegaDetector/installation/)
 
@@ -182,7 +194,7 @@ MegaDetector is one model in a larger open-source ecosystem from the AI for Good
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in remote field locations |
 | [microsoft/MegaDetector-Acoustics](https://github.com/microsoft/MegaDetector-Acoustics) | Bioacoustic models for audio-based wildlife monitoring |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
-| [/SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
+| [SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
 
 MegaDetector is the entry point for most users. SPARROW Studio is the full platform. SPARROW is the field-hardened edge device.
 
@@ -218,11 +230,54 @@ At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU 
 Every V6 variant is faster than V5 (139.9M params). The compact V6 is 2% the size.
 
 
+## Fine-Tuning
+
+MegaDetector V6 ships with a fine-tuning pipeline (built on the
+[ultralytics](https://github.com/ultralytics/ultralytics) framework) so you can
+adapt a V6 model to your own camera-trap dataset. Fine-tuning is useful when
+the off-the-shelf V6 models miss animals that look different from the training
+distribution — for example, an under-represented species, a specific
+environment (forest canopy, snow, night-vision IR), or a new sensor.
+
+**Quick path:**
+
+```bash
+# 1. Clone and install in editable mode (from a fresh venv or conda env).
+git clone https://github.com/microsoft/MegaDetector
+cd MegaDetector
+pip install -e .
+
+# 2. Copy the reference config and edit `data:` to point at your dataset YAML.
+cp examples/config_training.yaml ./config.yaml
+
+# 3. Train, validate, and run inference with the same CLI.
+megadetector train    --config ./config.yaml
+megadetector validate --config ./config.yaml
+megadetector inference --config ./config.yaml
+```
+
+**Supported fine-tuning model variants:**
+
+- `MDV6-yolov9-c` — compact YOLOv9
+- `MDV6-yolov9-e` — extra-large YOLOv9
+- `MDV6-yolov10-c` — compact YOLOv10 (2.3M params)
+- `MDV6-yolov10-e` — extra-large YOLOv10
+- `MDV6-rtdetr-c` — compact RT-DETR
+
+Training outputs (weights, plots, metrics) land under `./runs/` keyed by the
+`exp_name` field in your config. Fine-tuned `.pt` weights can be loaded back
+into `MegaDetectorV6(weights="path/to/best.pt")` for inference.
+
+**Full reference:** [docs/training_guide.md](docs/training_guide.md) covers
+data layout, the full config schema, conda environment setup, and the Python
+API equivalents of each CLI subcommand.
+
+
 ## Version History
 
 | Version | Year | Architecture | Params | Notes |
 | --- | --- | --- | --- | --- |
-| **V6.0** (current) | 2024 | YOLOv9/v10, RT-DETR | 2.3M–76M | Multiple variants, MIT/Apache options |
+| **V6.0** (current) | 2024 | YOLOv9/v10, RT-DETR | 2.3M–58.1M | YOLOv9/v10 + RT-DETR variants (AGPL-3.0) |
 | V5.0 | 2022 | YOLOv5 | 139.9M | Two sub-versions (5a, 5b) |
 | V4.1 | 2020 | Faster R-CNN | — | Added vehicle class |
 | V3 | 2019 | Faster R-CNN | — | Added human class |
@@ -282,4 +337,4 @@ For questions, feature requests, or to report how MegaDetector worked on your da
 
 ## License
 
-The MegaDetector code is released under the [MIT License](LICENSE). Individual model weights are released under MIT, Apache-2.0, or AGPL-3.0 — see the [Model Variants](#model-variants) table for per-variant licensing.
+The MegaDetector code is released under the [MIT License](LICENSE). Individual model weights documented in this repository are released under AGPL-3.0 — see the [Model Variants](#model-variants) table for details.

@@ -12,6 +12,7 @@ tags:
 
 # MegaDetector Model Fine-tuning Guide
 
+← Back to [main README](../README.md).
 > [!TIP]
 > This guide covers fine-tuning MegaDetectorV6 models on your own data. For general inference usage, see the [Overview](index.md) and [Model Zoo](model_zoo.md).
 
@@ -23,11 +24,16 @@ Before you start, ensure you have Python installed on your machine. This project
 
 To install the required libraries and dependencies, follow these steps:
 
-### Using pip and `requirements.txt`
+### Using pip (editable install from source)
 
 ```bash
-pip install -r requirements.txt
+pip install -e .
 ```
+
+Run this from the repository root. The project's `pyproject.toml` lists all
+required runtime dependencies (PyTorch Wildlife, ultralytics, munch, wget,
+PyYAML, torch), so no separate `requirements.txt` is needed. The editable
+install also exposes the `megadetector` command-line entry point used below.
 
 ### Using conda and `environment.yaml`
 
@@ -35,7 +41,7 @@ Create and activate a Conda environment with Python 3.10:
 
 ```bash
 conda env create -f environment.yaml
-conda activate PW_Finetuning_Detection
+conda activate megadetector-finetuning
 ```
 
 ## Data Preparation
@@ -100,7 +106,13 @@ Below you find the models that you can use for fine-tuning, along with their res
 
 ## Configuration
 
-Before training your model, you need to configure the training and data parameters in the `config.yaml` file. Here's a brief explanation of the parameters to help both technical and non-technical users understand their purposes:
+The shipped reference configuration is [`examples/config_training.yaml`](../examples/config_training.yaml). Copy it to a working location and edit it to match your dataset and training preferences:
+
+```bash
+cp examples/config_training.yaml ./config.yaml
+```
+
+The CLI accepts any path via `--config`; the examples below assume you saved your copy as `./config.yaml`. Below is a brief explanation of the parameters to help both technical and non-technical users understand their purposes:
 
 ### General Parameters
 
@@ -129,7 +141,7 @@ Before training your model, you need to configure the training and data paramete
 ### Validation Parameters
 
 - `save_json`: Boolean value indicating whether to save results as JSON. Default: True
-- `plot`: Boolean value indicating whether to plot results. Default: True
+- `plots`: Boolean value indicating whether to plot results. Default: True
 - `device_val`: The device ID for validation. Default: 0
 - `batch_size_val`: The batch size for validation. Default: 12
 
@@ -146,7 +158,7 @@ megadetector train --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_ai.training import train
+from megadetector_core.training import train
 train(config_path='./config.yaml')
 ```
 
@@ -159,7 +171,7 @@ megadetector validate --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_ai.training import validate
+from megadetector_core.training import validate
 validate(config_path='./config.yaml')
 ```
 
@@ -172,7 +184,7 @@ megadetector inference --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_ai.training import inference
+from megadetector_core.training import inference
 inference(config_path='./config.yaml')
 ```
 

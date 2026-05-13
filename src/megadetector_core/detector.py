@@ -13,7 +13,7 @@ class MegaDetectorV6(pw_detection.MegaDetectorV6):
 
     Detects animals, people, and vehicles in camera trap images using
     modern architectures (YOLOv9, YOLOv10, RT-DETR). Multiple model
-    variants are available, ranging from 2.3M to 76M parameters.
+    variants are available, ranging from 2.3M to 58.1M parameters.
 
     Args:
         device: Device to run on. "cuda:0" for GPU, "cpu" for CPU,
@@ -25,13 +25,9 @@ class MegaDetectorV6(pw_detection.MegaDetectorV6):
             - "MDV6-yolov10-c" — compact YOLOv10 (2.3M params)
             - "MDV6-yolov10-e" — extra-large YOLOv10
             - "MDV6-rtdetr-c" — compact RT-DETR
-            - "MDV6-mit-yolov9-c" — MIT-licensed compact
-            - "MDV6-mit-yolov9-e" — MIT-licensed extra
-            - "MDV6-apa-rtdetr-c" — Apache-licensed compact
-            - "MDV6-apa-rtdetr-e" — Apache-licensed extra (best accuracy)
 
     Example:
-        >>> from megadetector_ai import MegaDetectorV6
+        >>> from megadetector_core import MegaDetectorV6
         >>> model = MegaDetectorV6()
         >>> results = model.single_image_detection("photo.jpg")
         >>> print(results["detections"])
@@ -42,9 +38,11 @@ class MegaDetectorV6(pw_detection.MegaDetectorV6):
 class MegaDetectorV5(pw_detection.MegaDetectorV5):
     """MegaDetector V5 — the previous generation, based on YOLOv5.
 
+    MegaDetectorV5 detects three classes: animals (class 0), people
+    (class 1), and vehicles (class 2).
+
     Still available for backward compatibility. We recommend V6 for
-    new projects — it is smaller, faster, and offers permissive
-    license options.
+    new projects — it is smaller and faster.
 
     Args:
         device: Device to run on. Default: CUDA if available.
@@ -52,7 +50,7 @@ class MegaDetectorV5(pw_detection.MegaDetectorV5):
         version: "a" (default, recommended) or "b".
 
     Example:
-        >>> from megadetector_ai import MegaDetectorV5
+        >>> from megadetector_core import MegaDetectorV5
         >>> model = MegaDetectorV5(version="a")
         >>> results = model.single_image_detection("photo.jpg")
     """
