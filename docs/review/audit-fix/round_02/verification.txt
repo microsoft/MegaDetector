@@ -1,0 +1,48 @@
+=== Verification report — round 2 ===
+Date: 2026-05-13T20:27:18Z
+
+--- python syntax (py_compile) ---
+OK: all python files parse
+
+--- ruff lint ---
+All checks passed!
+
+--- config_training.yaml keys ---
+keys: ['batch_size_train', 'batch_size_val', 'data', 'device_train', 'device_val', 'epochs', 'exp_name', 'imgsz', 'lr0', 'model', 'model_name', 'optimizer', 'patience', 'plots', 'resume', 'save_json', 'save_period', 'task', 'test_data', 'val', 'weights', 'workers']
+
+--- environment.yaml name ---
+env name: megadetector-finetuning
+
+--- pyproject.toml ---
+project: megadetector-ai 0.1.0
+urls: {'Homepage': 'https://github.com/microsoft/MegaDetector', 'Documentation': 'https://microsoft.github.io/MegaDetector/', 'Repository': 'https://github.com/microsoft/MegaDetector', 'Source Code': 'https://github.com/microsoft/MegaDetector', 'Bug Tracker': 'https://github.com/microsoft/MegaDetector/issues'}
+
+--- training_utils variants supported ---
+"MDV6-rtdetr-c"
+"MDV6-yolov10-c"
+"MDV6-yolov10-e"
+"MDV6-yolov9-c"
+"MDV6-yolov9-e"
+
+--- CLI help ---
+usage: megadetector [-h] {detect,train,validate,inference} ...
+
+MegaDetector: AI-powered wildlife detection for camera trap images
+
+positional arguments:
+  {detect,train,validate,inference}
+    detect              Run MegaDetector on images
+    train               Train a detection model
+    validate            Validate a detection model
+    inference           Run inference on test data
+
+options:
+  -h, --help            show this help message and exit
+
+--- README links docs/training_guide.md? ---
+YES — README links docs/training_guide.md (count: 1)
+
+--- README has Fine-Tuning section? ---
+YES — Fine-Tuning section present
+109:### Install from source (for fine-tuning or CLI use)
+233:## Fine-Tuning
