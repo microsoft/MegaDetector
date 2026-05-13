@@ -79,3 +79,14 @@
 {"round":3,"agent":"inquisitor","file":"src/megadetector_ai/training_utils.py","action":"verified","report_anchor":"round_03/inquisitor_review.md#src-megadetector-ai-training-utils-py"}
 {"round":3,"agent":"inquisitor","file":"src/megadetector_ai/cli.py","action":"verified","report_anchor":"round_03/inquisitor_review.md#src-megadetector-ai-cli-py"}
 {"round":3,"agent":"inquisitor","file":"examples/config_training.yaml","action":"verified","report_anchor":"round_03/inquisitor_review.md#examples-config-training-yaml"}
+{"round":4,"agent":"inquisitor","file":"README.md","action":"verified","report_anchor":"round_04/inquisitor_review.md#README-md"}
+{"round":4,"agent":"inquisitor","file":"megadetector.md","action":"verified","report_anchor":"round_04/inquisitor_review.md#megadetector-md"}
+{"round":4,"agent":"inquisitor","file":"pyproject.toml","action":"verified","report_anchor":"round_04/inquisitor_review.md#pyproject-toml"}
+{"round":4,"agent":"inquisitor","file":"environment.yaml","action":"verified","report_anchor":"round_04/inquisitor_review.md#environment-yaml"}
+{"round":4,"agent":"inquisitor","file":"docs/training_guide.md","action":"verified","report_anchor":"round_04/inquisitor_review.md#docs-training-guide-md"}
+{"round":4,"agent":"inquisitor","file":"src/megadetector_ai/__init__.py","action":"verified","report_anchor":"round_04/inquisitor_review.md#src-megadetector-ai-init-py"}
+{"round":4,"agent":"inquisitor","file":"src/megadetector_ai/detector.py","action":"verified","report_anchor":"round_04/inquisitor_review.md#src-megadetector-ai-detector-py"}
+{"round":4,"agent":"inquisitor","file":"src/megadetector_ai/training.py","action":"verified","report_anchor":"round_04/inquisitor_review.md#src-megadetector-ai-training-py"}
+{"round":4,"agent":"inquisitor","file":"src/megadetector_ai/training_utils.py","action":"verified","report_anchor":"round_04/inquisitor_review.md#src-megadetector-ai-training-utils-py"}
+{"round":4,"agent":"inquisitor","file":"src/megadetector_ai/cli.py","action":"verified","report_anchor":"round_04/inquisitor_review.md#src-megadetector-ai-cli-py"}
+{"round":4,"agent":"inquisitor","file":"examples/config_training.yaml","action":"verified","report_anchor":"round_04/inquisitor_review.md#examples-config-training-yaml"}

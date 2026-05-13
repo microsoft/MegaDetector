@@ -1,0 +1,34 @@
+=== Round 4 verification (no source edits this round) ===
+
+=== ruff check ===
+All checks passed!
+
+=== py_compile ===
+py_compile: clean
+
+=== YAML parse: config_training.yaml ===
+plots key present: True
+
+=== YAML parse: environment.yaml ===
+env name: megadetector-finetuning
+
+=== TOML parse: pyproject.toml ===
+  Homepage = https://github.com/microsoft/MegaDetector
+  Documentation = https://microsoft.github.io/MegaDetector/
+  Repository = https://github.com/microsoft/MegaDetector
+  Source Code = https://github.com/microsoft/MegaDetector
+  Bug Tracker = https://github.com/microsoft/MegaDetector/issues
+
+=== README markers ===
+109:### Install from source (for fine-tuning or CLI use)
+233:## Fine-Tuning
+
+=== Residual unsupported claims (expect zero) ===
+README.md:5:MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch Wildlife](https://github.com/microsoft/PytorchWildlife) framework. It is free, open-source, and available under permissive licenses.
+
+=== HEAD ===
+f83929b refactor: audit-fix round 3 review artifacts
+a41abfe docs(audit-fix r3): correct V6 variant claims at residual NEW-finding sites
+7268842 refactor: audit-fix round 2 review artifacts
+b709a15 docs: audit-fix round 2 — trim V6 variants to PW 1.2.4.2-supported set; fix plots key in training guide
+0e544df refactor: audit-fix round 1 review artifacts
