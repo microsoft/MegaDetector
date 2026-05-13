@@ -3,7 +3,7 @@
 > [!TIP]
 > MegaDetector now has its own home at [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector). The full model zoo and PyTorch Wildlife framework live at [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife), with everything tied together under the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
 
-**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
+**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
 Our mission is to create a global community where conservation scientists can collaborate — sharing datasets and deep learning architectures for wildlife conservation. We're committed to supporting, maintaining, and advancing **MegaDetector** to ensure its continued **relevance, performance, and impact** for biodiversity research worldwide.
 
@@ -41,7 +41,7 @@ MegaDetector is one project in a larger open-source ecosystem from the AI for Go
 | Repo | Purpose |
 | --- | --- |
 | [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) | The umbrella repository — documentation hub for the AI for Good Lab's biodiversity work |
-| [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector) | This project — animal, person, and vehicle detection in camera-trap imagery |
+| [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector) | This project — animal detection in camera-trap imagery |
 | [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife) | The collaborative deep learning framework hosting MegaDetector, species classifiers, and demo notebooks |
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in the field |
 | [microsoft/MegaDetector-Acoustics](https://github.com/microsoft/MegaDetector-Acoustics) | Bioacoustic models for audio-based wildlife monitoring |
