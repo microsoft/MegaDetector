@@ -1,8 +1,8 @@
 # MegaDetector
 
-**MegaDetector** is an open-source AI model that detects **animals**, **people**, and **vehicles** in camera trap images. Developed by the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good), MegaDetector is used by more than 80 conservation organizations worldwide to automate the review of camera trap imagery. It does not identify species — it locates animals so researchers can skip empty frames and focus on science.
+**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
-MegaDetector is the flagship model in the [PyTorch Wildlife](https://github.com/microsoft/CameraTraps) framework and [SPARROW Studio](https://github.com/microsoft/CameraTraps) ecosystem. It is free, open-source, and available under permissive licenses.
+MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch Wildlife](https://github.com/microsoft/PytorchWildlife) framework. It is free, open-source, and available under permissive licenses.
 
 [![PyPI](https://img.shields.io/pypi/v/PytorchWildlife?color=limegreen)](https://pypi.org/project/PytorchWildlife)
 [![Downloads](https://static.pepy.tech/badge/pytorchwildlife)](https://pypi.org/project/PytorchWildlife)
@@ -31,7 +31,7 @@ results = model.single_image_detection("path/to/camera_trap_image.jpg")
 results = model.batch_image_detection("path/to/image_folder/")
 ```
 
-That's it. Three lines to detect animals in your camera trap images.
+That's it. Three lines to detect animals in your camera-trap images.
 
 **Try it without installing anything:**
 - [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) — upload images in your browser
@@ -42,28 +42,21 @@ That's it. Three lines to detect animals in your camera trap images.
 
 Camera traps generate millions of images, and the vast majority are empty frames triggered by wind or vegetation. Manually reviewing them is one of the biggest bottlenecks in wildlife research.
 
-MegaDetector solves this. It scans your images and draws bounding boxes around three categories:
-
-| Class | What it detects |
-| --- | --- |
-| **animal** | Any animal — mammals, birds, reptiles, insects |
-| **person** | Humans |
-| **vehicle** | Cars, trucks, ATVs, boats |
-
-Each detection has a confidence score between 0 and 1. You set a threshold (typically 0.15–0.3), and anything above it is flagged. The output lets you sort images, filter blanks, or feed detected animals into a species classifier.
+MegaDetector solves this. It scans your images and draws bounding boxes around any animal — mammals, birds, reptiles, insects, and more. Each detection has a confidence score between 0 and 1. You set a threshold (typically 0.15–0.3), and anything above it is flagged. The output lets you sort images, filter blanks, or feed detected animals into a species classifier.
 
 MegaDetector is intentionally a **detector**, not a classifier. "Animal vs. background" generalizes across ecosystems far better than species identification. For species classification, pair MegaDetector with a downstream classifier — see [Species Classification](#species-classification) below.
 
 
 ## MegaDetector V6
 
-The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility**.
+The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility** — **SMALLER, FASTER, BETTER**.
 
 ### Highlights
 
 - **50x smaller**: The compact YOLOv10 variant has **2.3M parameters** — 2% of MegaDetector V5's 139.9M — with comparable accuracy
 - **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR — pick the one that fits your hardware
 - **Permissive licenses**: MIT and Apache-2.0 options alongside AGPL-3.0
+- **Ongoing fine-tuning**: V6 models are continuously fine-tuned on newly collected public and private data to further improve generalization
 
 ### Model Variants
 
@@ -78,6 +71,8 @@ The latest release focuses on **efficiency**, **modern architectures**, and **li
 | MDV6-yolov10-c | 2.3M | 76.8% | 87.2% | AGPL-3.0 |
 | MDV6-mit-yolov9-e | 51M | 76.1% | 71.5% | MIT |
 | MDV6-mit-yolov9-c | 9.7M | 74.8% | 87.6% | MIT |
+
+Model names are standardized into **MDV6-Compact** and **MDV6-Extra** for the two model sizes within each architecture, reducing confusion across variants.
 
 **Which should I use?**
 - **Best accuracy**: MDV6-apa-rtdetr-e (82.9% recall, Apache-2.0)
@@ -101,7 +96,7 @@ pip install PytorchWildlife
 
 **Requirements:**
 - Python 3.8+ (3.10+ recommended)
-- Optional: NVIDIA GPU with CUDA for 10-50x speedup
+- Optional: NVIDIA GPU with CUDA for 10–50x speedup
 
 **Conda users:**
 ```bash
@@ -115,7 +110,7 @@ pip install PytorchWildlife
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
-Full installation guide: [microsoft.github.io/CameraTraps/installation/](https://microsoft.github.io/CameraTraps/installation/)
+Full installation guide: [microsoft.github.io/MegaDetector/installation/](https://microsoft.github.io/MegaDetector/installation/)
 
 
 ## Species Classification
@@ -158,10 +153,10 @@ Google's [SpeciesNet](https://github.com/google/cameratrapai) is also designed t
 
 ### SPARROW Studio
 
-[SPARROW Studio](https://github.com/microsoft/CameraTraps) is a unified desktop application by Microsoft AI for Good built on PyTorch Wildlife:
+[SPARROW Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) is a unified desktop application by the AI for Good Lab built on PyTorch Wildlife:
 
 - Run MegaDetector and species classifiers through a graphical interface
-- Manage camera trap data locally or in the cloud
+- Manage camera-trap data locally or in the cloud
 - Annotate, analyze, and visualize detection results
 - Supports bioacoustics and overhead wildlife imagery
 
@@ -176,22 +171,20 @@ Windows installer: [Download from Zenodo](https://zenodo.org/records/19687738/fi
 [Upload images and run MegaDetector in your browser](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) — no installation required.
 
 
-## Part of SPARROW Studio and PyTorch Wildlife
+## Part of the Biodiversity Ecosystem
 
-MegaDetector is one model in a larger ecosystem:
+MegaDetector is one model in a larger open-source ecosystem from the AI for Good Lab. Each project lives in its own repository, with the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella tying them together.
 
-**[PyTorch Wildlife](https://github.com/microsoft/CameraTraps)** is the open-source framework that powers MegaDetector. It also includes:
-- **Species classifiers** — AI4G Amazon Rainforest, AI4G Snapshot Serengeti, DeepFaune, and more
-- **Bioacoustics models** — audio-based wildlife monitoring (MD AudioBirds V1)
-- **OWL** (Overhead Wildlife Locator) — point-based detection for aerial/drone imagery
-- **HerdNet** — animal detection in overhead imagery
-- **PW-Engine** — a Rust-based inference core for high-throughput processing
+| Repo | Purpose |
+| --- | --- |
+| [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) | The umbrella repository — documentation hub for the AI for Good Lab's biodiversity work |
+| [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife) | The collaborative deep learning framework that hosts MegaDetector, species classifiers (AI4G Amazon Rainforest, AI4G Snapshot Serengeti, DeepFaune), HerdNet, PW-Engine (a Rust-based inference core), and demo notebooks |
+| [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in remote field locations |
+| [microsoft/MegaDetector-Acoustics](https://github.com/microsoft/MegaDetector-Acoustics) | Bioacoustic models for audio-based wildlife monitoring |
+| [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
+| [/SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
 
-**[SPARROW Studio](https://github.com/microsoft/CameraTraps)** is the desktop application that wraps it all in a clean UI.
-
-MegaDetector is the entry point. SPARROW Studio is the full platform.
-
-Source code, framework, and all models live in the [`microsoft/CameraTraps`](https://github.com/microsoft/CameraTraps) repository.
+MegaDetector is the entry point for most users. SPARROW Studio is the full platform. SPARROW is the field-hardened edge device.
 
 
 ## Organizations Using MegaDetector
@@ -208,17 +201,17 @@ MegaDetector is used by 80+ organizations across government agencies, universiti
 
 **Platforms**: TrapTagger, WildTrax, Camelot, Animl, Wildlife Observer Network, OCAPI, WildePod
 
-See the [full list](https://github.com/microsoft/CameraTraps#who-uses-megadetector) in the PyTorch Wildlife repository.
+See the [full list](https://github.com/microsoft/PytorchWildlife#who-uses-megadetector) in the PyTorch Wildlife repository.
 
 
 ## Performance
 
 | Hardware | Model | Approximate Speed |
 | --- | --- | --- |
-| NVIDIA RTX 3090 | MDV6-yolov10-c (2.3M) | ~100-200 images/sec |
-| NVIDIA RTX 3090 | MDV6-yolov10-e (29.5M) | ~30-60 images/sec |
-| Modern CPU (no GPU) | MDV6-yolov10-c (2.3M) | ~2-5 images/sec |
-| Google Colab (free GPU) | Any V6 variant | ~10-50 images/sec |
+| NVIDIA RTX 3090 | MDV6-yolov10-c (2.3M) | ~100–200 images/sec |
+| NVIDIA RTX 3090 | MDV6-yolov10-e (29.5M) | ~30–60 images/sec |
+| Modern CPU (no GPU) | MDV6-yolov10-c (2.3M) | ~2–5 images/sec |
+| Google Colab (free GPU) | Any V6 variant | ~10–50 images/sec |
 
 At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU with the compact model, about 3.9 days.
 
@@ -235,7 +228,17 @@ Every V6 variant is faster than V5 (139.9M params). The compact V6 is 2% the siz
 | V3 | 2019 | Faster R-CNN | — | Added human class |
 | V2 | 2018 | Faster R-CNN | — | First public release |
 
-For V5 and earlier, see the [archive branch](https://github.com/microsoft/CameraTraps/tree/archive) of the CameraTraps repository.
+
+## MegaDetector V5 and Earlier
+
+For MegaDetectorV5 model weights and earlier versions, see the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
+
+The original MegaDetector repository was primarily developed by **Dan Morris** during his time at Microsoft. Dan continues to actively maintain a forked version at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector), which remains a valuable resource for the community.
+
+
+## Our Commitment
+
+At the core of our mission is the desire to create a harmonious space where conservation scientists from all over the globe can unite — to share, grow, and use datasets and deep learning architectures for wildlife conservation. We've been inspired by the potential and capabilities of MegaDetector, and we deeply value its contributions to the community. We remain committed to supporting, maintaining, and developing MegaDetector — ensuring its continued relevance, expansion, and utility.
 
 
 ## Citing MegaDetector
@@ -267,14 +270,16 @@ You can also use GitHub's "Cite this repository" button in the sidebar.
 
 ## Contributing
 
-MegaDetector's source code and the full PyTorch Wildlife framework live in [`microsoft/CameraTraps`](https://github.com/microsoft/CameraTraps). To contribute code, file issues, or submit pull requests, head there.
+MegaDetector's source code lives in this repository. To contribute code, file issues, or submit pull requests, head to [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues).
+
+For framework-level changes (PyTorch Wildlife API, classifiers, demo notebooks), see [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife). For ecosystem-wide questions, see the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
 
 For questions, feature requests, or to report how MegaDetector worked on your data:
 - **Email**: [zhongqimiao@microsoft.com](mailto:zhongqimiao@microsoft.com)
 - **Discord**: [![Discord](https://img.shields.io/badge/any_text-Join_us!-blue?logo=discord&label=Discord)](https://discord.gg/TeEVxzaYtm)
-- **GitHub Discussions**: [microsoft/CameraTraps/discussions](https://github.com/microsoft/CameraTraps/discussions)
+- **GitHub Discussions**: [microsoft/Biodiversity/discussions](https://github.com/microsoft/Biodiversity/discussions)
 
 
 ## License
 
-[MIT](LICENSE)
+The MegaDetector code is released under the [MIT License](LICENSE). Individual model weights are released under MIT, Apache-2.0, or AGPL-3.0 — see the [Model Variants](#model-variants) table for per-variant licensing.

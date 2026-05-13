@@ -38,6 +38,11 @@ classifiers = [
 ]
 dependencies = [
     "PytorchWildlife",
+    "ultralytics>=8.0.0",
+    "munch>=2.0.0",
+    "wget>=3.0",
+    "PyYAML>=6.0",
+    "torch>=2.0.0",
 ]
 
 [project.urls]
