@@ -5,10 +5,10 @@
 
 **MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
-**At the core of our mission is the desire to create a harmonious space where conservation scientists from all over the globe can unite — to share, grow, and use datasets and deep learning architectures for wildlife conservation. We've been inspired by the potential and capabilities of MegaDetector, and we deeply value its contributions to the community. We remain committed to supporting, maintaining, and developing MegaDetector — ensuring its continued relevance, expansion, and utility.**
+Our mission is to create a global community where conservation scientists can collaborate — sharing datasets and deep learning architectures for wildlife conservation. We're committed to supporting, maintaining, and advancing **MegaDetector** to ensure its continued **relevance, performance, and impact** for biodiversity research worldwide.
 
 
-## :racing_car::dash::dash: MegaDetectorV6: SMALLER, FASTER, BETTER!
+## 🏎️ MegaDetectorV6: SMALLER, FASTER, BETTER!
 
 We have officially released our 6th version of MegaDetector, **MegaDetectorV6**. In the next generation of MegaDetector, we focused on computational efficiency, performance, modernizing of model architectures, and licensing. We have trained multiple new models using different model architectures that are optimized for performance and low-budget devices, including **YOLOv9**, **YOLOv10**, and **RT-DETR** for maximum user flexibility.
 
