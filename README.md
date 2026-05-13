@@ -51,7 +51,7 @@ MegaDetector is intentionally a **detector**, not a classifier. "Animal vs. back
 
 ## MegaDetector V6
 
-The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility** — **SMALLER, FASTER, BETTER**.
+The latest release focuses on **efficiency** and **modern architectures** — **SMALLER, FASTER, BETTER**.
 
 ### Highlights
 
@@ -277,7 +277,7 @@ API equivalents of each CLI subcommand.
 
 | Version | Year | Architecture | Params | Notes |
 | --- | --- | --- | --- | --- |
-| **V6.0** (current) | 2024 | YOLOv9/v10, RT-DETR | 2.3M–76M | Multiple variants, MIT/Apache options |
+| **V6.0** (current) | 2024 | YOLOv9/v10, RT-DETR | 2.3M–58.1M | YOLOv9/v10 + RT-DETR variants (AGPL-3.0) |
 | V5.0 | 2022 | YOLOv5 | 139.9M | Two sub-versions (5a, 5b) |
 | V4.1 | 2020 | Faster R-CNN | — | Added vehicle class |
 | V3 | 2019 | Faster R-CNN | — | Added human class |
@@ -337,4 +337,4 @@ For questions, feature requests, or to report how MegaDetector worked on your da
 
 ## License
 
-The MegaDetector code is released under the [MIT License](LICENSE). Individual model weights are released under MIT, Apache-2.0, or AGPL-3.0 — see the [Model Variants](#model-variants) table for per-variant licensing.
+The MegaDetector code is released under the [MIT License](LICENSE). Individual model weights documented in this repository are released under AGPL-3.0 — see the [Model Variants](#model-variants) table for details.

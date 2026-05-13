@@ -13,7 +13,7 @@ class MegaDetectorV6(pw_detection.MegaDetectorV6):
 
     Detects animals, people, and vehicles in camera trap images using
     modern architectures (YOLOv9, YOLOv10, RT-DETR). Multiple model
-    variants are available, ranging from 2.3M to 76M parameters.
+    variants are available, ranging from 2.3M to 58.1M parameters.
 
     Args:
         device: Device to run on. "cuda:0" for GPU, "cpu" for CPU,
@@ -42,8 +42,7 @@ class MegaDetectorV5(pw_detection.MegaDetectorV5):
     (class 1), and vehicles (class 2).
 
     Still available for backward compatibility. We recommend V6 for
-    new projects — it is smaller, faster, and offers permissive
-    license options.
+    new projects — it is smaller and faster.
 
     Args:
         device: Device to run on. Default: CUDA if available.
