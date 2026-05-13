@@ -76,6 +76,7 @@ nav:
   - Fine-tuning:
     - Training Guide: training_guide.md
   - Cite Us: cite.md
+  - Developer Guide: build_mkdocs.md
 
 markdown_extensions:
   - admonition
