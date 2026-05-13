@@ -117,7 +117,7 @@ cd MegaDetector
 pip install -e .
 ```
 
-This installs the `megadetector_ai` Python package and exposes the
+This installs the `megadetector_core` Python package and exposes the
 `megadetector` shell command (`megadetector detect|train|validate|inference`).
 The `pyproject.toml` covers the full dependency set — no separate
 `requirements.txt` is needed.

@@ -6,7 +6,7 @@ using the ultralytics framework.
 """
 
 from ultralytics import YOLO, RTDETR
-from megadetector_ai.training_utils import get_model_path
+from megadetector_core.training_utils import get_model_path
 from munch import Munch
 import yaml
 import os

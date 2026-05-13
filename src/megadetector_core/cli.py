@@ -28,7 +28,7 @@ SUPPORTED_DETECT_VERSIONS = (
 
 def detect(args):
     """Run MegaDetector on images."""
-    from megadetector_ai import MegaDetectorV6
+    from megadetector_core import MegaDetectorV6
 
     input_path = Path(args.input)
     if not input_path.exists():
@@ -113,7 +113,7 @@ def _format_detections(image_path, results, threshold):
 
 def train(args):
     """Train a detection model."""
-    from megadetector_ai.training import train as run_training
+    from megadetector_core.training import train as run_training
 
     config_path = args.config
     if not Path(config_path).exists():
@@ -132,7 +132,7 @@ def train(args):
 
 def validate(args):
     """Validate a detection model."""
-    from megadetector_ai.training import validate as run_validation
+    from megadetector_core.training import validate as run_validation
 
     config_path = args.config
     if not Path(config_path).exists():
@@ -151,7 +151,7 @@ def validate(args):
 
 def inference(args):
     """Run inference on test data."""
-    from megadetector_ai.training import inference as run_inference
+    from megadetector_core.training import inference as run_inference
 
     config_path = args.config
     if not Path(config_path).exists():

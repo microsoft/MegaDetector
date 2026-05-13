@@ -1,5 +1,12 @@
 # MegaDetector Audit Report — round 1
 
+> **Note (post-rename):** the package directory `src/megadetector_ai/` was
+> renamed to `src/megadetector_core/` and the import path / PyPI distribution
+> name updated to `megadetector_core` / `megadetector-core`. Paths in this
+> report refer to the pre-rename state for traceability with the audit
+> commits `e58feca`, `badc1c2`, `b709a15`, `a41abfed`. Current code uses the
+> new name.
+
 _Date: round 1 of the audit-fix protocol. Auditor scope: documentation /
 clarity / package metadata. Reviewer scope (behavioral fixes) is summarized
 here and lives in `docs/review/audit-fix/round_01/reviewer_report.md`._

@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "megadetector-ai"
+name = "megadetector-core"
 version = "0.1.0"
 description = "MegaDetector: AI-powered wildlife detection for camera trap images. A simplified interface to MegaDetector via PyTorch Wildlife."
 readme = "README.md"
@@ -53,7 +53,7 @@ Repository = "https://github.com/microsoft/MegaDetector"
 "Bug Tracker" = "https://github.com/microsoft/MegaDetector/issues"
 
 [project.scripts]
-megadetector = "megadetector_ai.cli:main"
+megadetector = "megadetector_core.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

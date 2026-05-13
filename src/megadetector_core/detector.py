@@ -27,7 +27,7 @@ class MegaDetectorV6(pw_detection.MegaDetectorV6):
             - "MDV6-rtdetr-c" — compact RT-DETR
 
     Example:
-        >>> from megadetector_ai import MegaDetectorV6
+        >>> from megadetector_core import MegaDetectorV6
         >>> model = MegaDetectorV6()
         >>> results = model.single_image_detection("photo.jpg")
         >>> print(results["detections"])
@@ -50,7 +50,7 @@ class MegaDetectorV5(pw_detection.MegaDetectorV5):
         version: "a" (default, recommended) or "b".
 
     Example:
-        >>> from megadetector_ai import MegaDetectorV5
+        >>> from megadetector_core import MegaDetectorV5
         >>> model = MegaDetectorV5(version="a")
         >>> results = model.single_image_detection("photo.jpg")
     """

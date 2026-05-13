@@ -144,7 +144,7 @@ megadetector train --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_ai.training import train
+from megadetector_core.training import train
 train(config_path='./config.yaml')
 ```
 
@@ -157,7 +157,7 @@ megadetector validate --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_ai.training import validate
+from megadetector_core.training import validate
 validate(config_path='./config.yaml')
 ```
 
@@ -170,7 +170,7 @@ megadetector inference --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_ai.training import inference
+from megadetector_core.training import inference
 inference(config_path='./config.yaml')
 ```
 
