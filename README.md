@@ -57,36 +57,30 @@ The latest release focuses on **efficiency**, **modern architectures**, and **li
 
 - **50x smaller**: The compact YOLOv10 variant has **2.3M parameters** — 2% of MegaDetector V5's 139.9M — with comparable accuracy
 - **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR — pick the one that fits your hardware
-- **Permissive licenses**: MIT and Apache-2.0 options alongside AGPL-3.0
 - **Ongoing fine-tuning**: V6 models are continuously fine-tuned on newly collected public and private data to further improve generalization
 
 ### Model Variants
 
 | Model | Params | Animal Recall | mAP50 | License |
 | --- | --- | --- | --- | --- |
-| MDV6-apa-rtdetr-e | 76M | 82.9% | 94.1% | Apache-2.0 |
 | MDV6-yolov10-e | 29.5M | 82.8% | 92.8% | AGPL-3.0 |
 | MDV6-yolov9-e | 58.1M | 82.1% | 88.6% | AGPL-3.0 |
 | MDV6-rtdetr-c | 31.9M | 81.6% | 89.9% | AGPL-3.0 |
-| MDV6-apa-rtdetr-c | 20M | 81.1% | 91.0% | Apache-2.0 |
 | MDV6-yolov9-c | 25.5M | 78.4% | 87.9% | AGPL-3.0 |
 | MDV6-yolov10-c | 2.3M | 76.8% | 87.2% | AGPL-3.0 |
-| MDV6-mit-yolov9-e | 51M | 76.1% | 71.5% | MIT |
-| MDV6-mit-yolov9-c | 9.7M | 74.8% | 87.6% | MIT |
 
 Model names are standardized into **MDV6-Compact** and **MDV6-Extra** for the two model sizes within each architecture, reducing confusion across variants.
 
 **Which should I use?**
-- **Best accuracy**: MDV6-apa-rtdetr-e (82.9% recall, Apache-2.0)
+- **Best accuracy**: MDV6-yolov10-e (82.8% recall, AGPL-3.0)
 - **Best for laptops/edge**: MDV6-yolov10-c (2.3M params, runs on CPU)
 - **Best balance**: MDV6-yolov10-e (29.5M params, 82.8% recall)
-- **Need MIT license?**: MDV6-mit-yolov9-c
 
 ```python
 # Load a specific variant
 from PytorchWildlife.models import detection as pw_detection
 
-model = pw_detection.MegaDetectorV6(version="MDV6-apa-rtdetr-e")
+model = pw_detection.MegaDetectorV6(version="MDV6-yolov10-e")
 ```
 
 

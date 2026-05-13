@@ -127,7 +127,7 @@ The CLI accepts any path via `--config`; the examples below assume you saved you
 ### Validation Parameters
 
 - `save_json`: Boolean value indicating whether to save results as JSON. Default: True
-- `plot`: Boolean value indicating whether to plot results. Default: True
+- `plots`: Boolean value indicating whether to plot results. Default: True
 - `device_val`: The device ID for validation. Default: 0
 - `batch_size_val`: The batch size for validation. Default: 12
 

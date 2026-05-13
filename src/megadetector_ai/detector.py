@@ -25,10 +25,6 @@ class MegaDetectorV6(pw_detection.MegaDetectorV6):
             - "MDV6-yolov10-c" — compact YOLOv10 (2.3M params)
             - "MDV6-yolov10-e" — extra-large YOLOv10
             - "MDV6-rtdetr-c" — compact RT-DETR
-            - "MDV6-mit-yolov9-c" — MIT-licensed compact
-            - "MDV6-mit-yolov9-e" — MIT-licensed extra
-            - "MDV6-apa-rtdetr-c" — Apache-licensed compact
-            - "MDV6-apa-rtdetr-e" — Apache-licensed extra (best accuracy)
 
     Example:
         >>> from megadetector_ai import MegaDetectorV6
