@@ -1,20 +1,4 @@
----
-description: "MegaDetector fine-tuning guide: train custom detection models using MegaDetectorV6 architectures (YOLOv9, YOLOv10, RT-DETR) with the ultralytics framework for wildlife detection."
-tags:
-  - MegaDetector fine-tuning
-  - MegaDetectorV6
-  - custom wildlife detection
-  - ultralytics training
-  - camera trap model training
-  - YOLOv9
-  - YOLOv10
----
-
 # MegaDetector Model Fine-tuning Guide
-
-← Back to [main README](../README.md).
-> [!TIP]
-> This guide covers fine-tuning MegaDetectorV6 models on your own data. For general inference usage, see the [Overview](index.md) and [Model Zoo](model_zoo.md).
 
 This guide covers training and fine-tuning detection models for MegaDetector using the ultralytics framework. This module is designed to help both programmers and biologists train a detection model for animal identification. The output weights of this training process can be easily integrated with MegaDetector inference.
 
@@ -24,16 +8,11 @@ Before you start, ensure you have Python installed on your machine. This project
 
 To install the required libraries and dependencies, follow these steps:
 
-### Using pip (editable install from source)
+### Using pip and `requirements.txt`
 
 ```bash
-pip install -e .
+pip install -r requirements.txt
 ```
-
-Run this from the repository root. The project's `pyproject.toml` lists all
-required runtime dependencies (PyTorch Wildlife, ultralytics, munch, wget,
-PyYAML, torch), so no separate `requirements.txt` is needed. The editable
-install also exposes the `megadetector` command-line entry point used below.
 
 ### Using conda and `environment.yaml`
 
@@ -41,7 +20,7 @@ Create and activate a Conda environment with Python 3.10:
 
 ```bash
 conda env create -f environment.yaml
-conda activate megadetector-finetuning
+conda activate PW_Finetuning_Detection
 ```
 
 ## Data Preparation
@@ -90,7 +69,7 @@ The `.txt` files inside each folder of `./data/labels/` must be structured conta
 
 ### Demo Data
 
-You can download some example [demo data](https://zenodo.org/records/15376499/files/demo_data_det.zip?download=1) to test the codebase. Before using the data, make sure to decompress the zip file following the [data directory structure](#data-structure), and check if the `data` and `test_data` entries in the [config file](https://github.com/microsoft/MegaDetector/blob/main/examples/config_training.yaml) are pointing to the data directory. The testing demo data also has an annotation example showing how the preferred annotation format looks like.
+You can download some example [demo data](https://zenodo.org/records/15376499/files/demo_data_det.zip?download=1) to test the codebase. Before using the data, make sure to decompress the zip file following the [data directory structure](#data-structure), and check if the `data` and `test_data` entries in the [config file](../examples/config_training.yaml) are pointing to the data directory. The testing demo data also has an annotation example showing how the preferred annotation format looks like.
 
 ## Detection Models Available for Fine-tuning
 
@@ -106,13 +85,7 @@ Below you find the models that you can use for fine-tuning, along with their res
 
 ## Configuration
 
-The shipped reference configuration is [`examples/config_training.yaml`](../examples/config_training.yaml). Copy it to a working location and edit it to match your dataset and training preferences:
-
-```bash
-cp examples/config_training.yaml ./config.yaml
-```
-
-The CLI accepts any path via `--config`; the examples below assume you saved your copy as `./config.yaml`. Below is a brief explanation of the parameters to help both technical and non-technical users understand their purposes:
+Before training your model, you need to configure the training and data parameters in the `config.yaml` file. Here's a brief explanation of the parameters to help both technical and non-technical users understand their purposes:
 
 ### General Parameters
 
@@ -141,7 +114,7 @@ The CLI accepts any path via `--config`; the examples below assume you saved you
 ### Validation Parameters
 
 - `save_json`: Boolean value indicating whether to save results as JSON. Default: True
-- `plots`: Boolean value indicating whether to plot results. Default: True
+- `plot`: Boolean value indicating whether to plot results. Default: True
 - `device_val`: The device ID for validation. Default: 0
 - `batch_size_val`: The batch size for validation. Default: 12
 
@@ -158,7 +131,7 @@ megadetector train --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_core.training import train
+from megadetector_ai.training import train
 train(config_path='./config.yaml')
 ```
 
@@ -171,7 +144,7 @@ megadetector validate --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_core.training import validate
+from megadetector_ai.training import validate
 validate(config_path='./config.yaml')
 ```
 
@@ -184,7 +157,7 @@ megadetector inference --config ./config.yaml
 Or using the Python API:
 
 ```python
-from megadetector_core.training import inference
+from megadetector_ai.training import inference
 inference(config_path='./config.yaml')
 ```
 
@@ -200,4 +173,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Support
 
-If you encounter any issues or have questions, please open an issue at [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues) or join the community on [Discord](https://discord.gg/TeEVxzaYtm). For ecosystem-wide questions, see [microsoft/Biodiversity/discussions](https://github.com/microsoft/Biodiversity/discussions).
+If you encounter any issues or have questions, please feel free to open an issue on the GitHub repository page. We aim to make this tool as accessible as possible and will gladly provide assistance.

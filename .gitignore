@@ -20,3 +20,5 @@ htmlcov/
 Thumbs.db
 .DS_Store
 docs/review
+Brewfile
+site/
