@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "megadetector-ai"
 version = "0.1.0"
-description = "MegaDetector: AI-powered wildlife detection for camera trap images. A simplified interface to MegaDetector via PyTorch Wildlife."
+description = "MegaDetector: AI-powered wildlife detection for camera trap images. A simplified interface to MegaDetector via PyTorch-Wildlife."
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
@@ -14,13 +14,20 @@ authors = [
 ]
 keywords = [
     "megadetector",
+    "MegaDetectorV6",
+    "MegaDetectorV5",
     "camera traps",
+    "camera-trap analysis",
     "wildlife detection",
     "animal detection",
+    "bounding box detection",
     "conservation",
+    "open-source AI",
+    "AI for Good",
     "computer vision",
     "object detection",
     "deep learning",
+    "PyTorch-Wildlife",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -47,10 +54,10 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/microsoft/MegaDetector"
-Documentation = "https://microsoft.github.io/CameraTraps/"
+Documentation = "https://microsoft.github.io/MegaDetector/"
 Repository = "https://github.com/microsoft/MegaDetector"
-"Source Code" = "https://github.com/microsoft/CameraTraps"
-"Bug Tracker" = "https://github.com/microsoft/CameraTraps/issues"
+"Source Code" = "https://github.com/microsoft/MegaDetector"
+"Bug Tracker" = "https://github.com/microsoft/MegaDetector/issues"
 
 [project.scripts]
 megadetector = "megadetector_ai.cli:main"

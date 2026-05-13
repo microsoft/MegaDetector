@@ -1,7 +1,7 @@
 # 🐾 MegaDetector
 
 > [!TIP]
-> MegaDetector now has its own home at [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector). The full model zoo and PyTorch Wildlife framework live at [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife), with everything tied together under the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
+> MegaDetector now has its own home at [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector). The full model zoo and PyTorch-Wildlife framework live at [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife), with everything tied together under the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
 
 **MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
@@ -14,7 +14,7 @@ We have officially released our 6th version of MegaDetector, **MegaDetectorV6**.
 
 For example, the **MegaDetectorV6-Ultralytics-YoloV10-Compact** (`MDV6-yolov10-c`) model has only ***2% of the parameters*** of the previous MegaDetectorV5 (2.3M vs. 139.9M) and still exhibits comparable performance on our validation datasets.
 
-To test the newest version of MegaDetector with all the existing functionalities, you can use our [Hugging Face interface](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) or simply load the model with **Pytorch-Wildlife**. The weights will be automatically downloaded:
+To test the newest version of MegaDetector with all the existing functionalities, you can use our [Hugging Face interface](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) or simply load the model with **PyTorch-Wildlife**. The weights will be automatically downloaded:
 
 ```python
 from PytorchWildlife.models import detection as pw_detection
@@ -50,4 +50,4 @@ MegaDetector is one project in a larger open-source ecosystem from the AI for Go
 
 
 > [!TIP]
-> If you have any questions regarding MegaDetector and Pytorch-Wildlife, please [email us](mailto:zhongqimiao@microsoft.com) or join us in our discord channel: [![](https://img.shields.io/badge/any_text-Join_us!-blue?logo=discord&label=PytorchWildlife)](https://discord.gg/TeEVxzaYtm)
+> If you have any questions regarding MegaDetector and PyTorch-Wildlife, please [email us](mailto:zhongqimiao@microsoft.com) or join us in our discord channel: [![](https://img.shields.io/badge/any_text-Join_us!-blue?logo=discord&label=PyTorch-Wildlife)](https://discord.gg/TeEVxzaYtm)

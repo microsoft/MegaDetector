@@ -18,4 +18,5 @@ htmlcov/
 *.log
 .DS_Store
 Thumbs.db
-.DS_Store
+Brewfile
+site/
