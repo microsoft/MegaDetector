@@ -1,6 +1,6 @@
 # MegaDetector
 
-**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
+**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
 MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch Wildlife](https://github.com/microsoft/PytorchWildlife) framework. It is free, open-source, and available under permissive licenses.
 
@@ -42,15 +42,7 @@ That's it. Three lines to detect animals in your camera-trap images.
 
 Camera traps generate millions of images, and the vast majority are empty frames triggered by wind or vegetation. Manually reviewing them is one of the biggest bottlenecks in wildlife research.
 
-MegaDetector solves this. It scans your images and draws bounding boxes around three categories:
-
-| Class | What it detects |
-| --- | --- |
-| **animal** | Any animal — mammals, birds, reptiles, insects |
-| **person** | Humans |
-| **vehicle** | Cars, trucks, ATVs, boats |
-
-Each detection has a confidence score between 0 and 1. You set a threshold (typically 0.15–0.3), and anything above it is flagged. The output lets you sort images, filter blanks, or feed detected animals into a species classifier.
+MegaDetector solves this. It scans your images and draws bounding boxes around any animal — mammals, birds, reptiles, insects, and more. Each detection has a confidence score between 0 and 1. You set a threshold (typically 0.15–0.3), and anything above it is flagged. The output lets you sort images, filter blanks, or feed detected animals into a species classifier.
 
 MegaDetector is intentionally a **detector**, not a classifier. "Animal vs. background" generalizes across ecosystems far better than species identification. For species classification, pair MegaDetector with a downstream classifier — see [Species Classification](#species-classification) below.
 
