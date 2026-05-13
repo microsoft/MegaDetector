@@ -1,0 +1,43 @@
+=== ruff check (Python source) ===
+All checks passed!
+
+=== py_compile (Python source) ===
+py_compile: clean
+
+=== YAML parse: examples/config_training.yaml ===
+config keys ok: ['batch_size_train', 'batch_size_val', 'data', 'device_train', 'device_val', 'epochs'] ...
+
+=== YAML parse: environment.yaml ===
+env name: megadetector-finetuning
+
+=== TOML parse: pyproject.toml ===
+pyproject urls:
+  Homepage = https://github.com/microsoft/MegaDetector
+  Documentation = https://microsoft.github.io/MegaDetector/
+  Repository = https://github.com/microsoft/MegaDetector
+  Source Code = https://github.com/microsoft/MegaDetector
+  Bug Tracker = https://github.com/microsoft/MegaDetector/issues
+
+=== README: Fine-Tuning section + variant references ===
+66:| MDV6-yolov10-e | 29.5M | 82.8% | 92.8% | AGPL-3.0 |
+67:| MDV6-yolov9-e | 58.1M | 82.1% | 88.6% | AGPL-3.0 |
+68:| MDV6-rtdetr-c | 31.9M | 81.6% | 89.9% | AGPL-3.0 |
+69:| MDV6-yolov9-c | 25.5M | 78.4% | 87.9% | AGPL-3.0 |
+70:| MDV6-yolov10-c | 2.3M | 76.8% | 87.2% | AGPL-3.0 |
+75:- **Best accuracy**: MDV6-yolov10-e (82.8% recall, AGPL-3.0)
+76:- **Best for laptops/edge**: MDV6-yolov10-c (2.3M params, runs on CPU)
+77:- **Best balance**: MDV6-yolov10-e (29.5M params, 82.8% recall)
+83:model = pw_detection.MegaDetectorV6(version="MDV6-yolov10-e")
+109:### Install from source (for fine-tuning or CLI use)
+223:| NVIDIA RTX 3090 | MDV6-yolov10-c (2.3M) | ~100–200 images/sec |
+224:| NVIDIA RTX 3090 | MDV6-yolov10-e (29.5M) | ~30–60 images/sec |
+225:| Modern CPU (no GPU) | MDV6-yolov10-c (2.3M) | ~2–5 images/sec |
+233:## Fine-Tuning
+261:- `MDV6-yolov9-c` — compact YOLOv9
+262:- `MDV6-yolov9-e` — extra-large YOLOv9
+263:- `MDV6-yolov10-c` — compact YOLOv10 (2.3M params)
+264:- `MDV6-yolov10-e` — extra-large YOLOv10
+265:- `MDV6-rtdetr-c` — compact RT-DETR
+
+=== detector.py: docstring residual claims ===
+(none — clean)
