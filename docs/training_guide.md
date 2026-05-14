@@ -31,7 +31,7 @@ pip install -e .
 ```
 
 Run this from the repository root. The project's `pyproject.toml` lists all
-required runtime dependencies (PyTorch Wildlife, ultralytics, munch, wget,
+required runtime dependencies (PyTorch-Wildlife, ultralytics, munch, wget,
 PyYAML, torch), so no separate `requirements.txt` is needed. The editable
 install also exposes the `megadetector` command-line entry point used below.
 

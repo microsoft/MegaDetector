@@ -1,3 +1,12 @@
+---
+description: "How to build and deploy the MegaDetector MkDocs documentation site locally and to GitHub Pages."
+tags:
+  - MegaDetector
+  - documentation
+  - MkDocs
+  - developer guide
+---
+
 # Building the MkDocs Site
 
 To build the MegaDetector docs site locally, follow these steps.

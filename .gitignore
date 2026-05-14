@@ -22,3 +22,6 @@ Thumbs.db
 docs/review
 Brewfile
 site/
+archive/
+install.sh
+*.code-workspace

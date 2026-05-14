@@ -2,6 +2,8 @@ cff-version: 1.2.0
 title: MegaDetector
 message: "If you use MegaDetector, please cite it using the metadata from this file."
 type: software
+version: "0.1.0"
+date-released: "2026-05-14"
 authors:
   - given-names: Sara
     family-names: Beery
@@ -28,6 +30,7 @@ identifiers:
     value: "https://arxiv.org/abs/2405.12930"
     description: "Pytorch-Wildlife: A Collaborative Deep Learning Framework for Conservation"
 repository-code: "https://github.com/microsoft/MegaDetector"
+url: "https://microsoft.github.io/MegaDetector/"
 keywords:
   - MegaDetector
   - camera traps
@@ -36,5 +39,6 @@ keywords:
   - conservation
   - computer vision
   - object detection
-  - PyTorch Wildlife
+  - PyTorch-Wildlife
+  - ai-for-good
 license: MIT
