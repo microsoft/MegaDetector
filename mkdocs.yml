@@ -103,5 +103,4 @@ markdown_extensions:
 plugins:
   - search
   - meta
-  - tags:
-      tags_file: tags.md
+  - tags
