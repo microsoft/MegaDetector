@@ -165,7 +165,7 @@ Google's [SpeciesNet](https://github.com/google/cameratrapai) is also designed t
 
 ### SPARROW Studio
 
-[SPARROW Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) is a unified desktop application by the AI for Good Lab built on PyTorch-Wildlife:
+[SPARROW Studio](https://github.com/microsoft/SPARROW-Studio) is a unified desktop application by the AI for Good Lab built on PyTorch-Wildlife:
 
 - Run MegaDetector and species classifiers through a graphical interface
 - Manage camera-trap data locally or in the cloud
@@ -195,7 +195,8 @@ MegaDetector is one model in a larger open-source ecosystem from the AI for Good
 | [microsoft/MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic) | Bioacoustic models for audio-based wildlife monitoring |
 | [microsoft/MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Camera-trap species classification fine-tuning — adapt classifiers to your own datasets and geographic regions |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
-| [SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
+| [microsoft/MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar) | Sonar-based wildlife detection for aquatic monitoring |
+| [microsoft/SPARROW-Studio](https://github.com/microsoft/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
 
 MegaDetector is the entry point for most users. SPARROW Studio is the full platform. SPARROW is the field-hardened edge device.
 
