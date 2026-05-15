@@ -165,7 +165,7 @@ Google's [SpeciesNet](https://github.com/google/cameratrapai) is also designed t
 
 ### SPARROW Studio
 
-[SPARROW Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) is a unified desktop application by the AI for Good Lab built on PyTorch-Wildlife:
+[SPARROW Studio](https://github.com/microsoft/SPARROW-Studio) is a unified desktop application by the AI for Good Lab built on PyTorch-Wildlife:
 
 - Run MegaDetector and species classifiers through a graphical interface
 - Manage camera-trap data locally or in the cloud
@@ -193,8 +193,10 @@ MegaDetector is one model in a larger open-source ecosystem from the AI for Good
 | [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife) | The collaborative deep learning framework that hosts MegaDetector, species classifiers (AI4G Amazon Rainforest, AI4G Snapshot Serengeti, DeepFaune), HerdNet, PW-Engine (a Rust-based inference core), and demo notebooks |
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in remote field locations |
 | [microsoft/MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic) | Bioacoustic models for audio-based wildlife monitoring |
+| [microsoft/MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Camera-trap species classification fine-tuning — adapt classifiers to your own datasets and geographic regions |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
-| [SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
+| [microsoft/MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar) | Sonar-based wildlife detection for aquatic monitoring |
+| [microsoft/SPARROW-Studio](https://github.com/microsoft/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
 
 MegaDetector is the entry point for most users. SPARROW Studio is the full platform. SPARROW is the field-hardened edge device.
 
