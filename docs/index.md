@@ -81,6 +81,7 @@ MegaDetector is one project in a larger open-source ecosystem from the AI for Go
 | [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife) | The collaborative deep learning framework hosting MegaDetector, species classifiers, and demo notebooks |
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in the field |
 | [microsoft/MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic) | Bioacoustic models for audio-based wildlife monitoring |
+| [microsoft/MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Camera-trap species classification fine-tuning — adapt classifiers to your own datasets and geographic regions |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
 | [SPARROW Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
 
