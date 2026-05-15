@@ -163,17 +163,6 @@ Google's [SpeciesNet](https://github.com/google/cameratrapai) is also designed t
 
 ## Desktop and Web Interfaces
 
-### SPARROW Studio
-
-[SPARROW Studio](https://github.com/microsoft/SPARROW-Studio) is a unified desktop application by the AI for Good Lab built on PyTorch-Wildlife:
-
-- Run MegaDetector and species classifiers through a graphical interface
-- Manage camera-trap data locally or in the cloud
-- Annotate, analyze, and visualize detection results
-- Supports bioacoustics and overhead wildlife imagery
-
-Windows installer: [Download from Zenodo](https://zenodo.org/records/19687738/files/SPARROW%20Studio%20Installer.msi?download=1) (signed). Mac and Linux builds in progress.
-
 ### AddaxAI (formerly EcoAssist)
 
 [AddaxAI](https://addaxdatascience.com/addaxai/) is a third-party desktop tool for running MegaDetector with batch processing, annotation, and results visualization. Windows, macOS, and Linux.
@@ -196,9 +185,7 @@ MegaDetector is one model in a larger open-source ecosystem from the AI for Good
 | [microsoft/MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Camera-trap species classification fine-tuning — adapt classifiers to your own datasets and geographic regions |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
 | [microsoft/MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar) | Sonar-based wildlife detection for aquatic monitoring |
-| [microsoft/SPARROW-Studio](https://github.com/microsoft/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
-
-MegaDetector is the entry point for most users. SPARROW Studio is the full platform. SPARROW is the field-hardened edge device.
+MegaDetector is the entry point for most users. SPARROW is the field-hardened edge device.
 
 
 ## Organizations Using MegaDetector
