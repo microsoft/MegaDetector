@@ -84,7 +84,7 @@ MegaDetector is one project in a larger open-source ecosystem from the AI for Go
 | [microsoft/MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Camera-trap species classification fine-tuning — adapt classifiers to your own datasets and geographic regions |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
 | [microsoft/MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar) | Sonar-based wildlife detection for aquatic monitoring |
-| [microsoft/SPARROW-Studio](https://github.com/microsoft/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
+| SPARROW Studio | The desktop application that wraps it all in a graphical interface |
 
 > [!TIP]
 > If you have any questions regarding MegaDetector and PyTorch-Wildlife, please [email us](mailto:zhongqimiao@microsoft.com) or join us in our Discord channel: [![](https://img.shields.io/badge/any_text-Join_us!-blue?logo=discord&label=PyTorch-Wildlife)](https://discord.gg/TeEVxzaYtm)

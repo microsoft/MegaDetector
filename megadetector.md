@@ -54,7 +54,7 @@ MegaDetector is one project in a larger open-source ecosystem from the AI for Go
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in the field |
 | [microsoft/MegaDetector-Acoustics](https://github.com/microsoft/MegaDetector-Acoustics) | Bioacoustic models for audio-based wildlife monitoring |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
-| [SPARROW-Studio](https://github.com/microsoft/Biodiversity/tree/main/SPARROW-Studio) | The desktop application that wraps it all in a graphical interface |
+| SPARROW Studio | The desktop application that wraps it all in a graphical interface |
 
 
 > [!TIP]
