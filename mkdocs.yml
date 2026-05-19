@@ -73,8 +73,11 @@ nav:
     - Overview: index.md
     - Installation: installation.md
     - Model Zoo: model_zoo.md
+    - FAQ: faq.md
     - Tags: tags.md
-  - Fine-tuning:
+  - Guides:
+    - Camera-Trap AI: camera-trap-ai.md
+    - Camera-Trap Software: camera-trap-software.md
     - Training Guide: training_guide.md
   - Cite Us: cite.md
   - Developer Guide: build_mkdocs.md
