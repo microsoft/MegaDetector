@@ -2,7 +2,7 @@
 
 **MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
-MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch-Wildlife](https://github.com/microsoft/PytorchWildlife) framework. It is free, open-source, and available under permissive licenses.
+MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife) framework. It is free, open-source, and available under permissive licenses.
 
 [![PyPI](https://img.shields.io/pypi/v/PytorchWildlife?color=limegreen)](https://pypi.org/project/PytorchWildlife)
 [![Downloads](https://static.pepy.tech/badge/pytorchwildlife)](https://pypi.org/project/PytorchWildlife)
@@ -190,7 +190,7 @@ MegaDetector is one model in a larger open-source ecosystem from the AI for Good
 | Repo | Purpose |
 | --- | --- |
 | [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) | The umbrella repository — documentation hub for the AI for Good Lab's biodiversity work |
-| [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife) | The collaborative deep learning framework that hosts MegaDetector, species classifiers (AI4G Amazon Rainforest, AI4G Snapshot Serengeti, DeepFaune), HerdNet, PW-Engine (a Rust-based inference core), and demo notebooks |
+| [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife) | The collaborative deep learning framework that hosts MegaDetector, species classifiers (AI4G Amazon Rainforest, AI4G Snapshot Serengeti, DeepFaune), HerdNet, PW-Engine (a Rust-based inference core), and demo notebooks |
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in remote field locations |
 | [microsoft/MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic) | Bioacoustic models for audio-based wildlife monitoring |
 | [microsoft/MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Camera-trap species classification fine-tuning — adapt classifiers to your own datasets and geographic regions |
@@ -215,7 +215,7 @@ MegaDetector is used by 80+ organizations across government agencies, universiti
 
 **Platforms**: TrapTagger, WildTrax, Camelot, Animl, Wildlife Observer Network, OCAPI, WildePod
 
-See the [full list](https://github.com/microsoft/PytorchWildlife#who-uses-megadetector) in the PyTorch-Wildlife repository.
+See the [full list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetector) in the PyTorch-Wildlife repository.
 
 
 ## Performance
@@ -329,7 +329,7 @@ You can also use GitHub's "Cite this repository" button in the sidebar.
 
 MegaDetector's source code lives in this repository. To contribute code, file issues, or submit pull requests, head to [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues).
 
-For framework-level changes (PyTorch-Wildlife API, classifiers, demo notebooks), see [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife). For ecosystem-wide questions, see the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
+For framework-level changes (PyTorch-Wildlife API, classifiers, demo notebooks), see [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife). For ecosystem-wide questions, see the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
 
 For questions, feature requests, or to report how MegaDetector worked on your data:
 - **Email**: [zhongqimiao@microsoft.com](mailto:zhongqimiao@microsoft.com)

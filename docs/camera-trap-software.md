@@ -32,7 +32,7 @@ Most practitioners combine tools from more than one layer. MegaDetector sits in 
 
 **Role:** Detection and blank-frame filtering  
 **Access:** [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector) — open-source, MIT license  
-**Ecosystem:** Part of [PyTorch-Wildlife](https://github.com/microsoft/PytorchWildlife)
+**Ecosystem:** Part of [PyTorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife)
 
 MegaDetector detects animals, people, and vehicles in camera-trap images. It does not classify species. Its primary function is to compress large image datasets before human review — removing blank frames and surfacing images that contain animals.
 
