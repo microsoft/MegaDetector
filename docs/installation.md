@@ -11,7 +11,7 @@ tags:
 
 # Installation
 
-MegaDetector is installed as part of the [PyTorch-Wildlife](https://github.com/microsoft/PytorchWildlife) framework.
+MegaDetector is installed as part of the [PyTorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife) framework.
 
 ```bash
 pip install PytorchWildlife

@@ -76,7 +76,7 @@ MegaDetector is one layer in a larger open-source stack for wildlife AI. The [mi
 | Tool | Role |
 |---|---|
 | **MegaDetector** | Camera-trap detection — animals, people, vehicles |
-| [PyTorch-Wildlife](https://github.com/microsoft/PytorchWildlife) | Framework hosting MegaDetector, classifiers, and training pipelines |
+| [PyTorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife) | Framework hosting MegaDetector, classifiers, and training pipelines |
 | [MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Species classification on top of MegaDetector detections |
 | [MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic) | Audio-based species detection from bioacoustic recordings |
 | [MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Detection in aerial and satellite imagery |

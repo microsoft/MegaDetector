@@ -9,7 +9,7 @@
 # 🐾 MegaDetector
 
 > [!TIP]
-> MegaDetector now has its own home at [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector). The full model zoo and PyTorch-Wildlife framework live at [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife), with everything tied together under the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
+> MegaDetector now has its own home at [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector). The full model zoo and PyTorch-Wildlife framework live at [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife), with everything tied together under the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella.
 
 **MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
 
@@ -34,7 +34,7 @@ We will continuously fine-tune our V6 models on newly collected public and priva
 > [!TIP]
 > All versions of MegaDetector and corresponding performance can be found in the [model zoo](https://microsoft.github.io/MegaDetector/model_zoo/megadetector/).
 
-> From now on, we encourage our users to use MegaDetectorV6 as their default animal detection model and choose whichever model fits the project needs. To reduce potential confusion, we have also standardized the model names into **MDV6-Compact** and **MDV6-Extra** for two model sizes using the same architecture. Learn how to use MegaDetectorV6 in our [image demo](https://github.com/microsoft/PytorchWildlife/blob/main/demo/image_demo.py) and our [demo data installation guideline](https://microsoft.github.io/MegaDetector/demo_and_ui/demo_data/).
+> From now on, we encourage our users to use MegaDetectorV6 as their default animal detection model and choose whichever model fits the project needs. To reduce potential confusion, we have also standardized the model names into **MDV6-Compact** and **MDV6-Extra** for two model sizes using the same architecture. Learn how to use MegaDetectorV6 in our [image demo](https://github.com/microsoft/Pytorch-Wildlife/blob/main/demo/image_demo.py) and our [demo data installation guideline](https://microsoft.github.io/MegaDetector/demo_and_ui/demo_data/).
 
 
 ## MegaDetectorV5 and Archive Repos
@@ -50,9 +50,9 @@ MegaDetector is one project in a larger open-source ecosystem from the AI for Go
 | --- | --- |
 | [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) | The umbrella repository — documentation hub for the AI for Good Lab's biodiversity work |
 | [microsoft/MegaDetector](https://github.com/microsoft/MegaDetector) | This project — animal detection in camera-trap imagery |
-| [microsoft/PytorchWildlife](https://github.com/microsoft/PytorchWildlife) | The collaborative deep learning framework hosting MegaDetector, species classifiers, and demo notebooks |
+| [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife) | The collaborative deep learning framework hosting MegaDetector, species classifiers, and demo notebooks |
 | [microsoft/SPARROW](https://github.com/microsoft/SPARROW) | Solar-Powered Acoustic and Remote Recording Observation Watch — the AI-enabled edge device that runs MegaDetector in the field |
-| [microsoft/MegaDetector-Acoustics](https://github.com/microsoft/MegaDetector-Acoustics) | Bioacoustic models for audio-based wildlife monitoring |
+| [microsoft/MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic) | Bioacoustic models for audio-based wildlife monitoring |
 | [microsoft/MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead) | Point-based detection models for overhead and aerial imagery |
 | SPARROW Studio | The desktop application that wraps it all in a graphical interface |
 
