@@ -9,8 +9,8 @@ copyright: Copyright (c) 2023 Microsoft Corporation
 
 theme:
   name: material
-  favicon: https://zenodo.org/records/15376499/files/cat.png
-  logo: https://zenodo.org/records/15376499/files/cat.png
+  favicon: assets/cat.png
+  logo: assets/cat.png
   icon:
     menu: material/menu
     alternate: material/translate
