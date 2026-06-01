@@ -17,6 +17,20 @@
 {% block extrahead %}
   {{ super() }}
 
+  {#- Open Graph / Twitter Card social metadata (per-page title/description, local share image) -#}
+  {%- set social_title = page.meta.title if page and page.meta and page.meta.title else (page.title if page and page.title else config.site_name) -%}
+  {%- set social_desc = page.meta.description if page and page.meta and page.meta.description else config.site_description -%}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ social_title | striptags }}">
+  <meta property="og:description" content="{{ social_desc | striptags }}">
+  <meta property="og:url" content="{{ page.canonical_url if page and page.canonical_url else config.site_url }}">
+  <meta property="og:image" content="{{ config.site_url }}assets/megadetector-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ social_title | striptags }}">
+  <meta name="twitter:description" content="{{ social_desc | striptags }}">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/megadetector-banner.png">
+
   {%- if page and page.file and page.file.src_path == "index.md" %}
   {#- Homepage: SoftwareSourceCode (entity clarity for an open-source model/code project) -#}
   <script type="application/ld+json">
