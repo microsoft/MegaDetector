@@ -1,7 +1,5 @@
 ---
 description: "MegaDetector: open-source AI model from Microsoft AI for Good Lab that detects animals, people, and vehicles in camera-trap images. Used by 80+ conservation organizations worldwide."
-hide:
-  - tags
 tags:
   - MegaDetector
   - MegaDetectorV6
