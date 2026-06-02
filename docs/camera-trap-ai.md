@@ -1,5 +1,5 @@
 ---
-description: "Camera-trap AI explained, how machine learning automates wildlife monitoring, why AI-based detection matters for conservation, and how MegaDetector fits into the workflow."
+description: "Camera-trap AI explained: how machine learning automates wildlife monitoring, why detection matters for conservation, and where MegaDetector fits."
 tags:
   - camera trap AI
   - wildlife AI

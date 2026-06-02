@@ -1,5 +1,5 @@
 ---
-description: "Camera-trap software overview, how MegaDetector fits alongside EcoAssist, Timelapse2, Wildlife Insights, and CamtrapR in the wildlife monitoring software ecosystem."
+description: "Camera-trap software overview: how MegaDetector fits alongside EcoAssist, Timelapse2, Wildlife Insights, and CamtrapR in the wildlife monitoring stack."
 tags:
   - camera trap software
   - camera trap image analysis software

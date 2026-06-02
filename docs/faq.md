@@ -1,5 +1,5 @@
 ---
-description: "MegaDetector FAQ, frequently asked questions about installation, accuracy, GPU requirements, V5 vs V6, licensing, and how to use MegaDetector for camera-trap wildlife detection."
+description: "MegaDetector FAQ: installation, accuracy, GPU requirements, V5 vs V6, licensing, and how to run MegaDetector for camera-trap wildlife detection."
 tags:
   - MegaDetector FAQ
   - MegaDetector how to

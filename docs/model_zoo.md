@@ -1,5 +1,5 @@
 ---
-description: "MegaDetector model zoo: all MegaDetectorV6 variants with architectures, parameter counts, animal recall, mAP50, and license options for camera-trap wildlife detection."
+description: "MegaDetector model zoo: all MegaDetectorV6 variants with architectures, parameter counts, animal recall, mAP50, and license options for camera traps."
 tags:
   - MegaDetector
   - MegaDetectorV6

@@ -1,5 +1,5 @@
 ---
-description: "How to cite MegaDetector and PyTorch-Wildlife in research. BibTeX citations for the MegaDetector model (Beery 2019) and the PyTorch-Wildlife framework (Hernandez 2024)."
+description: "How to cite MegaDetector and PyTorch-Wildlife in research, with BibTeX for the MegaDetector model (Beery 2019) and the framework (Hernandez 2024)."
 tags:
   - MegaDetector citation
   - PyTorch-Wildlife citation
@@ -15,6 +15,8 @@ If MegaDetector contributed to your research, please cite the relevant papers be
 
 ## PyTorch-Wildlife (the framework)
 
+Read the paper on arXiv: [arXiv:2405.12930](https://arxiv.org/abs/2405.12930).
+
 ```bibtex
 @misc{hernandez2024pytorchwildlife,
       title={Pytorch-Wildlife: A Collaborative Deep Learning Framework for Conservation},
@@ -27,6 +29,8 @@ If MegaDetector contributed to your research, please cite the relevant papers be
 
 
 ## MegaDetector (the original model)
+
+Preprint: [arXiv:1907.06772](https://arxiv.org/abs/1907.06772).
 
 ```bibtex
 @misc{beery2019efficient,

@@ -68,7 +68,7 @@
         "name": "What is MegaDetector?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MegaDetector is an open-source AI model from the Microsoft AI for Good Lab that detects animals, people, and vehicles in camera-trap images. It is a detector, not a classifier — it tells you something is there, not what species it is. For species identification, pair MegaDetector with a downstream classifier."
+          "text": "MegaDetector is the Microsoft AI for Good Lab's open-source model for finding animals, people, and vehicles in camera-trap images. It draws a bounding box around each detected object and gives it a confidence score between 0 and 1. It is a detector, not a classifier: it tells you something is there, not which species. One detector generalizes across ecosystems far better than a region-specific species classifier. For species identification, pair MegaDetector with a downstream classifier."
         }
       },
       {
@@ -76,7 +76,7 @@
         "name": "What does MegaDetector detect?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MegaDetector detects three categories: animal, person, and vehicle. It does not identify species — an image containing a lion and a zebra returns two animal detections, not lion and zebra."
+          "text": "MegaDetector detects three categories: animal (mammals, birds, reptiles, insects, fish, any wildlife), person (researchers, poachers, tourists), and vehicle (cars, trucks, ATVs). It does not identify species. An image containing a lion and a zebra returns two animal detections, not lion and zebra."
         }
       },
       {
@@ -84,7 +84,7 @@
         "name": "Do I need a GPU?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No — MegaDetector runs on CPU. A GPU with CUDA support gives a 10–50x speedup and is strongly recommended for large datasets, but is not required. Compact MegaDetectorV6 variants are designed for low-budget devices and edge hardware."
+          "text": "No, MegaDetector runs on CPU. A GPU with CUDA support gives a 10–50x speedup and is strongly recommended for large datasets (tens of thousands of images or more), but is not required. The compact MegaDetectorV6 variants (YOLOv10-Compact, YOLOv9-Compact) are specifically designed for low-budget devices and edge hardware like the SPARROW field unit."
         }
       },
       {
@@ -92,7 +92,47 @@
         "name": "What is the difference between MegaDetectorV5 and MegaDetectorV6?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MegaDetectorV5 uses the YOLOv5 architecture (139.9M parameters). MegaDetectorV6 uses modern architectures (YOLOv9, YOLOv10, RT-DETR) with compact variants as small as 2.3M parameters. Use MegaDetectorV6 for new projects; MegaDetectorV5 remains community-maintained by Dan Morris."
+          "text": "MegaDetectorV5 uses the YOLOv5 architecture with 139.9M parameters. MegaDetectorV6 uses modern architectures (YOLOv9, YOLOv10, RT-DETR) with compact variants as small as 2.3M parameters, about 2% of V5. Both are MIT-licensed. Use MegaDetectorV6 for new projects; MegaDetectorV5 remains available and is actively maintained by Dan Morris."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is MegaDetector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Accuracy depends on the dataset and confidence threshold. MegaDetectorV6 compact variants achieve comparable accuracy to V5 at 2% of the parameter count on the AI for Good Lab's validation datasets. Most deployments use a confidence threshold of 0.15–0.3 for the animal category, which provides high recall at the cost of some false positives on vegetation and lighting artifacts. MegaDetector generalizes well across ecosystems because it was trained on a large and geographically diverse dataset, and performance is typically strongest on large mammals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What species does MegaDetector support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All of them, with caveats. MegaDetector detects the presence of an animal, not the species. It has been deployed on projects involving African savanna megafauna, North American forest species, European ungulates, tropical insects, and marine wildlife. Large mammals in open habitat are reliably detected, while very small animals, heavily camouflaged species, or unusual angles may have lower confidence scores. Test on a labeled sample before full deployment on an atypical dataset."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I run MegaDetector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The quickest path is three lines of Python: install PytorchWildlife with pip, import the detection module, create a MegaDetectorV6 model, and call batch_image_detection on an image folder. For a graphical interface, use SPARROW Studio or the Hugging Face demo. See the Installation guide for full setup instructions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the megadetector CLI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "megadetector is a command-line tool registered when you install the repository from source with pip install -e. It runs the same V6 models without writing any Python, for example: megadetector detect --input ./images/ --output results.json --model MDV6-yolov10-e. It also exposes train, validate, and inference for fine-tuning. The full flag list and supported --model values are in the CLI reference."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does MegaDetector output look like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MegaDetector returns one record per image: a file path plus a list of detections, each carrying a category (animal, person, or vehicle), a confidence score from 0 to 1, and a bbox as [x1, y1, x2, y2] pixel coordinates. Detections below your threshold are dropped, and the JSON feeds straight into review tools or a species classifier. See the Output Format reference for the full schema."
         }
       },
       {
@@ -100,7 +140,39 @@
         "name": "What is the license?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MegaDetector is released under the MIT License — free for any purpose including commercial use, subject to the license terms. The PyTorch-Wildlife framework that distributes it is also MIT-licensed; individual model weights may carry separate licenses."
+          "text": "MegaDetector is released under the MIT License. You can use it for any purpose, including commercial use, subject to the license terms. The PyTorch-Wildlife framework that distributes MegaDetector is also MIT-licensed. Individual model weights may carry separate licenses; see the Model Zoo for per-model licensing information."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Dan Morris's fork?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dan Morris built MegaDetector V1–V5 while at Microsoft and now runs a community fork at agentmorris/MegaDetector. It bundles years of helper scripts, batch-processing tools, and documentation, and stays useful for V5 weights or the original run_detector_batch.py workflow. The microsoft/MegaDetector repository carries MegaDetectorV6 and future development. Both projects coexist and serve the community."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are the V5 weights?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MegaDetectorV5 weights are available on the archive branch of the microsoft/Biodiversity repository (formerly microsoft/CameraTraps). Dan Morris's fork at agentmorris/MegaDetector also hosts V5 and provides extensive tooling around it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I cite MegaDetector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A CITATION.cff is maintained in this repository for automated citation tools such as Zenodo and GitHub's Cite this repository button. For MegaDetector, cite Beery, Morris, Yang (2019), Efficient Pipeline for Camera Trap Image Review, arXiv:1907.06772. For the PyTorch-Wildlife framework, cite Hernandez et al. (2024), Pytorch-Wildlife: A Collaborative Deep Learning Framework for Conservation, arXiv:2405.12930. See Cite Us for full citation details and BibTeX."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I get help?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Get help through GitHub Issues at microsoft/MegaDetector/issues for bug reports and feature requests, the PyTorch-Wildlife Discord server for community support, or email zhongqimiao@microsoft.com. For contributions, see the contributing guide covering issue routing, pull requests, and security reporting."
         }
       }
     ]

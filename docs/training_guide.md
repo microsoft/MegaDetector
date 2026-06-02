@@ -1,5 +1,5 @@
 ---
-description: "MegaDetector fine-tuning guide: train custom detection models using MegaDetectorV6 architectures (YOLOv9, YOLOv10, RT-DETR) with the ultralytics framework for wildlife detection."
+description: "MegaDetector fine-tuning guide: train custom MegaDetectorV6 detection models (YOLOv9, YOLOv10, RT-DETR) on your own camera-trap wildlife data."
 tags:
   - MegaDetector fine-tuning
   - MegaDetectorV6

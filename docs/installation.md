@@ -1,5 +1,5 @@
 ---
-description: "Install MegaDetector via PyTorch-Wildlife for camera-trap wildlife detection. Supports pip, conda, and Docker on Windows, macOS, and Linux with optional CUDA GPU acceleration."
+description: "Install MegaDetector via PyTorch-Wildlife for camera-trap detection: pip, conda, and Docker on Windows, macOS, and Linux, with optional CUDA GPU support."
 tags:
   - MegaDetector installation
   - pip install PytorchWildlife
