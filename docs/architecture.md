@@ -48,6 +48,6 @@ The documentation site is built with MkDocs Material from the `docs/` directory.
 
 ## Next steps
 
-- [Contributing & Support](contributing.md) — how to file issues and submit changes
-- [CLI reference](cli.md) — the commands exposed by `megadetector_core`
-- [Training Guide](training_guide.md) — fine-tune a V6 model on your own data
+- [Contributing & Support](contributing.md), how to file issues and submit changes
+- [CLI reference](cli.md), the commands exposed by `megadetector_core`
+- [Training Guide](training_guide.md), fine-tune a V6 model on your own data

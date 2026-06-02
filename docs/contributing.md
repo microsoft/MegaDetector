@@ -25,12 +25,12 @@ The MegaDetector ecosystem spans a few repositories, so routing your report to t
 
 ## Reporting bugs and requesting features
 
-Open an issue on [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues). Helpful reports include the model variant and threshold you used, the command or code that triggered the problem, and a sample of the output. If you are reporting how MegaDetector performed on your data — good or bad — that feedback is genuinely useful for improving the models.
+Open an issue on [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues). Helpful reports include the model variant and threshold you used, the command or code that triggered the problem, and a sample of the output. If you are reporting how MegaDetector performed on your data, good or bad, that feedback is genuinely useful for improving the models.
 
 ## Submitting changes
 
 1. Fork the repository and create a branch for your change.
-2. Make your edits — for code, the [Repository Architecture](architecture.md) page explains the package layout; for docs, the [Developer Guide](build_mkdocs.md) covers building the site locally.
+2. Make your edits, for code, the [Repository Architecture](architecture.md) page explains the package layout; for docs, the [Developer Guide](build_mkdocs.md) covers building the site locally.
 3. Open a pull request describing the change and the motivation.
 
 Documentation improvements are welcome and are often the easiest first contribution.
@@ -41,12 +41,12 @@ Please do **not** report security vulnerabilities through public GitHub issues. 
 
 ## Getting help
 
-- **Discord** — [join the PyTorch-Wildlife community](https://discord.gg/TeEVxzaYtm)
-- **GitHub Discussions** — [microsoft/Biodiversity/discussions](https://github.com/microsoft/Biodiversity/discussions)
-- **Email** — [zhongqimiao@microsoft.com](mailto:zhongqimiao@microsoft.com)
+- **Discord**, [join the PyTorch-Wildlife community](https://discord.gg/TeEVxzaYtm)
+- **GitHub Discussions**, [microsoft/Biodiversity/discussions](https://github.com/microsoft/Biodiversity/discussions)
+- **Email**, [zhongqimiao@microsoft.com](mailto:zhongqimiao@microsoft.com)
 
 ## Next steps
 
-- [Repository Architecture](architecture.md) — orient yourself in the codebase
-- [Developer Guide](build_mkdocs.md) — build and preview the docs
-- [FAQ](faq.md) — common questions before you file an issue
+- [Repository Architecture](architecture.md), orient yourself in the codebase
+- [Developer Guide](build_mkdocs.md), build and preview the docs
+- [FAQ](faq.md), common questions before you file an issue

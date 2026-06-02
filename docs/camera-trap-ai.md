@@ -1,5 +1,5 @@
 ---
-description: "Camera-trap AI explained — how machine learning automates wildlife monitoring, why AI-based detection matters for conservation, and how MegaDetector fits into the workflow."
+description: "Camera-trap AI explained, how machine learning automates wildlife monitoring, why AI-based detection matters for conservation, and how MegaDetector fits into the workflow."
 tags:
   - camera trap AI
   - wildlife AI
@@ -10,11 +10,11 @@ tags:
   - camera trap image analysis
 ---
 
-# Camera-Trap AI — What It Is and Why It Matters
+# Camera-Trap AI, What It Is and Why It Matters
 
 ## The Camera-Trap Problem
 
-Camera traps are motion-triggered cameras deployed in the field to monitor wildlife. A single study may deploy hundreds of cameras over months or years, generating millions of images. The vast majority of those images are empty — triggered by wind, falling leaves, or temperature fluctuations rather than animals.
+Camera traps are motion-triggered cameras deployed in the field to monitor wildlife. A single study may deploy hundreds of cameras over months or years, generating millions of images. The vast majority of those images are empty, triggered by wind, falling leaves, or temperature fluctuations rather than animals.
 
 Manually reviewing millions of images is one of the biggest bottlenecks in wildlife research. A trained reviewer can process a few hundred images per hour; a million-image dataset requires weeks of focused effort before any analysis can begin. This review burden limits how much data researchers can realistically collect and delays conservation decisions that depend on timely species counts, presence/absence data, and behavioral observations.
 
@@ -32,15 +32,15 @@ AI-based tools automate the most time-consuming parts of image review:
 **Tracking and counting** link detections across multiple images in a sequence, supporting population estimates, behavioral analysis, and occupancy modeling.
 
 
-## Detection vs. Classification — Why MegaDetector Is a Detector
+## Detection vs. Classification, Why MegaDetector Is a Detector
 
-MegaDetector is intentionally a **detector**, not a classifier. It outputs three categories — animal, person, vehicle — and does not identify species.
+MegaDetector is intentionally a **detector**, not a classifier. It outputs three categories, animal, person, vehicle, and does not identify species.
 
 This is not a limitation. It is a design choice with significant practical advantages:
 
 **Better generalization.** A model trained to answer "is there an animal?" generalizes far more easily across continents, ecosystems, and species assemblages than a model trained to answer "what species is this?" Species classifiers must be retrained or fine-tuned for each new region and fauna. A single MegaDetector model works on African savanna, North American forest, tropical rainforest, and sub-Antarctic penguin colonies.
 
-**Lower annotation cost.** Training a detector requires bounding-box annotations labeled as "animal," "person," or "vehicle." Training a species classifier requires those same bounding boxes labeled with species identity — which requires expert taxonomic knowledge for every species in every geographic region. Detector training is far cheaper to scale.
+**Lower annotation cost.** Training a detector requires bounding-box annotations labeled as "animal," "person," or "vehicle." Training a species classifier requires those same bounding boxes labeled with species identity, which requires expert taxonomic knowledge for every species in every geographic region. Detector training is far cheaper to scale.
 
 **Cleaner workflow.** Separating detection from classification gives researchers control over each step. You can swap classifiers, tune thresholds independently, or skip classification entirely when species ID is not needed.
 
@@ -66,7 +66,7 @@ Camera-trap images
 - Aquatic wildlife or sonar imagery (see [MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar))
 - Overhead and aerial imagery (see [MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead))
 - Bioacoustic monitoring (see [MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic))
-- Species that are very small, heavily camouflaged, or rarely represented in training data — test on a labeled sample before committing to full deployment
+- Species that are very small, heavily camouflaged, or rarely represented in training data, test on a labeled sample before committing to full deployment
 
 
 ## The Broader Ecosystem
@@ -75,7 +75,7 @@ MegaDetector is one layer in a larger open-source stack for wildlife AI. The [mi
 
 | Tool | Role |
 |---|---|
-| **MegaDetector** | Camera-trap detection — animals, people, vehicles |
+| **MegaDetector** | Camera-trap detection, animals, people, vehicles |
 | [PyTorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife) | Framework hosting MegaDetector, classifiers, and training pipelines |
 | [MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) | Species classification on top of MegaDetector detections |
 | [MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic) | Audio-based species detection from bioacoustic recordings |
@@ -99,6 +99,6 @@ model = pw_detection.MegaDetectorV6()
 results = model.batch_image_detection("path/to/images/")
 ```
 
-- [Installation guide](installation.md) — full setup including GPU and conda
-- [FAQ](faq.md) — common questions about accuracy, licensing, and V5 vs V6
-- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) — try it without installing anything
+- [Installation guide](installation.md), full setup including GPU and conda
+- [FAQ](faq.md), common questions about accuracy, licensing, and V5 vs V6
+- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife), try it without installing anything

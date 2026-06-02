@@ -1,6 +1,6 @@
 ---
-title: "MegaDetector Output Format — detection JSON schema"
-description: "MegaDetector output format: the JSON schema for detection results — file path, category, confidence score, and bounding box — and how to use it downstream."
+title: "MegaDetector Output Format, detection JSON schema"
+description: "MegaDetector output format: the JSON schema for detection results, file path, category, confidence score, and bounding box, and how to use it downstream."
 tags:
   - megadetector output json
   - detection schema
@@ -33,7 +33,7 @@ The top level is a JSON **list**. Each element describes one image:
 ]
 ```
 
-An image with no detections above the threshold has an empty `detections` list — that is how blank frames are represented.
+An image with no detections above the threshold has an empty `detections` list, that is how blank frames are represented.
 
 ## Fields
 
@@ -55,12 +55,12 @@ Only detections whose confidence is greater than or equal to your chosen thresho
 
 The JSON is designed to flow straight into the rest of a camera-trap workflow:
 
-- **Review** — import it into a tool such as Timelapse to verify and annotate detections (see [Camera-Trap Software](camera-trap-software.md)).
-- **Filter** — drop images whose `detections` list is empty to clear blank frames in bulk.
-- **Classify** — crop each `bbox` and pass it to a species classifier (see the two-stage pipeline in the [FAQ](faq.md)).
+- **Review**, import it into a tool such as Timelapse to verify and annotate detections (see [Camera-Trap Software](camera-trap-software.md)).
+- **Filter**, drop images whose `detections` list is empty to clear blank frames in bulk.
+- **Classify**, crop each `bbox` and pass it to a species classifier (see the two-stage pipeline in the [FAQ](faq.md)).
 
 ## Next steps
 
-- [CLI reference](cli.md) — the `detect` command that produces this JSON
-- [Camera-Trap Software](camera-trap-software.md) — review and analysis tools that consume it
-- [Model Zoo](model_zoo.md) — choose the variant that produced your detections
+- [CLI reference](cli.md), the `detect` command that produces this JSON
+- [Camera-Trap Software](camera-trap-software.md), review and analysis tools that consume it
+- [Model Zoo](model_zoo.md), choose the variant that produced your detections

@@ -19,12 +19,12 @@ All MegaDetector model variants with performance metrics, parameter counts, and 
 
 ## MegaDetector V6 (Current)
 
-The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility** — **SMALLER, FASTER, BETTER**.
+The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility**, **SMALLER, FASTER, BETTER**.
 
 ### Highlights
 
-- **50x smaller**: The compact YOLOv10 variant has **2.3M parameters** — 2% of MegaDetectorV5's 139.9M — with comparable accuracy
-- **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR — pick the one that fits your hardware
+- **50x smaller**: The compact YOLOv10 variant has **2.3M parameters**, 2% of MegaDetectorV5's 139.9M, with comparable accuracy
+- **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR, pick the one that fits your hardware
 - **Permissive licenses**: MIT and Apache-2.0 options alongside AGPL-3.0
 - **Ongoing fine-tuning**: V6 models are continuously fine-tuned on newly collected public and private data
 
@@ -65,7 +65,7 @@ V6 deliberately offers variants under three licenses so you can match the model 
 
 | License | Variants | Use when |
 | --- | --- | --- |
-| **MIT** | `MDV6-mit-yolov9-c`, `MDV6-mit-yolov9-e` | You need a permissive license with no copyleft obligations — e.g. bundling weights into a closed-source product |
+| **MIT** | `MDV6-mit-yolov9-c`, `MDV6-mit-yolov9-e` | You need a permissive license with no copyleft obligations, e.g. bundling weights into a closed-source product |
 | **Apache-2.0** | `MDV6-apa-rtdetr-c`, `MDV6-apa-rtdetr-e` | You want a permissive license with an explicit patent grant; `MDV6-apa-rtdetr-e` is also the top-accuracy variant |
 | **AGPL-3.0** | the remaining YOLOv9/YOLOv10/RT-DETR variants | Your use is compatible with strong copyleft (research, internal tools, AGPL-licensed services) |
 
@@ -93,9 +93,9 @@ At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU 
 | --- | --- | --- | --- | --- |
 | **V6.0** (current) | 2024 | YOLOv9/v10, RT-DETR | 2.3M–76M | Multiple variants, MIT/Apache options |
 | V5.0 | 2022 | YOLOv5 | 139.9M | Two sub-versions (5a, 5b) |
-| V4.1 | 2020 | Faster R-CNN | — | Added vehicle class |
-| V3 | 2019 | Faster R-CNN | — | Added human class |
-| V2 | 2018 | Faster R-CNN | — | First public release |
+| V4.1 | 2020 | Faster R-CNN |, | Added vehicle class |
+| V3 | 2019 | Faster R-CNN |, | Added human class |
+| V2 | 2018 | Faster R-CNN |, | First public release |
 
 
 ## MegaDetector V5 and Earlier

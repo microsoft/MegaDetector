@@ -1,5 +1,5 @@
 ---
-title: "MegaDetector CLI — detect, train, validate, inference"
+title: "MegaDetector CLI, detect, train, validate, inference"
 description: "MegaDetector CLI reference: run detection on camera-trap images with the megadetector detect command, plus train, validate, and inference subcommands."
 tags:
   - megadetector cli
@@ -64,7 +64,7 @@ The MIT and Apache-2.0 variants documented in the [Model Zoo](model_zoo.md) (for
 
 ### What you get back
 
-The command writes a JSON list — one entry per image, each with a `file` path and a list of `detections`. When it finishes, it also prints a one-line summary: how many images were processed, the total number of detections, and how many images contain at least one animal. See the [Output Format](output_format.md) reference for the full schema.
+The command writes a JSON list, one entry per image, each with a `file` path and a list of `detections`. When it finishes, it also prints a one-line summary: how many images were processed, the total number of detections, and how many images contain at least one animal. See the [Output Format](output_format.md) reference for the full schema.
 
 ## Fine-tuning subcommands
 
@@ -80,6 +80,6 @@ megadetector inference --config ./config.yaml
 
 ## Next steps
 
-- [Output Format](output_format.md) — interpret the JSON MegaDetector produces
-- [Model Zoo](model_zoo.md) — every variant, with recall, mAP50, and license
-- [Installation](installation.md) — environment setup and GPU configuration
+- [Output Format](output_format.md), interpret the JSON MegaDetector produces
+- [Model Zoo](model_zoo.md), every variant, with recall, mAP50, and license
+- [Installation](installation.md), environment setup and GPU configuration
