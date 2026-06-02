@@ -25,3 +25,4 @@ site/
 archive/
 install.sh
 *.code-workspace
+.claude/

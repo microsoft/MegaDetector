@@ -1,0 +1,19 @@
+{#-
+  Override of Material's partials/content.html (mkdocs-material 9.7.6).
+
+  Only change vs. upstream: the `partials/tags.html` include is moved from the
+  top of the article to AFTER `{{ page.content }}`. Material renders the tag
+  chips above the H1 by default, so crawlers see a row of tag links as the
+  page's leading content instead of the H1/intro. Moving the include below the
+  content keeps the tag chips and their links (tag SEO intact) while letting the
+  H1/intro lead the DOM.
+-#}
+{% include "partials/actions.html" %}
+{% if "<h1" not in page.content %}
+  <h1>{{ page.title | d(config.site_name, true)}}</h1>
+{% endif %}
+{{ page.content }}
+{% include "partials/tags.html" %}
+{% include "partials/source-file.html" %}
+{% include "partials/feedback.html" %}
+{% include "partials/comments.html" %}

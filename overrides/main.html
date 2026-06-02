@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{#
+  Theme override for SEO structured data and a clean homepage <title>.
+  Schema is gated on page.file.src_path (unique per page, cannot be copied
+  between pages by accident) rather than a front-matter flag.
+#}
+
+{% block htmltitle %}
+  {%- if page and page.file and page.file.src_path == "index.md" -%}
+  <title>MegaDetector: Open-Source Camera-Trap AI | Microsoft AI for Good</title>
+  {%- else -%}
+  {{ super() }}
+  {%- endif -%}
+{% endblock %}
+
+{% block extrahead %}
+  {{ super() }}
+
+  {#- Open Graph / Twitter Card social metadata (per-page title/description, local share image) -#}
+  {%- set social_title = page.meta.title if page and page.meta and page.meta.title else (page.title if page and page.title else config.site_name) -%}
+  {%- set social_desc = page.meta.description if page and page.meta and page.meta.description else config.site_description -%}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ social_title | striptags }}">
+  <meta property="og:description" content="{{ social_desc | striptags }}">
+  <meta property="og:url" content="{{ page.canonical_url if page and page.canonical_url else config.site_url }}">
+  <meta property="og:image" content="{{ config.site_url }}assets/megadetector-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ social_title | striptags }}">
+  <meta name="twitter:description" content="{{ social_desc | striptags }}">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/megadetector-banner.png">
+
+  {%- if page and page.file and page.file.src_path == "index.md" %}
+  {#- Homepage: SoftwareSourceCode (entity clarity for an open-source model/code project) -#}
+  <script type="application/ld+json">
+  {{- {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "@id": config.site_url ~ "#software",
+    "name": "MegaDetector",
+    "description": config.site_description,
+    "url": config.site_url,
+    "codeRepository": config.repo_url,
+    "programmingLanguage": "Python",
+    "runtimePlatform": "Python",
+    "isAccessibleForFree": true,
+    "license": "https://github.com/microsoft/MegaDetector/blob/main/LICENSE",
+    "creator": {
+      "@type": "Organization",
+      "name": "Microsoft AI for Good Lab",
+      "url": "https://www.microsoft.com/en-us/ai/ai-for-good"
+    },
+    "keywords": ["MegaDetector", "camera trap AI", "wildlife detection", "animal detection", "conservation AI", "blank frame filtering", "PyTorch-Wildlife"]
+  } | tojson -}}
+  </script>
+  {%- endif %}
+
+  {%- if page and page.file and page.file.src_path == "faq.md" %}
+  {#- FAQ page only: FAQPage. Answers mirror the visible faq.md text. -#}
+  <script type="application/ld+json">
+  {{- {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is MegaDetector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MegaDetector is an open-source AI model from the Microsoft AI for Good Lab that detects animals, people, and vehicles in camera-trap images. It is a detector, not a classifier — it tells you something is there, not what species it is. For species identification, pair MegaDetector with a downstream classifier."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does MegaDetector detect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MegaDetector detects three categories: animal, person, and vehicle. It does not identify species — an image containing a lion and a zebra returns two animal detections, not lion and zebra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a GPU?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — MegaDetector runs on CPU. A GPU with CUDA support gives a 10–50x speedup and is strongly recommended for large datasets, but is not required. Compact MegaDetectorV6 variants are designed for low-budget devices and edge hardware."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between MegaDetectorV5 and MegaDetectorV6?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MegaDetectorV5 uses the YOLOv5 architecture (139.9M parameters). MegaDetectorV6 uses modern architectures (YOLOv9, YOLOv10, RT-DETR) with compact variants as small as 2.3M parameters. Use MegaDetectorV6 for new projects; MegaDetectorV5 remains community-maintained by Dan Morris."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the license?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MegaDetector is released under the MIT License — free for any purpose including commercial use, subject to the license terms. The PyTorch-Wildlife framework that distributes it is also MIT-licensed; individual model weights may carry separate licenses."
+        }
+      }
+    ]
+  } | tojson -}}
+  </script>
+  {%- endif %}
+
+  {%- if page and page.file and page.file.src_path != "index.md" and page.canonical_url %}
+  {#- Interior pages only: BreadcrumbList (no breadcrumb on the homepage) -#}
+  <script type="application/ld+json">
+  {{- {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "MegaDetector", "item": config.site_url },
+      { "@type": "ListItem", "position": 2, "name": page.title | striptags, "item": page.canonical_url }
+    ]
+  } | tojson -}}
+  </script>
+  {%- endif %}
+{% endblock %}

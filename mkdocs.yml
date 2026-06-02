@@ -9,6 +9,7 @@ copyright: Copyright (c) 2023 Microsoft Corporation
 
 theme:
   name: material
+  custom_dir: overrides
   favicon: assets/cat.png
   logo: assets/cat.png
   icon:

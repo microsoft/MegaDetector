@@ -118,7 +118,7 @@ For MegaDetector specifically, cite:
 
 For the PyTorch-Wildlife framework:
 
-> Hernandez et al. (2024). *Pytorch-Wildlife: A Collaborative Deep Learning Framework for Conservation*. arXiv:2311.11890.
+> Hernandez et al. (2024). *Pytorch-Wildlife: A Collaborative Deep Learning Framework for Conservation*. arXiv:2405.12930.
 
 See [Cite Us](cite.md) for full citation details and BibTeX.
 
