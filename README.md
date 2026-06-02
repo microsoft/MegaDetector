@@ -278,7 +278,7 @@ MegaDetector is the entry point for most users. SPARROW Studio is the full platf
 
 ## Organizations Using MegaDetector
 
-MegaDetector is used by more than 80 organizations worldwide, including government agencies, universities, NGOs, museums, and technology platforms. A selection of adopters named in the [PyTorch-Wildlife list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetector):
+MegaDetector is used by more than 80 organizations worldwide, including government agencies, universities, NGOs, museums, and technology platforms. A selection of adopters named in the [Biodiversity collaborators list](https://microsoft.github.io/Biodiversity/collaborators/):
 
 <!-- ATTESTED IN THIS REPO -->
 **Government**: Arizona DEQ, Idaho Fish & Game, Oregon DFW, Michigan DNR, Parks Canada (Banff), U.S. Fish & Wildlife Service (multiple refuges), National Park Service, Canadian Wildlife Service
@@ -291,7 +291,7 @@ MegaDetector is used by more than 80 organizations worldwide, including governme
 
 **Platforms**: TrapTagger, WildTrax, Camelot, Animl, Wildlife Observer Network, OCAPI, WildePod
 
-See the [full list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetector) in the PyTorch-Wildlife repository.
+See the [full list](https://microsoft.github.io/Biodiversity/collaborators/) on the Biodiversity documentation site.
 <!-- /ATTESTED -->
 <!-- APPROVED-EXTERNAL: append reviewed organizations below this line -->
 
