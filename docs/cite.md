@@ -1,4 +1,5 @@
 ---
+title: "Cite MegaDetector and PyTorch-Wildlife (BibTeX)"
 description: "How to cite MegaDetector and PyTorch-Wildlife in research, with BibTeX for the MegaDetector model (Beery 2019) and the framework (Hernandez 2024)."
 tags:
   - MegaDetector citation

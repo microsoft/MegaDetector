@@ -181,7 +181,7 @@ The [full list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetec
 
 For new projects, use V6. If you need V5 weights or earlier versions, they're on the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
 
-MegaDetector V1–V5 were primarily developed by **Dan Morris** while at Microsoft. He still maintains a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) with a large set of helper scripts and documentation, handy if you work with the V5 weights or the original `run_detector_batch.py` workflow. The two projects run in parallel: `microsoft/MegaDetector` carries V6 and future development.
+MegaDetector V1–V5 were originally developed by **Dan Morris** while at Microsoft. The V5 weights load directly through PyTorch-Wildlife, so existing V5 workflows keep running without changes, while `microsoft/MegaDetector` carries V6 and future development.
 
 
 ## Part of the Biodiversity ecosystem

@@ -88,7 +88,7 @@ model = pw_detection.MegaDetectorV6(version="MDV6-yolov10-e")
 
 Use **this repository (`microsoft/MegaDetector`)** for MegaDetector V6: the current models, the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/), the fine-tuning pipeline, and the [documentation site](https://microsoft.github.io/MegaDetector/). It is the official home maintained by the Microsoft AI for Good Lab.
 
-If you are maintaining a legacy V5 workflow, the original models and tooling remain available: V5 weights live on the [Biodiversity archive branch](https://github.com/microsoft/Biodiversity/tree/archive), and project founder **Dan Morris** keeps the original tooling alive in a fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) full of V5-era helper scripts. For new projects, start with V6 here.
+If you are maintaining a legacy V5 workflow, the original models remain available: V5 weights live on the [Biodiversity archive branch](https://github.com/microsoft/Biodiversity/tree/archive) and load directly through PyTorch-Wildlife. For new projects, start with V6 here.
 
 
 ## Installation
@@ -371,7 +371,7 @@ API equivalents of each CLI subcommand.
 
 For MegaDetectorV5 model weights and earlier versions, see the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
 
-MegaDetector V1–V5 were primarily built by **Dan Morris** at Microsoft. He now maintains the [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) fork, which many V5 users still rely on.
+MegaDetector V1–V5 were originally developed by **Dan Morris** at Microsoft. The V5 weights load directly through PyTorch-Wildlife, so existing V5 workflows keep running.
 
 
 ## Our Commitment

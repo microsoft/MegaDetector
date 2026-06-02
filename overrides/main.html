@@ -89,10 +89,10 @@
       },
       {
         "@type": "Question",
-        "name": "What is the difference between MegaDetectorV5 and MegaDetectorV6?",
+        "name": "MegaDetector V6 vs V5: what's the difference?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MegaDetectorV5 uses the YOLOv5 architecture with 139.9M parameters. MegaDetectorV6 uses modern architectures (YOLOv9, YOLOv10, RT-DETR) with compact variants as small as 2.3M parameters, about 2% of V5. Both are MIT-licensed. Use MegaDetectorV6 for new projects; MegaDetectorV5 remains available and is actively maintained by Dan Morris."
+          "text": "MegaDetectorV5 uses the YOLOv5 architecture with 139.9M parameters. MegaDetectorV6 uses modern architectures (YOLOv9, YOLOv10, RT-DETR) with compact variants as small as 2.3M parameters, about 2% of V5. Both are MIT-licensed. Use MegaDetectorV6 for new projects; MegaDetectorV5 weights remain available on the archive branch for projects already built around them."
         }
       },
       {
@@ -145,10 +145,26 @@
       },
       {
         "@type": "Question",
-        "name": "What is Dan Morris's fork?",
+        "name": "How do I filter blank camera-trap images?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dan Morris built MegaDetector V1–V5 while at Microsoft and now runs a community fork at agentmorris/MegaDetector. It bundles years of helper scripts, batch-processing tools, and documentation, and stays useful for V5 weights or the original run_detector_batch.py workflow. The microsoft/MegaDetector repository carries MegaDetectorV6 and future development. Both projects coexist and serve the community."
+          "text": "Run MegaDetector across your image folder and keep only the frames that have an animal, person, or vehicle detection above your confidence threshold. Everything below the threshold is a blank you can set aside. Since most camera-trap datasets are mostly empty, this one pass clears the bulk of the review queue before any human looks at an image. See the Camera-Trap AI page for the full blank-filtering workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What confidence threshold should I use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A starting value of 0.15–0.3 on the animal category works for most datasets. That range favors recall, so you keep most true animals while accepting some false positives on moving vegetation and lighting artifacts. Raise it when a clean set matters more than catching every animal; lower it when a missed animal costs more than a few extra frames to review. When you move to a new deployment, check recall against a small labeled set first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I fine-tune MegaDetector on my own data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. MegaDetectorV6 ships a training pipeline for fine-tuning the YOLOv9, YOLOv10, and RT-DETR variants on your own labeled camera-trap images, which helps when your species or habitats are thin in the base model. The fine-tuning guide covers the data layout, the configuration file, and the megadetector train command from start to finish."
         }
       },
       {
@@ -156,7 +172,7 @@
         "name": "Where are the V5 weights?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MegaDetectorV5 weights are available on the archive branch of the microsoft/Biodiversity repository (formerly microsoft/CameraTraps). Dan Morris's fork at agentmorris/MegaDetector also hosts V5 and provides extensive tooling around it."
+          "text": "MegaDetectorV5 weights are available on the archive branch of the microsoft/Biodiversity repository (formerly microsoft/CameraTraps). They load directly through PyTorch-Wildlife, so existing V5 workflows keep running without changes."
         }
       },
       {

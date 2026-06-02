@@ -1,4 +1,5 @@
 ---
+title: "MegaDetector Model Zoo: V6 Variants, Benchmarks, and Licenses"
 description: "MegaDetector model zoo: all MegaDetectorV6 variants with architectures, parameter counts, animal recall, mAP50, and license options for camera traps."
 tags:
   - MegaDetector
@@ -58,6 +59,14 @@ from PytorchWildlife.models import detection as pw_detection
 model = pw_detection.MegaDetectorV6(version="MDV6-apa-rtdetr-e")
 ```
 
+### YOLOv10 variants (MDV6-yolov10-*)
+
+YOLOv10 covers the broadest range in the zoo. The extra-size `MDV6-yolov10-e` (29.5M parameters) reaches 82.8% animal recall, while the compact `MDV6-yolov10-c` shrinks to 2.3M parameters for laptops and edge devices. Both ship under AGPL-3.0 and are selectable from the `megadetector` CLI.
+
+### RT-DETR variants (MDV6-rtdetr-*)
+
+RT-DETR is where the top accuracy sits. `MDV6-apa-rtdetr-e` records the highest animal recall in the table (82.9%) under an Apache-2.0 license, which suits projects that need permissive terms. A smaller `MDV6-apa-rtdetr-c` and an AGPL `MDV6-rtdetr-c` round out the family.
+
 
 ## Model Licensing
 
@@ -75,7 +84,7 @@ The repository **code** is MIT-licensed independently of the weights. Always con
 > The [`megadetector` CLI](cli.md) selects from the AGPL YOLOv9/YOLOv10/RT-DETR variants via `--model`; the MIT and Apache variants are loaded through the PyTorch-Wildlife Python API.
 
 
-## Performance Benchmarks
+## Performance Benchmarks: GPU and Edge CPU Inference
 
 | Hardware | Model | Approximate Speed |
 | --- | --- | --- |
@@ -85,6 +94,8 @@ The repository **code** is MIT-licensed independently of the weights. Always con
 | Google Colab (free GPU) | Any V6 variant | ~10–50 images/sec |
 
 At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU with the compact model, about 3.9 days. Every V6 variant is faster than V5 (139.9M params).
+
+**Edge and CPU inference:** the compact `MDV6-yolov10-c` (2.3M parameters) is the variant to target for CPU-only and edge hardware. It needs no GPU and runs at roughly 2–5 images/sec on a modern CPU, which is what makes it a fit for field devices like the [SPARROW](https://github.com/microsoft/SPARROW) unit.
 
 
 ## Version History
@@ -102,4 +113,4 @@ At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU 
 
 For MegaDetectorV5 model weights and earlier versions, see the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
 
-MegaDetector V1–V5 came from **Dan Morris** at Microsoft; his community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) is still widely used.
+MegaDetector V1–V5 were originally developed by **Dan Morris** at Microsoft. The V5 weights load directly through PyTorch-Wildlife, so existing V5 pipelines continue to work.
