@@ -1,6 +1,6 @@
 # MegaDetector
 
-**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals in camera-trap imagery.** Used by more than 80 conservation organizations worldwide, MegaDetector automates the review of camera-trap images so researchers can skip empty frames and focus on science. It does not identify species — it locates animals so they can be passed to a downstream classifier.
+**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap images.** Used by conservation organizations worldwide, MegaDetector automates camera-trap image review so researchers can skip empty frames and focus on science. It is a detector, not a species classifier — it finds and boxes objects, then hands them to a downstream classifier for species identification.
 
 MegaDetector is one project in the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) ecosystem and is invoked through the [PyTorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife) framework. It is free, open-source, and available under permissive licenses.
 
@@ -44,7 +44,7 @@ Need the local `megadetector` CLI or fine-tuning? See [Install from source](#ins
 
 Camera traps generate millions of images, and the vast majority are empty frames triggered by wind or vegetation. Manually reviewing them is one of the biggest bottlenecks in wildlife research.
 
-MegaDetector solves this. It scans your images and draws bounding boxes around any animal — mammals, birds, reptiles, insects, and more. Each detection has a confidence score between 0 and 1. You set a threshold (typically 0.15–0.3), and anything above it is flagged. The output lets you sort images, filter blanks, or feed detected animals into a species classifier.
+MegaDetector solves this. It scans your images and draws bounding boxes around every **animal** (mammals, birds, reptiles, insects, and more), **person**, and **vehicle** it finds. Each detection has a confidence score between 0 and 1. You set a threshold (typically 0.15–0.3), and anything above it is flagged. The output lets you sort images, filter blanks, separate human and vehicle traffic, or feed detected animals into a species classifier.
 
 MegaDetector is intentionally a **detector**, not a classifier. "Animal vs. background" generalizes across ecosystems far better than species identification. For species classification, pair MegaDetector with a downstream classifier — see [Species Classification](#species-classification) below.
 
@@ -63,18 +63,18 @@ The latest release focuses on **efficiency** and **modern architectures** — **
 
 | Model | Params | Animal Recall | mAP50 | License |
 | --- | --- | --- | --- | --- |
+| MDV6-apa-rtdetr-e | 76M | 82.9% | 94.1% | Apache-2.0 |
 | MDV6-yolov10-e | 29.5M | 82.8% | 92.8% | AGPL-3.0 |
-| MDV6-yolov9-e | 58.1M | 82.1% | 88.6% | AGPL-3.0 |
-| MDV6-rtdetr-c | 31.9M | 81.6% | 89.9% | AGPL-3.0 |
-| MDV6-yolov9-c | 25.5M | 78.4% | 87.9% | AGPL-3.0 |
 | MDV6-yolov10-c | 2.3M | 76.8% | 87.2% | AGPL-3.0 |
+| MDV6-mit-yolov9-c | 9.7M | 74.8% | 87.6% | MIT |
 
-Model names are standardized into **MDV6-Compact** and **MDV6-Extra** for the two model sizes within each architecture, reducing confusion across variants.
+A representative selection — the full nine-variant lineup (YOLOv9, YOLOv10, and RT-DETR, with MIT, Apache-2.0, and AGPL-3.0 options) with all metrics lives in the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/). Variant names are standardized as **MDV6-Compact** and **MDV6-Extra** for the two sizes within each architecture.
 
 **Which should I use?**
-- **Best accuracy**: MDV6-yolov10-e (82.8% recall, AGPL-3.0)
-- **Best for laptops/edge**: MDV6-yolov10-c (2.3M params, runs on CPU)
-- **Best balance**: MDV6-yolov10-e (29.5M params, 82.8% recall)
+- **Best accuracy**: `MDV6-apa-rtdetr-e` (82.9% recall, Apache-2.0)
+- **Best for laptops/edge**: `MDV6-yolov10-c` (2.3M params, runs on CPU)
+- **Permissive MIT license**: `MDV6-mit-yolov9-c`
+- **Best via the `megadetector` CLI**: `MDV6-yolov10-e` — the CLI's `--model` flag supports `MDV6-yolov9-c/e`, `MDV6-yolov10-c/e`, and `MDV6-rtdetr-c`; the MIT and Apache variants load through PyTorch-Wildlife.
 
 ```python
 # Load a specific variant
@@ -82,6 +82,13 @@ from PytorchWildlife.models import detection as pw_detection
 
 model = pw_detection.MegaDetectorV6(version="MDV6-yolov10-e")
 ```
+
+
+## Which MegaDetector Repo Should I Use?
+
+Use **this repository (`microsoft/MegaDetector`)** for MegaDetector V6: the current models, the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/), the fine-tuning pipeline, and the [documentation site](https://microsoft.github.io/MegaDetector/). It is the official home maintained by the Microsoft AI for Good Lab.
+
+If you are maintaining a legacy V5 workflow, the original models and tooling remain available: V5 weights live on the [Biodiversity archive branch](https://github.com/microsoft/Biodiversity/tree/archive), and project founder **Dan Morris** maintains a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) with extensive V5-era helper scripts. For new projects, start with V6 here.
 
 
 ## Installation
@@ -203,7 +210,7 @@ MegaDetector is the entry point for most users. SPARROW Studio is the full platf
 
 ## Organizations Using MegaDetector
 
-MegaDetector is used by 80+ organizations across government agencies, universities, NGOs, and technology companies worldwide. A selection:
+MegaDetector is used by conservation organizations worldwide — government agencies, universities, NGOs, museums, and technology platforms. A selection of adopters named in the [PyTorch-Wildlife list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetector):
 
 **Government**: Arizona DEQ, Idaho Fish & Game, Oregon DFW, Michigan DNR, Parks Canada (Banff), U.S. Fish & Wildlife Service (multiple refuges), National Park Service, Canadian Wildlife Service
 
@@ -339,4 +346,4 @@ For questions, feature requests, or to report how MegaDetector worked on your da
 
 ## License
 
-The MegaDetector code is released under the [MIT License](LICENSE). Individual model weights documented in this repository are released under AGPL-3.0 — see the [Model Variants](#model-variants) table for details.
+The MegaDetector **code** in this repository is released under the [MIT License](LICENSE). The **model weights** carry per-variant licenses — MIT, Apache-2.0, or AGPL-3.0 depending on the variant — so check the license of the specific model you deploy. See the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/) for each variant's license.
