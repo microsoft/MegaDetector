@@ -1,4 +1,5 @@
 ---
+title: "Build the MegaDetector Docs Site (MkDocs)"
 description: "How to build and deploy the MegaDetector MkDocs documentation site locally and to GitHub Pages."
 tags:
   - MegaDetector

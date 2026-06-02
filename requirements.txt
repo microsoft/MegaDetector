@@ -2,4 +2,5 @@ mkdocs
 mkdocs-get-deps
 mkdocs-material
 mkdocs-material-extensions
+mkdocs-git-revision-date-localized-plugin
 pymdown-extensions

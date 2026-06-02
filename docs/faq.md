@@ -1,4 +1,5 @@
 ---
+title: "MegaDetector FAQ: Accuracy, GPU, Licensing, and V5 vs V6"
 description: "MegaDetector FAQ: installation, accuracy, GPU requirements, V5 vs V6, licensing, and how to run MegaDetector for camera-trap wildlife detection."
 tags:
   - MegaDetector FAQ
@@ -31,6 +32,11 @@ MegaDetector detects three categories:
 It does not identify species. An image containing a lion and a zebra returns two "animal" detections, not "lion" and "zebra."
 
 
+## How do I filter blank camera-trap images?
+
+Run MegaDetector across your image folder and keep only the frames that have an animal, person, or vehicle detection above your confidence threshold. Everything below the threshold is a blank you can set aside. Since most camera-trap datasets are mostly empty, this one pass clears the bulk of the review queue before any human looks at an image. The [Camera-Trap AI](camera-trap-ai.md) page walks through the blank-filtering workflow step by step.
+
+
 ## Do I need a GPU?
 
 No, MegaDetector runs on CPU. A GPU with CUDA support gives a 10–50x speedup and is strongly recommended for large datasets (tens of thousands of images or more), but is not required.
@@ -38,17 +44,17 @@ No, MegaDetector runs on CPU. A GPU with CUDA support gives a 10–50x speedup a
 The compact MegaDetectorV6 variants (YOLOv10-Compact, YOLOv9-Compact) are specifically designed for low-budget devices and edge hardware like the [SPARROW](https://github.com/microsoft/SPARROW) field unit.
 
 
-## What is the difference between MegaDetectorV5 and MegaDetectorV6?
+## MegaDetector V6 vs V5: what's the difference?
 
 | | MegaDetectorV5 | MegaDetectorV6 |
 |---|---|---|
 | Architecture | YOLOv5 | YOLOv9, YOLOv10, RT-DETR (multiple variants) |
 | Parameters (compact) | 139.9M | 2.3M (YOLOv10-Compact, 2% of V5) |
 | License | MIT | MIT |
-| Status | Maintained by Dan Morris at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) | Current release, recommended for new projects |
+| Status | Legacy, still usable for existing workflows | Current release, recommended for new projects |
 | Weights | Available on [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) | Download automatically via PyTorch-Wildlife |
 
-**Recommendation:** Use MegaDetectorV6 for new projects. MegaDetectorV5 remains available and is actively maintained by the community.
+**Recommendation:** Use MegaDetectorV6 for new projects. MegaDetectorV5 weights remain available on the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) for projects already built around them.
 
 > [!TIP]
 > For detailed model variants and benchmark results, see the [Model Zoo](model_zoo.md).
@@ -61,6 +67,11 @@ Accuracy depends on the dataset and confidence threshold. MegaDetectorV6 compact
 In practice, most deployments use a confidence threshold of 0.15–0.3 for the "animal" category, which provides high recall (few missed animals) at the cost of some false positives on vegetation and lighting artifacts. Setting the threshold higher reduces false positives but risks missing low-confidence true detections.
 
 MegaDetector generalizes well across ecosystems because it was trained on a large and geographically diverse dataset. Performance is typically strongest on large mammals and degrades on very small or camouflaged animals.
+
+
+## What confidence threshold should I use?
+
+A starting value of 0.15–0.3 on the animal category works for most datasets. That range favors recall, so you keep most true animals while accepting some false positives on moving vegetation and lighting artifacts. Raise it when a clean set matters more than catching every animal; lower it when a missed animal costs more than a few extra frames to review. When you move to a new deployment, check recall against a small labeled set first.
 
 
 ## What species does MegaDetector support?
@@ -100,6 +111,11 @@ megadetector detect --input ./images/ --output results.json --model MDV6-yolov10
 It also exposes `train`, `validate`, and `inference` for fine-tuning. The full flag list and the supported `--model` values are in the [CLI reference](cli.md).
 
 
+## Can I fine-tune MegaDetector on my own data?
+
+Yes. MegaDetectorV6 ships a training pipeline for fine-tuning the YOLOv9, YOLOv10, and RT-DETR variants on your own labeled camera-trap images, which helps when your species or habitats are thin in the base model. The [fine-tuning guide](training_guide.md) covers the data layout, the configuration file, and the `megadetector train` command from start to finish.
+
+
 ## What does MegaDetector output look like?
 
 MegaDetector returns one record per image, a `file` path plus a list of `detections`, each carrying a `category` (`animal`, `person`, or `vehicle`), a `confidence` score from 0 to 1, and a `bbox` as `[x1, y1, x2, y2]` pixel coordinates. Detections below your threshold are dropped, and the JSON feeds straight into review tools or a species classifier. See the [Output Format](output_format.md) reference for the full schema.
@@ -112,16 +128,9 @@ MegaDetector is released under the [MIT License](https://github.com/microsoft/Me
 The PyTorch-Wildlife framework that distributes MegaDetector is also MIT-licensed. Individual model weights may carry separate licenses, see the [Model Zoo](model_zoo.md) for per-model licensing information.
 
 
-## What is Dan Morris's fork?
-
-Dan Morris built MegaDetector V1–V5 while at Microsoft, and now runs a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector). It bundles years of helper scripts, batch-processing tools, and documentation, and stays useful for V5 weights or the original `run_detector_batch.py` workflow.
-
-The `microsoft/MegaDetector` repository carries MegaDetectorV6 and future development. Both projects coexist and serve the community.
-
-
 ## Where are the V5 weights?
 
-MegaDetectorV5 weights are available on the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the `microsoft/Biodiversity` repository (formerly `microsoft/CameraTraps`). Dan Morris's fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) also hosts V5 and provides extensive tooling around it.
+MegaDetectorV5 weights are available on the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the `microsoft/Biodiversity` repository (formerly `microsoft/CameraTraps`). They load directly through PyTorch-Wildlife, so existing V5 workflows keep running without changes.
 
 
 ## How do I cite MegaDetector?

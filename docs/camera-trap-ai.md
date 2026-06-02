@@ -1,4 +1,5 @@
 ---
+title: "Camera-Trap AI Explained: Detection, Blank Filtering, and Classification"
 description: "Camera-trap AI explained: how machine learning automates wildlife monitoring, why detection matters for conservation, and where MegaDetector fits."
 tags:
   - camera trap AI
@@ -31,6 +32,10 @@ AI-based tools automate the most time-consuming parts of image review:
 
 **Tracking and counting** link detections across multiple images in a sequence, supporting population estimates, behavioral analysis, and occupancy modeling.
 
+### Filtering blank camera-trap images
+
+In a MegaDetector workflow, blank filtering is the first and highest-value step. You run the model over every image, keep the frames with a detection above your threshold, and route the rest to a blank pile. On a dataset that is mostly empty, this one pass can shrink the human review queue by roughly an order of magnitude before anyone opens an image.
+
 
 ## Detection vs. Classification, Why MegaDetector Is a Detector
 
@@ -43,6 +48,10 @@ This is not a limitation. It is a design choice with significant practical advan
 **Lower annotation cost.** Training a detector requires bounding-box annotations labeled as "animal," "person," or "vehicle." Training a species classifier requires those same bounding boxes labeled with species identity, which requires expert taxonomic knowledge for every species in every geographic region. Detector training is far cheaper to scale.
 
 **Cleaner workflow.** Separating detection from classification gives researchers control over each step. You can swap classifiers, tune thresholds independently, or skip classification entirely when species ID is not needed.
+
+### Species classification with MegaDetector
+
+MegaDetector stops at "animal, person, or vehicle" and does not name the species. To get species, add a classifier as a second stage that reads each MegaDetector box. PyTorch-Wildlife ships several such classifiers, and [MegaDetector-Classifier](https://github.com/microsoft/MegaDetector-Classifier) lets you fine-tune one for your own region.
 
 The result is a two-stage workflow now adopted by more than 80 conservation organizations around the world:
 

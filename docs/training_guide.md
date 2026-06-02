@@ -1,4 +1,5 @@
 ---
+title: "MegaDetector Fine-Tuning Guide: Train Custom V6 Models"
 description: "MegaDetector fine-tuning guide: train custom MegaDetectorV6 detection models (YOLOv9, YOLOv10, RT-DETR) on your own camera-trap wildlife data."
 tags:
   - MegaDetector fine-tuning
@@ -44,7 +45,7 @@ conda env create -f environment.yaml
 conda activate megadetector-finetuning
 ```
 
-## Data Preparation
+## Data Preparation: Custom Camera-Trap Datasets
 
 ### Data Structure
 
