@@ -61,6 +61,6 @@ The JSON is designed to flow straight into the rest of a camera-trap workflow:
 
 ## Next steps
 
-- [CLI reference](cli.md), the `detect` command that produces this JSON
-- [Camera-Trap Software](camera-trap-software.md), review and analysis tools that consume it
-- [Model Zoo](model_zoo.md), choose the variant that produced your detections
+- [CLI reference](cli.md): the `detect` command that produces this JSON
+- [Camera-Trap Software](camera-trap-software.md): review and analysis tools that consume it
+- [Model Zoo](model_zoo.md): choose the variant that produced your detections

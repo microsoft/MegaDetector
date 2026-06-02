@@ -47,6 +47,6 @@ Please do **not** report security vulnerabilities through public GitHub issues. 
 
 ## Next steps
 
-- [Repository Architecture](architecture.md), orient yourself in the codebase
-- [Developer Guide](build_mkdocs.md), build and preview the docs
-- [FAQ](faq.md), common questions before you file an issue
+- [Repository Architecture](architecture.md): orient yourself in the codebase
+- [Developer Guide](build_mkdocs.md): build and preview the docs
+- [FAQ](faq.md): common questions before you file an issue

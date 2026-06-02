@@ -36,8 +36,8 @@ That's it. Three lines to detect animals in your camera-trap images.
 Need the local `megadetector` CLI or fine-tuning? See [Install from source](#install-from-source-for-fine-tuning-or-cli-use) and [Fine-Tuning](#fine-tuning) below.
 
 **Try it without installing anything:**
-- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife), upload images in your browser
-- [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing), free cloud GPU
+- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife): upload images in your browser
+- [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing): free cloud GPU
 
 
 ## What Does MegaDetector Do?
@@ -56,8 +56,8 @@ The latest release focuses on **efficiency** and **modern architectures**, **SMA
 ### Highlights
 
 - **50x smaller**: The compact YOLOv10 variant has **2.3M parameters**, 2% of MegaDetector V5's 139.9M, with comparable accuracy
-- **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR, pick the one that fits your hardware
-- **Ongoing fine-tuning**: V6 models are continuously fine-tuned on newly collected public and private data to further improve generalization
+- **Multiple architectures**: YOLOv9, YOLOv10, and RT-DETR, so you can match the model to your hardware
+- **Ongoing fine-tuning**: we keep retraining V6 on freshly collected public and private data to push generalization further
 
 ### Model Variants
 
@@ -68,13 +68,13 @@ The latest release focuses on **efficiency** and **modern architectures**, **SMA
 | MDV6-yolov10-c | 2.3M | 76.8% | 87.2% | AGPL-3.0 |
 | MDV6-mit-yolov9-c | 9.7M | 74.8% | 87.6% | MIT |
 
-A representative selection, the full nine-variant lineup (YOLOv9, YOLOv10, and RT-DETR, with MIT, Apache-2.0, and AGPL-3.0 options) with all metrics lives in the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/). Variant names are standardized as **MDV6-Compact** and **MDV6-Extra** for the two sizes within each architecture.
+This is a representative selection. The full nine-variant lineup (YOLOv9, YOLOv10, and RT-DETR, with MIT, Apache-2.0, and AGPL-3.0 options) and all metrics live in the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/). Variant names are standardized as **MDV6-Compact** and **MDV6-Extra** for the two sizes within each architecture.
 
 **Which should I use?**
 - **Best accuracy**: `MDV6-apa-rtdetr-e` (82.9% recall, Apache-2.0)
 - **Best for laptops/edge**: `MDV6-yolov10-c` (2.3M params, runs on CPU)
 - **Permissive MIT license**: `MDV6-mit-yolov9-c`
-- **Best via the `megadetector` CLI**: `MDV6-yolov10-e`, the CLI's `--model` flag supports `MDV6-yolov9-c/e`, `MDV6-yolov10-c/e`, and `MDV6-rtdetr-c`; the MIT and Apache variants load through PyTorch-Wildlife.
+- **Best via the `megadetector` CLI**: `MDV6-yolov10-e`. The CLI's `--model` flag supports `MDV6-yolov9-c/e`, `MDV6-yolov10-c/e`, and `MDV6-rtdetr-c`; the MIT and Apache variants load through PyTorch-Wildlife.
 
 ```python
 # Load a specific variant
@@ -88,7 +88,7 @@ model = pw_detection.MegaDetectorV6(version="MDV6-yolov10-e")
 
 Use **this repository (`microsoft/MegaDetector`)** for MegaDetector V6: the current models, the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/), the fine-tuning pipeline, and the [documentation site](https://microsoft.github.io/MegaDetector/). It is the official home maintained by the Microsoft AI for Good Lab.
 
-If you are maintaining a legacy V5 workflow, the original models and tooling remain available: V5 weights live on the [Biodiversity archive branch](https://github.com/microsoft/Biodiversity/tree/archive), and project founder **Dan Morris** maintains a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) with extensive V5-era helper scripts. For new projects, start with V6 here.
+If you are maintaining a legacy V5 workflow, the original models and tooling remain available: V5 weights live on the [Biodiversity archive branch](https://github.com/microsoft/Biodiversity/tree/archive), and project founder **Dan Morris** keeps the original tooling alive in a fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) full of V5-era helper scripts. For new projects, start with V6 here.
 
 
 ## Installation
@@ -126,7 +126,7 @@ pip install -e .
 
 This installs the `megadetector_core` Python package and exposes the
 `megadetector` shell command (`megadetector detect|train|validate|inference`).
-The `pyproject.toml` covers the full dependency set, no separate
+The `pyproject.toml` covers the full dependency set, so no separate
 `requirements.txt` is needed.
 
 Full installation guide: [microsoft.github.io/MegaDetector/installation/](https://microsoft.github.io/MegaDetector/installation/)
@@ -134,7 +134,7 @@ Full installation guide: [microsoft.github.io/MegaDetector/installation/](https:
 
 ## How Do I Run MegaDetector? (Python, CLI, or No-Code)
 
-There are three ways to run MegaDetector, pick the one that fits your workflow:
+There are three ways to run MegaDetector. Choose whichever suits your workflow:
 
 | You are… | Use | How |
 | --- | --- | --- |
@@ -182,12 +182,12 @@ Start at **0.2**, the CLI default, and tune from there. Most projects use a thre
 
 ## What Are MegaDetector's Limitations?
 
-MegaDetector is accurate across many terrestrial ecosystems, but it is not perfect. Very small or distant animals, heavily camouflaged species, and unusual camera angles tend to produce lower confidence and can be missed. Aquatic, overhead/aerial, and acoustic monitoring fall outside its scope, those are handled by sibling models ([MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar), [MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead), and [MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic)). If your dataset is atypical, measure recall on a labeled sample before relying on it at scale.
+MegaDetector is accurate across many terrestrial ecosystems, but it is not perfect. Very small or distant animals, heavily camouflaged species, and unusual camera angles tend to produce lower confidence and can be missed. Aquatic, overhead/aerial, and acoustic monitoring fall outside its scope. Those are handled by sibling models ([MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar), [MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead), and [MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic)). If your dataset is atypical, measure recall on a labeled sample before relying on it at scale.
 
 
 ## Can MegaDetector Identify Species?
 
-MegaDetector finds animals, it doesn't identify species. For species ID, run a two-stage pipeline:
+MegaDetector finds animals but doesn't identify their species. For species ID, run a two-stage pipeline:
 
 1. **MegaDetector** detects and localizes animals
 2. **A species classifier** identifies the species in each crop
@@ -310,9 +310,7 @@ No, MegaDetector runs on a CPU. A CUDA-capable NVIDIA GPU delivers a **10–50×
 | Modern CPU (no GPU) | MDV6-yolov10-c (2.3M) | ~2–5 images/sec |
 | Google Colab (free GPU) | Any V6 variant | ~10–50 images/sec |
 
-At 50 images/sec on a GPU, **one million images takes about 5.5 hours**; on CPU with the compact model, about 3.9 days. Every V6 variant is faster than the 139.9M-parameter V5.
-
-Every V6 variant is faster than V5 (139.9M params). The compact V6 is 2% the size.
+At 50 images/sec on a GPU, **one million images takes about 5.5 hours**; on CPU with the compact model, about 3.9 days. Even the largest V6 variant outruns the 139.9M-parameter V5, and the compact build is roughly 2% its size.
 
 
 ## Fine-Tuning
@@ -373,7 +371,7 @@ API equivalents of each CLI subcommand.
 
 For MegaDetectorV5 model weights and earlier versions, see the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
 
-The original MegaDetector repository was primarily developed by **Dan Morris** during his time at Microsoft. Dan continues to actively maintain a forked version at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector), which remains a valuable resource for the community.
+MegaDetector V1–V5 were primarily built by **Dan Morris** at Microsoft. He now maintains the [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) fork, which many V5 users still rely on.
 
 
 ## Our Commitment

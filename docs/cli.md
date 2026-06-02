@@ -15,7 +15,7 @@ The `megadetector` command-line tool runs MegaDetector on a single image or a wh
 
 ## Install the CLI
 
-The CLI is registered when you install the repository from source:
+Installing the repository from source registers the CLI:
 
 ```bash
 git clone https://github.com/microsoft/MegaDetector
@@ -56,7 +56,7 @@ megadetector detect --input ./images/ --device cpu
 
 ### Supported models
 
-The `--model` flag accepts five V6 variants:
+Five V6 variants are available to `--model`:
 
 `MDV6-yolov9-c`, `MDV6-yolov9-e`, `MDV6-yolov10-c`, `MDV6-yolov10-e`, and `MDV6-rtdetr-c`.
 
@@ -64,7 +64,7 @@ The MIT and Apache-2.0 variants documented in the [Model Zoo](model_zoo.md) (for
 
 ### What you get back
 
-The command writes a JSON list, one entry per image, each with a `file` path and a list of `detections`. When it finishes, it also prints a one-line summary: how many images were processed, the total number of detections, and how many images contain at least one animal. See the [Output Format](output_format.md) reference for the full schema.
+Each run writes a JSON list with one entry per image, holding a `file` path and a list of `detections`. When it finishes, the command prints a one-line summary: how many images were processed, the total number of detections, and how many images contain at least one animal. See the [Output Format](output_format.md) reference for the full schema.
 
 ## Fine-tuning subcommands
 
@@ -80,6 +80,6 @@ megadetector inference --config ./config.yaml
 
 ## Next steps
 
-- [Output Format](output_format.md), interpret the JSON MegaDetector produces
-- [Model Zoo](model_zoo.md), every variant, with recall, mAP50, and license
-- [Installation](installation.md), environment setup and GPU configuration
+- [Output Format](output_format.md): interpret the JSON MegaDetector produces
+- [Model Zoo](model_zoo.md): every variant, with recall, mAP50, and license
+- [Installation](installation.md): environment setup and GPU configuration

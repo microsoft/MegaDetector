@@ -75,7 +75,7 @@ Timelapse2 is a desktop tool for reviewing large image sets from camera traps. I
 
 Wildlife Insights is a cloud platform from Google and conservation partners that offers end-to-end camera-trap processing: upload images, get AI species predictions, download results. It includes a web-based review interface and a growing database of camera-trap data.
 
-**Compared to MegaDetector:** Wildlife Insights is a full platform, it handles storage, classification, and data sharing in one place. MegaDetector is a local model that gives you more control over the pipeline and does not require uploading data to a third-party service. For sensitive data or offline deployments, MegaDetector is preferable. For rapid cloud-based processing with species predictions, Wildlife Insights is a strong option.
+**Compared to MegaDetector:** Wildlife Insights is a full platform that handles storage, classification, and data sharing in one place. MegaDetector is a local model that gives you more control over the pipeline and does not require uploading data to a third-party service. For sensitive data or offline deployments, MegaDetector is preferable. For rapid cloud-based processing with species predictions, Wildlife Insights is a strong option.
 
 
 ## CamtrapR
@@ -84,7 +84,7 @@ Wildlife Insights is a cloud platform from Google and conservation partners that
 **Access:** [CRAN / jniedballa.github.io/camtrapR](https://jniedballa.github.io/camtrapR), open-source  
 **Layer:** Analysis (not detection)
 
-CamtrapR is an R package for processing and analyzing camera-trap data, it handles activity patterns, species detection histories, occupancy modeling inputs, and report generation. It works on annotated data, not raw images.
+CamtrapR is an R package for processing and analyzing camera-trap data. It handles activity patterns, species detection histories, occupancy-modeling inputs, and report generation. It works on annotated data, not raw images.
 
 CamtrapR complements MegaDetector: after MegaDetector filters blanks and a reviewer assigns species labels, CamtrapR handles the downstream statistical analysis.
 
@@ -109,6 +109,6 @@ CamtrapR complements MegaDetector: after MegaDetector filters blanks and a revie
 pip install PytorchWildlife
 ```
 
-- [Installation guide](installation.md), setup including GPU and conda options
-- [FAQ](faq.md), accuracy, licensing, V5 vs V6, and more
-- [Camera-Trap AI](camera-trap-ai.md), how detection and classification work together
+- [Installation guide](installation.md): setup including GPU and conda options
+- [FAQ](faq.md): accuracy, licensing, V5 vs V6, and more
+- [Camera-Trap AI](camera-trap-ai.md): how detection and classification work together

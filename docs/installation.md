@@ -90,12 +90,12 @@ Weights are downloaded automatically on first use.
 
 ## Try Without Installing
 
-- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife), upload images in your browser
-- [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing), free cloud GPU
+- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife): upload images in your browser
+- [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing): free cloud GPU
 
 
 ## Next Steps
 
-- [CLI Reference](cli.md), run detection from the command line
-- [Model Zoo](model_zoo.md), choose the right MDV6 variant for your hardware
-- [Training Guide](training_guide.md), fine-tune MegaDetector on your own data
+- [CLI Reference](cli.md): run detection from the command line
+- [Model Zoo](model_zoo.md): choose the right MDV6 variant for your hardware
+- [Training Guide](training_guide.md): fine-tune MegaDetector on your own data

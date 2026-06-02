@@ -34,7 +34,7 @@ AI-based tools automate the most time-consuming parts of image review:
 
 ## Detection vs. Classification, Why MegaDetector Is a Detector
 
-MegaDetector is intentionally a **detector**, not a classifier. It outputs three categories, animal, person, vehicle, and does not identify species.
+MegaDetector is intentionally a **detector**, not a classifier. It outputs three categories (animal, person, vehicle) and does not identify species.
 
 This is not a limitation. It is a design choice with significant practical advantages:
 
@@ -44,7 +44,7 @@ This is not a limitation. It is a design choice with significant practical advan
 
 **Cleaner workflow.** Separating detection from classification gives researchers control over each step. You can swap classifiers, tune thresholds independently, or skip classification entirely when species ID is not needed.
 
-The result is a two-stage workflow that is used by more than 80 conservation organizations worldwide:
+The result is a two-stage workflow now adopted by more than 80 conservation organizations around the world:
 
 ```
 Camera-trap images
@@ -99,6 +99,6 @@ model = pw_detection.MegaDetectorV6()
 results = model.batch_image_detection("path/to/images/")
 ```
 
-- [Installation guide](installation.md), full setup including GPU and conda
-- [FAQ](faq.md), common questions about accuracy, licensing, and V5 vs V6
-- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife), try it without installing anything
+- [Installation guide](installation.md): full setup including GPU and conda
+- [FAQ](faq.md): common questions about accuracy, licensing, and V5 vs V6
+- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife): try it without installing anything

@@ -15,7 +15,7 @@ This page orients contributors and integrators to how the `microsoft/MegaDetecto
 
 ## Package and entry point
 
-The installable package is **`megadetector-core`**, with its source under `src/megadetector_core/`. Installing the repository registers a single console command:
+MegaDetector installs as **`megadetector-core`**, with its source under `src/megadetector_core/`. Installing the repository registers a single console command:
 
 ```
 megadetector = "megadetector_core.cli:main"
@@ -44,10 +44,10 @@ MegaDetector models are served through the [PyTorch-Wildlife](https://github.com
 
 ## Documentation
 
-The documentation site is built with MkDocs Material from the `docs/` directory. To build or preview it locally, see the [Developer Guide](build_mkdocs.md).
+Docs are built with MkDocs Material from the `docs/` directory. To build or preview them locally, see the [Developer Guide](build_mkdocs.md).
 
 ## Next steps
 
-- [Contributing & Support](contributing.md), how to file issues and submit changes
-- [CLI reference](cli.md), the commands exposed by `megadetector_core`
-- [Training Guide](training_guide.md), fine-tune a V6 model on your own data
+- [Contributing & Support](contributing.md): how to file issues and submit changes
+- [CLI reference](cli.md): the commands exposed by `megadetector_core`
+- [Training Guide](training_guide.md): fine-tune a V6 model on your own data

@@ -24,9 +24,9 @@ The latest release focuses on **efficiency**, **modern architectures**, and **li
 ### Highlights
 
 - **50x smaller**: The compact YOLOv10 variant has **2.3M parameters**, 2% of MegaDetectorV5's 139.9M, with comparable accuracy
-- **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR, pick the one that fits your hardware
+- **Multiple architectures**: YOLOv9, YOLOv10, and RT-DETR for different hardware budgets
 - **Permissive licenses**: MIT and Apache-2.0 options alongside AGPL-3.0
-- **Ongoing fine-tuning**: V6 models are continuously fine-tuned on newly collected public and private data
+- **Ongoing fine-tuning**: V6 weights are refreshed as new public and private data arrives
 
 ### Model Variants
 
@@ -102,4 +102,4 @@ At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU 
 
 For MegaDetectorV5 model weights and earlier versions, see the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
 
-The original MegaDetector repository was primarily developed by **Dan Morris** during his time at Microsoft. Dan continues to actively maintain a forked version at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector), which remains a valuable resource for the community.
+MegaDetector V1–V5 came from **Dan Morris** at Microsoft; his community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) is still widely used.

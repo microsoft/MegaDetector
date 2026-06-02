@@ -19,9 +19,9 @@ tags:
 > [!TIP]
 > MegaDetector is part of the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella, the hub for all AI for Good Lab wildlife tools. The full PyTorch-Wildlife framework and model zoo live at [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife).
 
-**MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap images.** Camera traps generate millions of frames, and most are empty. MegaDetector draws a bounding box around every animal, person, or vehicle it finds and assigns a confidence score, so researchers can filter blank frames automatically and spend their time on science instead of sorting images.
+**Built by the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good), MegaDetector is an open-source model that locates animals, people, and vehicles in camera-trap images.** A typical camera deployment produces millions of frames, most of them empty. MegaDetector boxes whatever it finds and scores each box, so researchers can clear the blanks automatically and spend their time on science rather than sorting images.
 
-MegaDetector is an **animal detector**, not a species classifier. For species recognition, pair MegaDetector with a downstream classifier (see [Species classification](#species-classification) below). The model is free, open-source under the [MIT License](https://github.com/microsoft/MegaDetector/blob/main/LICENSE), and used by more than 80 conservation organizations worldwide.
+MegaDetector is an **animal detector**, not a species classifier. For species recognition, pair MegaDetector with a downstream classifier (see [Species classification](#species-classification) below). It is free and open-source under the [MIT License](https://github.com/microsoft/MegaDetector/blob/main/LICENSE), and runs in more than 80 conservation programs worldwide.
 
 This page is the practical user guide for the current release, **MegaDetectorV6**. If you want a one-screen reference, jump to [Quick start](#quick-start); if you're evaluating whether MegaDetector fits your project, the [FAQ](faq.md) answers the most common questions.
 
@@ -49,9 +49,9 @@ results = model.batch_image_detection("path/to/image_folder/")
 
 **Prefer not to install anything?**
 
-- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife), upload images and run MegaDetector in your browser
-- [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing), a free cloud GPU
-- [SPARROW Studio](https://github.com/microsoft/SPARROW), a full desktop application with a graphical interface
+- [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife): upload images and run MegaDetector in your browser
+- [Google Colab notebook](https://colab.research.google.com/drive/1rjqHrTMzEHkMualr4vB55dQWCsCKMNXi?usp=sharing): a free cloud GPU
+- [SPARROW Studio](https://github.com/microsoft/SPARROW): a full desktop application with a graphical interface
 
 Full setup, including conda environments and GPU configuration, is on the [Installation](installation.md) page.
 
@@ -118,7 +118,7 @@ Throughput depends on the variant and your hardware:
 | Modern CPU (no GPU) | MDV6-yolov10-c (2.3M) | ~2–5 images/sec |
 | Google Colab (free GPU) | Any V6 variant | ~10–50 images/sec |
 
-As a rule of thumb, at **50 images/sec on a GPU, one million images takes about 5.5 hours**; on CPU with the compact model, roughly 3.9 days. Every V6 variant is faster than the 139.9M-parameter V5.
+As a rule of thumb, at **50 images/sec on a GPU, one million images takes about 5.5 hours**; on CPU with the compact model, roughly 3.9 days. Even the heaviest V6 variant runs faster than V5.
 
 
 ## Is there a graphical interface?
@@ -181,7 +181,7 @@ The [full list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetec
 
 For new projects, use V6. If you need V5 weights or earlier versions, they're on the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
 
-MegaDetector V1–V5 were primarily developed by **Dan Morris** during his time at Microsoft. Dan continues to actively maintain a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) with an extensive set of helper scripts and documentation, a valuable resource, especially for users of the V5 weights or the original `run_detector_batch.py` workflow. The two projects coexist: `microsoft/MegaDetector` carries V6 and future development.
+MegaDetector V1–V5 were primarily developed by **Dan Morris** while at Microsoft. He still maintains a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) with a large set of helper scripts and documentation, handy if you work with the V5 weights or the original `run_detector_batch.py` workflow. The two projects run in parallel: `microsoft/MegaDetector` carries V6 and future development.
 
 
 ## Part of the Biodiversity ecosystem

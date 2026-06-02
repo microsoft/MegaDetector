@@ -13,9 +13,9 @@ tags:
 
 ## What is MegaDetector?
 
-MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap images. It draws bounding boxes around detected objects and assigns a confidence score between 0 and 1.
+MegaDetector is the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good)'s open-source model for finding animals, people, and vehicles in camera-trap images. It draws a bounding box around each detected object and gives it a confidence score between 0 and 1.
 
-MegaDetector is a **detector**, not a classifier, it tells you *something is there*, not what species it is. This design choice is intentional: a single detector generalizes across ecosystems far better than a species classifier, which is typically region-specific. For species identification, pair MegaDetector with a downstream classifier.
+It is a **detector**, not a classifier. It tells you *something is there*, not which species. That is a deliberate choice: one detector generalizes across ecosystems far better than a species classifier, which is usually region-specific. For species identification, pair MegaDetector with a downstream classifier.
 
 
 ## What does MegaDetector detect?
@@ -114,7 +114,7 @@ The PyTorch-Wildlife framework that distributes MegaDetector is also MIT-license
 
 ## What is Dan Morris's fork?
 
-Dan Morris developed MegaDetector V1–V5 during his time at Microsoft. He continues to actively maintain a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector), which includes an extensive set of helper scripts, batch processing tools, and documentation accumulated over years of community use. It remains a valuable resource, especially for users of V5 weights or the original `run_detector_batch.py` workflow.
+Dan Morris built MegaDetector V1–V5 while at Microsoft, and now runs a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector). It bundles years of helper scripts, batch-processing tools, and documentation, and stays useful for V5 weights or the original `run_detector_batch.py` workflow.
 
 The `microsoft/MegaDetector` repository carries MegaDetectorV6 and future development. Both projects coexist and serve the community.
 
