@@ -42,7 +42,7 @@ Need the local `megadetector` CLI or fine-tuning? See [Install from source](#ins
 
 ## What Does MegaDetector Do?
 
-Camera traps generate millions of images, and the vast majority are empty frames triggered by wind or vegetation. Manually reviewing them is one of the biggest bottlenecks in wildlife research.
+Camera traps generate millions of images, and in typical deployments **70–95% are empty** — frames triggered by wind, rain, or moving vegetation. Sorting those by hand is one of the biggest bottlenecks in wildlife research, and it scales badly: more cameras mean exponentially more images to clear before any science can begin.
 
 MegaDetector solves this. It scans your images and draws bounding boxes around every **animal** (mammals, birds, reptiles, insects, and more), **person**, and **vehicle** it finds. Each detection has a confidence score between 0 and 1. You set a threshold (typically 0.15–0.3), and anything above it is flagged. The output lets you sort images, filter blanks, separate human and vehicle traffic, or feed detected animals into a species classifier.
 
@@ -132,7 +132,60 @@ The `pyproject.toml` covers the full dependency set — no separate
 Full installation guide: [microsoft.github.io/MegaDetector/installation/](https://microsoft.github.io/MegaDetector/installation/)
 
 
-## Species Classification
+## How Do I Run MegaDetector? (Python, CLI, or No-Code)
+
+There are three ways to run MegaDetector — pick the one that fits your workflow:
+
+| You are… | Use | How |
+| --- | --- | --- |
+| A Python developer | the `PytorchWildlife` API | `MegaDetectorV6().batch_image_detection("images/")` — see [Quick Start](#quick-start) |
+| Comfortable in a terminal | the `megadetector` CLI | `megadetector detect --input ./images/ --output results.json` |
+| Not a coder | a graphical app | [SPARROW Studio](#desktop-and-web-interfaces) or [AddaxAI](#desktop-and-web-interfaces) |
+
+The CLI ships with the package and wraps the same models:
+
+```bash
+# Detect on a folder, write JSON, choose a model and threshold
+megadetector detect --input ./images/ --output results.json --model MDV6-yolov10-e --threshold 0.2
+```
+
+`--model` accepts `MDV6-yolov9-c/e`, `MDV6-yolov10-c/e`, and `MDV6-rtdetr-c` (default `MDV6-yolov9-c`); `--device` takes `cuda:0`, `cpu`, or `mps` (auto-detected if omitted). The same CLI exposes `train`, `validate`, and `inference` for fine-tuning. Full reference: [CLI guide](https://microsoft.github.io/MegaDetector/cli/).
+
+
+## What Does MegaDetector Output Look Like?
+
+MegaDetector returns one record per image: the file path plus a list of detections, each carrying a category (`animal`, `person`, or `vehicle`), a confidence score from 0 to 1, and a bounding box as `[x1, y1, x2, y2]` pixel coordinates.
+
+```json
+[
+  {
+    "file": "images/IMG_0001.jpg",
+    "detections": [
+      { "category": "animal", "confidence": 0.93, "bbox": [102.4, 88.1, 540.7, 470.2] }
+    ]
+  }
+]
+```
+
+Only detections at or above your threshold are kept. When run from the CLI, MegaDetector also prints a short summary — images processed, total detections, and how many images contain at least one animal — so you can sanity-check a batch at a glance. This JSON feeds directly into review tools such as Timelapse or into a downstream species classifier. Full schema: [Output Format guide](https://microsoft.github.io/MegaDetector/output_format/).
+
+
+## How Accurate Is MegaDetector?
+
+Accuracy depends on your data and threshold, so the honest answer is always: **test it on your own images before trusting any number.** On the AI for Good Lab's validation sets, the larger V6 variants report animal recall above 82%, and the compact `MDV6-yolov10-c` reaches comparable accuracy at 2% of V5's parameter count. MegaDetector generalizes well across ecosystems because it was trained on a large, geographically diverse dataset, and it performs best on large mammals in open habitat. See the [Model Zoo](https://microsoft.github.io/MegaDetector/model_zoo/) for per-variant recall and mAP50.
+
+
+## What Confidence Threshold Should I Use?
+
+Start at **0.2** — the CLI default — and tune from there. Most projects use a threshold between **0.15 and 0.3** for the animal category. Lower values catch more true animals (higher recall) at the cost of more false positives on vegetation and lighting artifacts; higher values trim false positives but risk dropping low-confidence real detections. Because calibration varies by ecosystem, label a small sample and pick the threshold that balances missed animals against review effort for *your* data.
+
+
+## What Are MegaDetector's Limitations?
+
+MegaDetector is accurate across many terrestrial ecosystems, but it is not perfect. Very small or distant animals, heavily camouflaged species, and unusual camera angles tend to produce lower confidence and can be missed. Aquatic, overhead/aerial, and acoustic monitoring fall outside its scope — those are handled by sibling models ([MegaDetector-Sonar](https://github.com/microsoft/MegaDetector-Sonar), [MegaDetector-Overhead](https://github.com/microsoft/MegaDetector-Overhead), and [MegaDetector-Acoustic](https://github.com/microsoft/MegaDetector-Acoustic)). If your dataset is atypical, measure recall on a labeled sample before relying on it at scale.
+
+
+## Can MegaDetector Identify Species?
 
 MegaDetector finds animals — it doesn't identify species. For species ID, run a two-stage pipeline:
 
@@ -190,6 +243,21 @@ Windows installer: [Download from Zenodo](https://zenodo.org/records/19687738/fi
 [Upload images and run MegaDetector in your browser](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife) — no installation required.
 
 
+## How Does MegaDetector Fit Into Camera-Trap Software?
+
+Camera-trap analysis has three layers: **detection** (filtering blanks and finding animals — MegaDetector's job), **review** (human verification and annotation), and **analysis** (occupancy, activity, and density modeling). MegaDetector sits in the detection layer and hands its output to the others.
+
+| Tool | Layer | Runs MegaDetector | Code required |
+| --- | --- | --- | --- |
+| MegaDetector | Detection | — | Python or CLI |
+| AddaxAI / SPARROW Studio | Detection (GUI) | Yes | No |
+| Timelapse | Review | Imports MD output | No |
+| Wildlife Insights | Cloud detect + review | Cloud pipeline | No |
+| CamtrapR | Analysis (R) | No | R |
+
+For how these tools fit together, see [Camera-Trap Software and Tools](https://microsoft.github.io/MegaDetector/camera-trap-software/); for the wider picture on AI in camera-trap workflows, see [Camera-Trap AI](https://microsoft.github.io/MegaDetector/camera-trap-ai/).
+
+
 ## Part of the Biodiversity Ecosystem
 
 MegaDetector is one model in a larger open-source ecosystem from the AI for Good Lab. Each project lives in its own repository, with the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella tying them together.
@@ -212,6 +280,7 @@ MegaDetector is the entry point for most users. SPARROW Studio is the full platf
 
 MegaDetector is used by conservation organizations worldwide — government agencies, universities, NGOs, museums, and technology platforms. A selection of adopters named in the [PyTorch-Wildlife list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetector):
 
+<!-- ATTESTED IN THIS REPO -->
 **Government**: Arizona DEQ, Idaho Fish & Game, Oregon DFW, Michigan DNR, Parks Canada (Banff), U.S. Fish & Wildlife Service (multiple refuges), National Park Service, Canadian Wildlife Service
 
 **Conservation NGOs**: The Nature Conservancy, Island Conservation, Wildlife Protection Solutions, Australian Wildlife Conservancy, RSPB, CPAWS, SPEA, Felidae Conservation Fund
@@ -223,9 +292,16 @@ MegaDetector is used by conservation organizations worldwide — government agen
 **Platforms**: TrapTagger, WildTrax, Camelot, Animl, Wildlife Observer Network, OCAPI, WildePod
 
 See the [full list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetector) in the PyTorch-Wildlife repository.
+<!-- /ATTESTED -->
+<!-- APPROVED-EXTERNAL: append reviewed organizations below this line -->
 
 
-## Performance
+## Do I Need a GPU?
+
+No — MegaDetector runs on a CPU. A CUDA-capable NVIDIA GPU delivers a **10–50× speedup** and is strongly recommended once you are processing tens of thousands of images, but it is not required to get started. The compact V6 variants (`MDV6-yolov10-c`, `MDV6-yolov9-c`) are designed specifically for low-budget and edge hardware, including the solar-powered [SPARROW](https://github.com/microsoft/SPARROW) field unit, so a modern laptop is enough for many projects. If a GPU is present, the CLI and the Python API detect and use it automatically; pass `--device cpu` to force CPU.
+
+
+## How Fast Is MegaDetector?
 
 | Hardware | Model | Approximate Speed |
 | --- | --- | --- |
@@ -234,7 +310,7 @@ See the [full list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megad
 | Modern CPU (no GPU) | MDV6-yolov10-c (2.3M) | ~2–5 images/sec |
 | Google Colab (free GPU) | Any V6 variant | ~10–50 images/sec |
 
-At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU with the compact model, about 3.9 days.
+At 50 images/sec on a GPU, **one million images takes about 5.5 hours**; on CPU with the compact model, about 3.9 days. Every V6 variant is faster than the 139.9M-parameter V5.
 
 Every V6 variant is faster than V5 (139.9M params). The compact V6 is 2% the size.
 
