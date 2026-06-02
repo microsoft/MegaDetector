@@ -89,6 +89,22 @@ For a graphical interface, use [SPARROW Studio](https://github.com/microsoft/SPA
 See [Installation](installation.md) for full setup instructions.
 
 
+## What is the `megadetector` CLI?
+
+`megadetector` is a command-line tool registered when you install the repository from source (`pip install -e .`). It runs the same V6 models without writing any Python:
+
+```bash
+megadetector detect --input ./images/ --output results.json --model MDV6-yolov10-e
+```
+
+It also exposes `train`, `validate`, and `inference` for fine-tuning. The full flag list and the supported `--model` values are in the [CLI reference](cli.md).
+
+
+## What does MegaDetector output look like?
+
+MegaDetector returns one record per image — a `file` path plus a list of `detections`, each carrying a `category` (`animal`, `person`, or `vehicle`), a `confidence` score from 0 to 1, and a `bbox` as `[x1, y1, x2, y2]` pixel coordinates. Detections below your threshold are dropped, and the JSON feeds straight into review tools or a species classifier. See the [Output Format](output_format.md) reference for the full schema.
+
+
 ## What is the license?
 
 MegaDetector is released under the [MIT License](https://github.com/microsoft/MegaDetector/blob/main/LICENSE). You can use it for any purpose, including commercial use, subject to the license terms.
@@ -128,3 +144,4 @@ See [Cite Us](cite.md) for full citation details and BibTeX.
 - **GitHub Issues:** [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues) — bug reports and feature requests
 - **Discord:** [Join the PyTorch-Wildlife server](https://discord.gg/TeEVxzaYtm) — community support and discussion
 - **Email:** [zhongqimiao@microsoft.com](mailto:zhongqimiao@microsoft.com)
+- **Contributing:** see the [contributing guide](contributing.md) — issue routing, pull requests, and security reporting

@@ -59,6 +59,22 @@ model = pw_detection.MegaDetectorV6(version="MDV6-apa-rtdetr-e")
 ```
 
 
+## Model Licensing
+
+V6 deliberately offers variants under three licenses so you can match the model to your project's distribution requirements:
+
+| License | Variants | Use when |
+| --- | --- | --- |
+| **MIT** | `MDV6-mit-yolov9-c`, `MDV6-mit-yolov9-e` | You need a permissive license with no copyleft obligations — e.g. bundling weights into a closed-source product |
+| **Apache-2.0** | `MDV6-apa-rtdetr-c`, `MDV6-apa-rtdetr-e` | You want a permissive license with an explicit patent grant; `MDV6-apa-rtdetr-e` is also the top-accuracy variant |
+| **AGPL-3.0** | the remaining YOLOv9/YOLOv10/RT-DETR variants | Your use is compatible with strong copyleft (research, internal tools, AGPL-licensed services) |
+
+The repository **code** is MIT-licensed independently of the weights. Always confirm the license of the specific variant you ship.
+
+> [!NOTE]
+> The [`megadetector` CLI](cli.md) selects from the AGPL YOLOv9/YOLOv10/RT-DETR variants via `--model`; the MIT and Apache variants are loaded through the PyTorch-Wildlife Python API.
+
+
 ## Performance Benchmarks
 
 | Hardware | Model | Approximate Speed |

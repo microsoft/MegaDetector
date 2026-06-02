@@ -21,7 +21,7 @@ tags:
 
 **MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap images.** Camera traps generate millions of frames, and most are empty — triggered by wind or moving vegetation. MegaDetector draws a bounding box around every animal, person, or vehicle it finds and assigns a confidence score, so researchers can filter blank frames automatically and spend their time on science instead of clicking through images.
 
-MegaDetector is deliberately a **detector**, not a species classifier: "something is here" generalizes across ecosystems far better than "this is a specific species." For species identification, pair MegaDetector with a downstream classifier — see [Species classification](#species-classification) below. The model is free, open-source under the [MIT License](https://github.com/microsoft/MegaDetector/blob/main/LICENSE), and used by more than 80 conservation organizations worldwide.
+MegaDetector is deliberately a **detector**, not a species classifier: "something is here" generalizes across ecosystems far better than "this is a specific species." For species identification, pair MegaDetector with a downstream classifier — see [Species classification](#species-classification) below. The model is free, open-source under the [MIT License](https://github.com/microsoft/MegaDetector/blob/main/LICENSE), and used by conservation organizations worldwide.
 
 This page is the practical user guide for the current release, **MegaDetectorV6**. If you want a one-screen reference, jump to [Quick start](#quick-start); if you're evaluating whether MegaDetector fits your project, the [FAQ](faq.md) answers the most common questions.
 
@@ -54,6 +54,8 @@ results = model.batch_image_detection("path/to/image_folder/")
 - [SPARROW Studio](https://github.com/microsoft/SPARROW) — a full desktop application with a graphical interface
 
 Full setup, including conda environments and GPU configuration, is on the [Installation](installation.md) page.
+
+Prefer the command line? The [CLI reference](cli.md) covers `megadetector detect`, and the [Output Format](output_format.md) guide explains the JSON results MegaDetector writes.
 
 
 ## What does MegaDetector detect?
@@ -170,7 +172,7 @@ It is not perfect. Very small animals, heavily camouflaged species, and unusual 
 
 ## Who uses MegaDetector?
 
-MegaDetector is used by 80+ government agencies, universities, NGOs, museums, and technology platforms worldwide. A selection:
+MegaDetector is used by government agencies, universities, NGOs, museums, and technology platforms worldwide. A selection of adopters named in the PyTorch-Wildlife list:
 
 - **Government** — Idaho Fish & Game, Oregon DFW, Michigan DNR, Parks Canada, U.S. Fish & Wildlife Service, National Park Service
 - **Conservation NGOs** — The Nature Conservancy, Island Conservation, Australian Wildlife Conservancy, RSPB
@@ -227,6 +229,7 @@ Full citation details and the PyTorch-Wildlife BibTeX are on the [Cite Us](cite.
 - **GitHub Issues** — [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues) for bugs and feature requests
 - **Discord** — [join the PyTorch-Wildlife community](https://discord.gg/TeEVxzaYtm)
 - **Email** — [zhongqimiao@microsoft.com](mailto:zhongqimiao@microsoft.com)
+- **Contributing** — see the [contributing guide](contributing.md); the [repository architecture](architecture.md) page explains the codebase layout
 
 > [!TIP]
 > New to MegaDetector? The [FAQ](faq.md) covers installation, accuracy, GPU requirements, V5 vs. V6, and licensing in one place.
