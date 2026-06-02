@@ -16,12 +16,12 @@ tags:
 
 # MegaDetector
 
-> [!TIP]
-> MegaDetector is part of the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella, the hub for all AI for Good Lab wildlife tools. The full PyTorch-Wildlife framework and model zoo live at [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife).
-
 **Built by the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good), MegaDetector is an open-source model that locates animals, people, and vehicles in camera-trap images.** A typical camera deployment produces millions of frames, most of them empty. MegaDetector boxes whatever it finds and scores each box, so researchers can clear the blanks automatically and spend their time on science rather than sorting images.
 
 MegaDetector is an **animal detector**, not a species classifier. For species recognition, pair MegaDetector with a downstream classifier (see [Species classification](#species-classification) below). It is free and open-source under the [MIT License](https://github.com/microsoft/MegaDetector/blob/main/LICENSE), and runs in more than 80 conservation programs worldwide.
+
+> [!TIP]
+> MegaDetector is part of the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella, the hub for all AI for Good Lab wildlife tools. The full PyTorch-Wildlife framework and model zoo live at [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife).
 
 This page is the practical user guide for the current release, **MegaDetectorV6**. If you want a one-screen reference, jump to [Quick start](#quick-start); if you're evaluating whether MegaDetector fits your project, the [FAQ](faq.md) answers the most common questions.
 
