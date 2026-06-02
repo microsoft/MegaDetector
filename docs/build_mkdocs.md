@@ -51,7 +51,7 @@ The site is available at `http://127.0.0.1:8000/`.
 
 ## 4. Deploy to GitHub Pages
 
-Push any change to `docs/**`, `mkdocs.yml`, or `requirements.txt` on the `main` branch — GitHub Actions deploys automatically.
+Push any change to `docs/**`, `mkdocs.yml`, or `requirements.txt` on the `main` branch, GitHub Actions deploys automatically.
 
 To deploy manually:
 

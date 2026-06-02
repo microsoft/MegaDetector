@@ -1,5 +1,5 @@
 ---
-description: "MegaDetector FAQ — frequently asked questions about installation, accuracy, GPU requirements, V5 vs V6, licensing, and how to use MegaDetector for camera-trap wildlife detection."
+description: "MegaDetector FAQ: installation, accuracy, GPU requirements, V5 vs V6, licensing, and how to run MegaDetector for camera-trap wildlife detection."
 tags:
   - MegaDetector FAQ
   - MegaDetector how to
@@ -13,9 +13,9 @@ tags:
 
 ## What is MegaDetector?
 
-MegaDetector is an open-source AI model from the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good) that detects animals, people, and vehicles in camera-trap images. It draws bounding boxes around detected objects and assigns a confidence score between 0 and 1.
+MegaDetector is the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/ai/ai-for-good)'s open-source model for finding animals, people, and vehicles in camera-trap images. It draws a bounding box around each detected object and gives it a confidence score between 0 and 1.
 
-MegaDetector is a **detector**, not a classifier — it tells you *something is there*, not what species it is. This design choice is intentional: a single detector generalizes across ecosystems far better than a species classifier, which is typically region-specific. For species identification, pair MegaDetector with a downstream classifier.
+It is a **detector**, not a classifier. It tells you *something is there*, not which species. That is a deliberate choice: one detector generalizes across ecosystems far better than a species classifier, which is usually region-specific. For species identification, pair MegaDetector with a downstream classifier.
 
 
 ## What does MegaDetector detect?
@@ -24,7 +24,7 @@ MegaDetector detects three categories:
 
 | Category | Examples |
 |---|---|
-| Animal | Mammals, birds, reptiles, insects, fish — any wildlife |
+| Animal | Mammals, birds, reptiles, insects, fish, any wildlife |
 | Person | Researchers, poachers, tourists |
 | Vehicle | Cars, trucks, ATVs |
 
@@ -33,7 +33,7 @@ It does not identify species. An image containing a lion and a zebra returns two
 
 ## Do I need a GPU?
 
-No — MegaDetector runs on CPU. A GPU with CUDA support gives a 10–50x speedup and is strongly recommended for large datasets (tens of thousands of images or more), but is not required.
+No, MegaDetector runs on CPU. A GPU with CUDA support gives a 10–50x speedup and is strongly recommended for large datasets (tens of thousands of images or more), but is not required.
 
 The compact MegaDetectorV6 variants (YOLOv10-Compact, YOLOv9-Compact) are specifically designed for low-budget devices and edge hardware like the [SPARROW](https://github.com/microsoft/SPARROW) field unit.
 
@@ -43,9 +43,9 @@ The compact MegaDetectorV6 variants (YOLOv10-Compact, YOLOv9-Compact) are specif
 | | MegaDetectorV5 | MegaDetectorV6 |
 |---|---|---|
 | Architecture | YOLOv5 | YOLOv9, YOLOv10, RT-DETR (multiple variants) |
-| Parameters (compact) | 139.9M | 2.3M (YOLOv10-Compact — 2% of V5) |
+| Parameters (compact) | 139.9M | 2.3M (YOLOv10-Compact, 2% of V5) |
 | License | MIT | MIT |
-| Status | Maintained by Dan Morris at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) | Current release — recommended for new projects |
+| Status | Maintained by Dan Morris at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) | Current release, recommended for new projects |
 | Weights | Available on [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) | Download automatically via PyTorch-Wildlife |
 
 **Recommendation:** Use MegaDetectorV6 for new projects. MegaDetectorV5 remains available and is actively maintained by the community.
@@ -65,7 +65,7 @@ MegaDetector generalizes well across ecosystems because it was trained on a larg
 
 ## What species does MegaDetector support?
 
-All of them — with caveats. MegaDetector detects the presence of an animal, not the species. It has been deployed on projects involving African savanna megafauna, North American forest species, European ungulates, tropical insects, and marine wildlife.
+All of them, with caveats. MegaDetector detects the presence of an animal, not the species. It has been deployed on projects involving African savanna megafauna, North American forest species, European ungulates, tropical insects, and marine wildlife.
 
 Performance varies. Large mammals in open habitat are reliably detected. Very small animals, heavily camouflaged species, or unusual angles may have lower confidence scores. If you're working with an atypical dataset, we recommend testing on a labeled sample before full deployment.
 
@@ -89,16 +89,32 @@ For a graphical interface, use [SPARROW Studio](https://github.com/microsoft/SPA
 See [Installation](installation.md) for full setup instructions.
 
 
+## What is the `megadetector` CLI?
+
+`megadetector` is a command-line tool registered when you install the repository from source (`pip install -e .`). It runs the same V6 models without writing any Python:
+
+```bash
+megadetector detect --input ./images/ --output results.json --model MDV6-yolov10-e
+```
+
+It also exposes `train`, `validate`, and `inference` for fine-tuning. The full flag list and the supported `--model` values are in the [CLI reference](cli.md).
+
+
+## What does MegaDetector output look like?
+
+MegaDetector returns one record per image, a `file` path plus a list of `detections`, each carrying a `category` (`animal`, `person`, or `vehicle`), a `confidence` score from 0 to 1, and a `bbox` as `[x1, y1, x2, y2]` pixel coordinates. Detections below your threshold are dropped, and the JSON feeds straight into review tools or a species classifier. See the [Output Format](output_format.md) reference for the full schema.
+
+
 ## What is the license?
 
 MegaDetector is released under the [MIT License](https://github.com/microsoft/MegaDetector/blob/main/LICENSE). You can use it for any purpose, including commercial use, subject to the license terms.
 
-The PyTorch-Wildlife framework that distributes MegaDetector is also MIT-licensed. Individual model weights may carry separate licenses — see the [Model Zoo](model_zoo.md) for per-model licensing information.
+The PyTorch-Wildlife framework that distributes MegaDetector is also MIT-licensed. Individual model weights may carry separate licenses, see the [Model Zoo](model_zoo.md) for per-model licensing information.
 
 
 ## What is Dan Morris's fork?
 
-Dan Morris developed MegaDetector V1–V5 during his time at Microsoft. He continues to actively maintain a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector), which includes an extensive set of helper scripts, batch processing tools, and documentation accumulated over years of community use. It remains a valuable resource — especially for users of V5 weights or the original `run_detector_batch.py` workflow.
+Dan Morris built MegaDetector V1–V5 while at Microsoft, and now runs a community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector). It bundles years of helper scripts, batch-processing tools, and documentation, and stays useful for V5 weights or the original `run_detector_batch.py` workflow.
 
 The `microsoft/MegaDetector` repository carries MegaDetectorV6 and future development. Both projects coexist and serve the community.
 
@@ -125,6 +141,7 @@ See [Cite Us](cite.md) for full citation details and BibTeX.
 
 ## Where do I get help?
 
-- **GitHub Issues:** [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues) — bug reports and feature requests
-- **Discord:** [Join the PyTorch-Wildlife server](https://discord.gg/TeEVxzaYtm) — community support and discussion
+- **GitHub Issues:** [microsoft/MegaDetector/issues](https://github.com/microsoft/MegaDetector/issues), bug reports and feature requests
+- **Discord:** [Join the PyTorch-Wildlife server](https://discord.gg/TeEVxzaYtm), community support and discussion
 - **Email:** [zhongqimiao@microsoft.com](mailto:zhongqimiao@microsoft.com)
+- **Contributing:** see the [contributing guide](contributing.md), issue routing, pull requests, and security reporting

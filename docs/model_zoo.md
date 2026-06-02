@@ -1,5 +1,5 @@
 ---
-description: "MegaDetector model zoo: all MegaDetectorV6 variants with architectures, parameter counts, animal recall, mAP50, and license options for camera-trap wildlife detection."
+description: "MegaDetector model zoo: all MegaDetectorV6 variants with architectures, parameter counts, animal recall, mAP50, and license options for camera traps."
 tags:
   - MegaDetector
   - MegaDetectorV6
@@ -19,14 +19,14 @@ All MegaDetector model variants with performance metrics, parameter counts, and 
 
 ## MegaDetector V6 (Current)
 
-The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility** — **SMALLER, FASTER, BETTER**.
+The latest release focuses on **efficiency**, **modern architectures**, and **licensing flexibility**, **SMALLER, FASTER, BETTER**.
 
 ### Highlights
 
-- **50x smaller**: The compact YOLOv10 variant has **2.3M parameters** — 2% of MegaDetectorV5's 139.9M — with comparable accuracy
-- **Multiple architectures**: YOLOv9, YOLOv10, RT-DETR — pick the one that fits your hardware
+- **50x smaller**: The compact YOLOv10 variant has **2.3M parameters**, 2% of MegaDetectorV5's 139.9M, with comparable accuracy
+- **Multiple architectures**: YOLOv9, YOLOv10, and RT-DETR for different hardware budgets
 - **Permissive licenses**: MIT and Apache-2.0 options alongside AGPL-3.0
-- **Ongoing fine-tuning**: V6 models are continuously fine-tuned on newly collected public and private data
+- **Ongoing fine-tuning**: V6 weights are refreshed as new public and private data arrives
 
 ### Model Variants
 
@@ -59,6 +59,22 @@ model = pw_detection.MegaDetectorV6(version="MDV6-apa-rtdetr-e")
 ```
 
 
+## Model Licensing
+
+V6 deliberately offers variants under three licenses so you can match the model to your project's distribution requirements:
+
+| License | Variants | Use when |
+| --- | --- | --- |
+| **MIT** | `MDV6-mit-yolov9-c`, `MDV6-mit-yolov9-e` | You need a permissive license with no copyleft obligations, e.g. bundling weights into a closed-source product |
+| **Apache-2.0** | `MDV6-apa-rtdetr-c`, `MDV6-apa-rtdetr-e` | You want a permissive license with an explicit patent grant; `MDV6-apa-rtdetr-e` is also the top-accuracy variant |
+| **AGPL-3.0** | the remaining YOLOv9/YOLOv10/RT-DETR variants | Your use is compatible with strong copyleft (research, internal tools, AGPL-licensed services) |
+
+The repository **code** is MIT-licensed independently of the weights. Always confirm the license of the specific variant you ship.
+
+> [!NOTE]
+> The [`megadetector` CLI](cli.md) selects from the AGPL YOLOv9/YOLOv10/RT-DETR variants via `--model`; the MIT and Apache variants are loaded through the PyTorch-Wildlife Python API.
+
+
 ## Performance Benchmarks
 
 | Hardware | Model | Approximate Speed |
@@ -77,13 +93,13 @@ At 50 images/sec on a GPU, **one million images takes about 5.5 hours**. On CPU 
 | --- | --- | --- | --- | --- |
 | **V6.0** (current) | 2024 | YOLOv9/v10, RT-DETR | 2.3M–76M | Multiple variants, MIT/Apache options |
 | V5.0 | 2022 | YOLOv5 | 139.9M | Two sub-versions (5a, 5b) |
-| V4.1 | 2020 | Faster R-CNN | — | Added vehicle class |
-| V3 | 2019 | Faster R-CNN | — | Added human class |
-| V2 | 2018 | Faster R-CNN | — | First public release |
+| V4.1 | 2020 | Faster R-CNN |, | Added vehicle class |
+| V3 | 2019 | Faster R-CNN |, | Added human class |
+| V2 | 2018 | Faster R-CNN |, | First public release |
 
 
 ## MegaDetector V5 and Earlier
 
 For MegaDetectorV5 model weights and earlier versions, see the [archive branch](https://github.com/microsoft/Biodiversity/tree/archive) of the Biodiversity repository (formerly `microsoft/CameraTraps`).
 
-The original MegaDetector repository was primarily developed by **Dan Morris** during his time at Microsoft. Dan continues to actively maintain a forked version at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector), which remains a valuable resource for the community.
+MegaDetector V1–V5 came from **Dan Morris** at Microsoft; his community fork at [agentmorris/MegaDetector](https://github.com/agentmorris/MegaDetector) is still widely used.

@@ -1,5 +1,5 @@
 ---
-description: "MegaDetector fine-tuning guide: train custom detection models using MegaDetectorV6 architectures (YOLOv9, YOLOv10, RT-DETR) with the ultralytics framework for wildlife detection."
+description: "MegaDetector fine-tuning guide: train custom MegaDetectorV6 detection models (YOLOv9, YOLOv10, RT-DETR) on your own camera-trap wildlife data."
 tags:
   - MegaDetector fine-tuning
   - MegaDetectorV6
@@ -14,7 +14,7 @@ tags:
 
 ← Back to [main README](https://github.com/microsoft/MegaDetector/blob/main/README.md).
 > [!TIP]
-> This guide covers fine-tuning MegaDetectorV6 models on your own data. For general inference usage, see the [Overview](index.md) and [Model Zoo](model_zoo.md).
+> This guide covers fine-tuning MegaDetectorV6 models on your own data. For general inference usage, see the [Overview](index.md) and [Model Zoo](model_zoo.md); for the `train`/`validate`/`inference` command surface used below, see the [CLI reference](cli.md), and for how the training code is organized, the [Repository Architecture](architecture.md).
 
 This guide covers training and fine-tuning detection models for MegaDetector using the ultralytics framework. This module is designed to help both programmers and biologists train a detection model for animal identification. The output weights of this training process can be easily integrated with MegaDetector inference.
 
