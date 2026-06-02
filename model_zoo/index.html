@@ -27,7 +27,7 @@
     
     
       
-        <title>Model Zoo - MegaDetector</title>
+        <title>MegaDetector Model Zoo: V6 Variants, Benchmarks, and Licenses - MegaDetector</title>
       
     
     
@@ -161,12 +161,12 @@
     
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MegaDetector">
-  <meta property="og:title" content="Model Zoo">
+  <meta property="og:title" content="MegaDetector Model Zoo: V6 Variants, Benchmarks, and Licenses">
   <meta property="og:description" content="MegaDetector model zoo: all MegaDetectorV6 variants with architectures, parameter counts, animal recall, mAP50, and license options for camera traps.">
   <meta property="og:url" content="https://microsoft.github.io/MegaDetector/model_zoo/">
   <meta property="og:image" content="https://microsoft.github.io/MegaDetector/assets/megadetector-banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Model Zoo">
+  <meta name="twitter:title" content="MegaDetector Model Zoo: V6 Variants, Benchmarks, and Licenses">
   <meta name="twitter:description" content="MegaDetector model zoo: all MegaDetectorV6 variants with architectures, parameter counts, animal recall, mAP50, and license options for camera traps.">
   <meta name="twitter:image" content="https://microsoft.github.io/MegaDetector/assets/megadetector-banner.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://microsoft.github.io/MegaDetector/", "name": "MegaDetector", "position": 1}, {"@type": "ListItem", "item": "https://microsoft.github.io/MegaDetector/model_zoo/", "name": "Model Zoo", "position": 2}]}</script>
 
@@ -222,7 +222,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Model Zoo
+              MegaDetector Model Zoo: V6 Variants, Benchmarks, and Licenses
             
           </span>
         </div>
@@ -702,6 +702,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#yolov10-variants-mdv6-yolov10-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YOLOv10 variants (MDV6-yolov10-*)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rt-detr-variants-mdv6-rtdetr-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RT-DETR variants (MDV6-rtdetr-*)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -719,10 +741,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-benchmarks" class="md-nav__link">
+  <a href="#performance-benchmarks-gpu-and-edge-cpu-inference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Performance Benchmarks
+        Performance Benchmarks: GPU and Edge CPU Inference
       
     </span>
   </a>
@@ -1262,6 +1284,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#yolov10-variants-mdv6-yolov10-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YOLOv10 variants (MDV6-yolov10-*)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rt-detr-variants-mdv6-rtdetr-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RT-DETR variants (MDV6-rtdetr-*)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1279,10 +1323,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-benchmarks" class="md-nav__link">
+  <a href="#performance-benchmarks-gpu-and-edge-cpu-inference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Performance Benchmarks
+        Performance Benchmarks: GPU and Edge CPU Inference
       
     </span>
   </a>
@@ -1436,6 +1480,10 @@
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Load a specific variant</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">pw_detection</span><span class="o">.</span><span class="n">MegaDetectorV6</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;MDV6-apa-rtdetr-e&quot;</span><span class="p">)</span>
 </span></code></pre></div>
+<h3 id="yolov10-variants-mdv6-yolov10-">YOLOv10 variants (MDV6-yolov10-*)<a class="headerlink" href="#yolov10-variants-mdv6-yolov10-" title="Permanent link">&para;</a></h3>
+<p>YOLOv10 covers the broadest range in the zoo. The extra-size <code>MDV6-yolov10-e</code> (29.5M parameters) reaches 82.8% animal recall, while the compact <code>MDV6-yolov10-c</code> shrinks to 2.3M parameters for laptops and edge devices. Both ship under AGPL-3.0 and are selectable from the <code>megadetector</code> CLI.</p>
+<h3 id="rt-detr-variants-mdv6-rtdetr-">RT-DETR variants (MDV6-rtdetr-*)<a class="headerlink" href="#rt-detr-variants-mdv6-rtdetr-" title="Permanent link">&para;</a></h3>
+<p>RT-DETR is where the top accuracy sits. <code>MDV6-apa-rtdetr-e</code> records the highest animal recall in the table (82.9%) under an Apache-2.0 license, which suits projects that need permissive terms. A smaller <code>MDV6-apa-rtdetr-c</code> and an AGPL <code>MDV6-rtdetr-c</code> round out the family.</p>
 <h2 id="model-licensing">Model Licensing<a class="headerlink" href="#model-licensing" title="Permanent link">&para;</a></h2>
 <p>V6 deliberately offers variants under three licenses so you can match the model to your project's distribution requirements:</p>
 <table>
@@ -1469,7 +1517,7 @@
 <p>[!NOTE]
 The <a href="../cli/"><code>megadetector</code> CLI</a> selects from the AGPL YOLOv9/YOLOv10/RT-DETR variants via <code>--model</code>; the MIT and Apache variants are loaded through the PyTorch-Wildlife Python API.</p>
 </blockquote>
-<h2 id="performance-benchmarks">Performance Benchmarks<a class="headerlink" href="#performance-benchmarks" title="Permanent link">&para;</a></h2>
+<h2 id="performance-benchmarks-gpu-and-edge-cpu-inference">Performance Benchmarks: GPU and Edge CPU Inference<a class="headerlink" href="#performance-benchmarks-gpu-and-edge-cpu-inference" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1502,6 +1550,7 @@ The <a href="../cli/"><code>megadetector</code> CLI</a> selects from the AGPL YO
 </tbody>
 </table>
 <p>At 50 images/sec on a GPU, <strong>one million images takes about 5.5 hours</strong>. On CPU with the compact model, about 3.9 days. Every V6 variant is faster than V5 (139.9M params).</p>
+<p><strong>Edge and CPU inference:</strong> the compact <code>MDV6-yolov10-c</code> (2.3M parameters) is the variant to target for CPU-only and edge hardware. It needs no GPU and runs at roughly 2–5 images/sec on a modern CPU, which is what makes it a fit for field devices like the <a href="https://github.com/microsoft/SPARROW">SPARROW</a> unit.</p>
 <h2 id="version-history">Version History<a class="headerlink" href="#version-history" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1553,7 +1602,7 @@ The <a href="../cli/"><code>megadetector</code> CLI</a> selects from the AGPL YO
 </table>
 <h2 id="megadetector-v5-and-earlier">MegaDetector V5 and Earlier<a class="headerlink" href="#megadetector-v5-and-earlier" title="Permanent link">&para;</a></h2>
 <p>For MegaDetectorV5 model weights and earlier versions, see the <a href="https://github.com/microsoft/Biodiversity/tree/archive">archive branch</a> of the Biodiversity repository (formerly <code>microsoft/CameraTraps</code>).</p>
-<p>MegaDetector V1–V5 came from <strong>Dan Morris</strong> at Microsoft; his community fork at <a href="https://github.com/agentmorris/MegaDetector">agentmorris/MegaDetector</a> is still widely used.</p>
+<p>MegaDetector V1–V5 were originally developed by <strong>Dan Morris</strong> at Microsoft. The V5 weights load directly through PyTorch-Wildlife, so existing V5 pipelines continue to work.</p>
 
 
   <nav class="md-tags" >
@@ -1631,8 +1680,37 @@ The <a href="../cli/"><code>megadetector</code> CLI</a> selects from the AGPL YO
 
 
   
+    
+  
+  
+    
   
 
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 2, 2026 18:27:26 UTC">June 2, 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 13, 2026 18:21:03 UTC">May 13, 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
 
 
 

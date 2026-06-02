@@ -27,7 +27,7 @@
     
     
       
-        <title>Camera-Trap AI - MegaDetector</title>
+        <title>Camera-Trap AI Explained: Detection, Blank Filtering, and Classification - MegaDetector</title>
       
     
     
@@ -161,12 +161,12 @@
     
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MegaDetector">
-  <meta property="og:title" content="Camera-Trap AI">
+  <meta property="og:title" content="Camera-Trap AI Explained: Detection, Blank Filtering, and Classification">
   <meta property="og:description" content="Camera-trap AI explained: how machine learning automates wildlife monitoring, why detection matters for conservation, and where MegaDetector fits.">
   <meta property="og:url" content="https://microsoft.github.io/MegaDetector/camera-trap-ai/">
   <meta property="og:image" content="https://microsoft.github.io/MegaDetector/assets/megadetector-banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Camera-Trap AI">
+  <meta name="twitter:title" content="Camera-Trap AI Explained: Detection, Blank Filtering, and Classification">
   <meta name="twitter:description" content="Camera-trap AI explained: how machine learning automates wildlife monitoring, why detection matters for conservation, and where MegaDetector fits.">
   <meta name="twitter:image" content="https://microsoft.github.io/MegaDetector/assets/megadetector-banner.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://microsoft.github.io/MegaDetector/", "name": "MegaDetector", "position": 1}, {"@type": "ListItem", "item": "https://microsoft.github.io/MegaDetector/camera-trap-ai/", "name": "Camera-Trap AI", "position": 2}]}</script>
 
@@ -222,7 +222,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Camera-Trap AI
+              Camera-Trap AI Explained: Detection, Blank Filtering, and Classification
             
           </span>
         </div>
@@ -876,6 +876,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="What Camera-Trap AI Does">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtering-blank-camera-trap-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering blank camera-trap images
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -886,6 +903,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Detection vs. Classification, Why MegaDetector Is a Detector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#species-classification-with-megadetector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Species classification with MegaDetector
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1209,6 +1243,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="What Camera-Trap AI Does">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtering-blank-camera-trap-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering blank camera-trap images
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1219,6 +1270,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Detection vs. Classification, Why MegaDetector Is a Detector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#species-classification-with-megadetector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Species classification with MegaDetector
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1289,12 +1357,16 @@
 <p><strong>Detection</strong> draws bounding boxes around animals in images that contain them, so reviewers focus on the animal rather than scanning the full frame. Detection also quantifies <em>where</em> in the frame an animal appears and how confident the model is.</p>
 <p><strong>Classification</strong> identifies the species (or group) within a detected bounding box. Classification is typically done as a second step after detection, because a detector that generalizes across ecosystems is easier to build and maintain than a species classifier that must be retrained for every new region.</p>
 <p><strong>Tracking and counting</strong> link detections across multiple images in a sequence, supporting population estimates, behavioral analysis, and occupancy modeling.</p>
+<h3 id="filtering-blank-camera-trap-images">Filtering blank camera-trap images<a class="headerlink" href="#filtering-blank-camera-trap-images" title="Permanent link">&para;</a></h3>
+<p>In a MegaDetector workflow, blank filtering is the first and highest-value step. You run the model over every image, keep the frames with a detection above your threshold, and route the rest to a blank pile. On a dataset that is mostly empty, this one pass can shrink the human review queue by roughly an order of magnitude before anyone opens an image.</p>
 <h2 id="detection-vs-classification-why-megadetector-is-a-detector">Detection vs. Classification, Why MegaDetector Is a Detector<a class="headerlink" href="#detection-vs-classification-why-megadetector-is-a-detector" title="Permanent link">&para;</a></h2>
 <p>MegaDetector is intentionally a <strong>detector</strong>, not a classifier. It outputs three categories (animal, person, vehicle) and does not identify species.</p>
 <p>This is not a limitation. It is a design choice with significant practical advantages:</p>
 <p><strong>Better generalization.</strong> A model trained to answer "is there an animal?" generalizes far more easily across continents, ecosystems, and species assemblages than a model trained to answer "what species is this?" Species classifiers must be retrained or fine-tuned for each new region and fauna. A single MegaDetector model works on African savanna, North American forest, tropical rainforest, and sub-Antarctic penguin colonies.</p>
 <p><strong>Lower annotation cost.</strong> Training a detector requires bounding-box annotations labeled as "animal," "person," or "vehicle." Training a species classifier requires those same bounding boxes labeled with species identity, which requires expert taxonomic knowledge for every species in every geographic region. Detector training is far cheaper to scale.</p>
 <p><strong>Cleaner workflow.</strong> Separating detection from classification gives researchers control over each step. You can swap classifiers, tune thresholds independently, or skip classification entirely when species ID is not needed.</p>
+<h3 id="species-classification-with-megadetector">Species classification with MegaDetector<a class="headerlink" href="#species-classification-with-megadetector" title="Permanent link">&para;</a></h3>
+<p>MegaDetector stops at "animal, person, or vehicle" and does not name the species. To get species, add a classifier as a second stage that reads each MegaDetector box. PyTorch-Wildlife ships several such classifiers, and <a href="https://github.com/microsoft/MegaDetector-Classifier">MegaDetector-Classifier</a> lets you fine-tune one for your own region.</p>
 <p>The result is a two-stage workflow now adopted by more than 80 conservation organizations around the world:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Camera-trap images
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    → MegaDetector (detect animals, filter blanks)
@@ -1428,8 +1500,37 @@ For a quick overview of what camera-trap software is available and how MegaDetec
 
 
   
+    
+  
+  
+    
   
 
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 2, 2026 18:27:26 UTC">June 2, 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 18, 2026 21:35:06 UTC">May 18, 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
 
 
 
