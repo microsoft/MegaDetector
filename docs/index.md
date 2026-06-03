@@ -174,7 +174,7 @@ MegaDetector is used by more than 80 organizations worldwide, including governme
 - **Museums & zoos**, American Museum of Natural History, Smithsonian, San Diego Zoo Wildlife Alliance, Taronga Conservation Society
 - **Platforms**, TrapTagger, WildTrax, Camelot, Animl, Wildlife Observer Network
 
-The [full list](https://github.com/microsoft/Pytorch-Wildlife#who-uses-megadetector) lives in the PyTorch-Wildlife repository.
+The [full list](https://microsoft.github.io/Biodiversity/collaborators/) lives on the Biodiversity documentation site.
 
 
 ## MegaDetectorV5 and earlier
