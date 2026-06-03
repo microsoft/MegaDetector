@@ -1496,12 +1496,12 @@
 
 
 <h1 id="megadetector">MegaDetector<a class="headerlink" href="#megadetector" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>[!TIP]
-MegaDetector is part of the <a href="https://github.com/microsoft/Biodiversity">microsoft/Biodiversity</a> umbrella, the hub for all AI for Good Lab wildlife tools. The full PyTorch-Wildlife framework and model zoo live at <a href="https://github.com/microsoft/Pytorch-Wildlife">microsoft/Pytorch-Wildlife</a>.</p>
-</blockquote>
 <p><strong>Built by the <a href="https://www.microsoft.com/en-us/ai/ai-for-good">Microsoft AI for Good Lab</a>, MegaDetector is an open-source model that locates animals, people, and vehicles in camera-trap images.</strong> A typical camera deployment produces millions of frames, most of them empty. MegaDetector boxes whatever it finds and scores each box, so researchers can clear the blanks automatically and spend their time on science rather than sorting images.</p>
 <p>MegaDetector is an <strong>animal detector</strong>, not a species classifier. For species recognition, pair MegaDetector with a downstream classifier (see <a href="#species-classification">Species classification</a> below). It is free and open-source under the <a href="https://github.com/microsoft/MegaDetector/blob/main/LICENSE">MIT License</a>, and runs in more than 80 conservation programs worldwide.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>MegaDetector is part of the <a href="https://github.com/microsoft/Biodiversity">microsoft/Biodiversity</a> umbrella, the hub for all AI for Good Lab wildlife tools. The full PyTorch-Wildlife framework and model zoo live at <a href="https://github.com/microsoft/Pytorch-Wildlife">microsoft/Pytorch-Wildlife</a>.</p>
+</div>
 <p>This page is the practical user guide for the current release, <strong>MegaDetectorV6</strong>. If you want a one-screen reference, jump to <a href="#quick-start">Quick start</a>; if you're evaluating whether MegaDetector fits your project, the <a href="faq/">FAQ</a> answers the most common questions.</p>
 <h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <p>Install the package and run the model in three lines of Python, V6 weights download automatically the first time:</p>
@@ -1574,10 +1574,10 @@ MegaDetector is part of the <a href="https://github.com/microsoft/Biodiversity">
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>[!TIP]
-This is a subset. The full nine-variant lineup, with YOLOv9, RT-DETR, and additional MIT/Apache options, is in the <a href="model_zoo/">Model Zoo</a>. Variant names are standardized as <strong>MDV6-Compact</strong> and <strong>MDV6-Extra</strong> for the two sizes within each architecture.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is a subset. The full nine-variant lineup, with YOLOv9, RT-DETR, and additional MIT/Apache options, is in the <a href="model_zoo/">Model Zoo</a>. Variant names are standardized as <strong>MDV6-Compact</strong> and <strong>MDV6-Extra</strong> for the two sizes within each architecture.</p>
+</div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PytorchWildlife.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">detection</span> <span class="k">as</span> <span class="n">pw_detection</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Load a specific variant</span>
@@ -1736,10 +1736,10 @@ This is a subset. The full nine-variant lineup, with YOLOv9, RT-DETR, and additi
 <li><strong>Email</strong>, <a href="mailto:zhongqimiao@microsoft.com">zhongqimiao@microsoft.com</a></li>
 <li><strong>Contributing</strong>, see the <a href="contributing/">contributing guide</a>; the <a href="architecture/">repository architecture</a> page explains the codebase layout</li>
 </ul>
-<blockquote>
-<p>[!TIP]
-New to MegaDetector? The <a href="faq/">FAQ</a> covers installation, accuracy, GPU requirements, V5 vs. V6, and licensing in one place.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>New to MegaDetector? The <a href="faq/">FAQ</a> covers installation, accuracy, GPU requirements, V5 vs. V6, and licensing in one place.</p>
+</div>
 
 
   <nav class="md-tags" >
@@ -1838,7 +1838,7 @@ New to MegaDetector? The <a href="faq/">FAQ</a> covers installation, accuracy, G
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 2, 2026 18:27:26 UTC">June 2, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 2, 2026 19:55:13 UTC">June 2, 2026</span>
   </span>
 
     

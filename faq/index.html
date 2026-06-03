@@ -1571,10 +1571,10 @@
 </tbody>
 </table>
 <p><strong>Recommendation:</strong> Use MegaDetectorV6 for new projects. MegaDetectorV5 weights remain available on the <a href="https://github.com/microsoft/Biodiversity/tree/archive">archive branch</a> for projects already built around them.</p>
-<blockquote>
-<p>[!TIP]
-For detailed model variants and benchmark results, see the <a href="../model_zoo/">Model Zoo</a>.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For detailed model variants and benchmark results, see the <a href="../model_zoo/">Model Zoo</a>.</p>
+</div>
 <h2 id="how-accurate-is-megadetector">How accurate is MegaDetector?<a class="headerlink" href="#how-accurate-is-megadetector" title="Permanent link">&para;</a></h2>
 <p>Accuracy depends on the dataset and confidence threshold. MegaDetectorV6 compact variants achieve comparable accuracy to V5 at 2% of the parameter count on the AI for Good Lab's validation datasets.</p>
 <p>In practice, most deployments use a confidence threshold of 0.15–0.3 for the "animal" category, which provides high recall (few missed animals) at the cost of some false positives on vegetation and lighting artifacts. Setting the threshold higher reduces false positives but risks missing low-confidence true detections.</p>
