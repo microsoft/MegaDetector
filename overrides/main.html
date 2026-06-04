@@ -26,32 +26,54 @@
   <meta property="og:description" content="{{ social_desc | striptags }}">
   <meta property="og:url" content="{{ page.canonical_url if page and page.canonical_url else config.site_url }}">
   <meta property="og:image" content="{{ config.site_url }}assets/megadetector-banner.png">
+  <meta property="og:image:alt" content="MegaDetector: open-source camera-trap AI from the Microsoft AI for Good Lab">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ social_title | striptags }}">
   <meta name="twitter:description" content="{{ social_desc | striptags }}">
   <meta name="twitter:image" content="{{ config.site_url }}assets/megadetector-banner.png">
+  <meta name="twitter:image:alt" content="MegaDetector: open-source camera-trap AI from the Microsoft AI for Good Lab">
 
   {%- if page and page.file and page.file.src_path == "index.md" %}
-  {#- Homepage: SoftwareSourceCode (entity clarity for an open-source model/code project) -#}
+  {#- Homepage: a connected @graph (WebSite + SoftwareSourceCode + Organization),
+     cross-linked by @id, per the cluster schema standard. -#}
   <script type="application/ld+json">
   {{- {
     "@context": "https://schema.org",
-    "@type": "SoftwareSourceCode",
-    "@id": config.site_url ~ "#software",
-    "name": "MegaDetector",
-    "description": config.site_description,
-    "url": config.site_url,
-    "codeRepository": config.repo_url,
-    "programmingLanguage": "Python",
-    "runtimePlatform": "Python",
-    "isAccessibleForFree": true,
-    "license": "https://github.com/microsoft/MegaDetector/blob/main/LICENSE",
-    "creator": {
-      "@type": "Organization",
-      "name": "Microsoft AI for Good Lab",
-      "url": "https://www.microsoft.com/en-us/ai/ai-for-good"
-    },
-    "keywords": ["MegaDetector", "camera trap AI", "wildlife detection", "animal detection", "conservation AI", "blank frame filtering", "PyTorch-Wildlife"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": config.site_url ~ "#website",
+        "url": config.site_url,
+        "name": config.site_name,
+        "inLanguage": "en",
+        "description": config.site_description,
+        "publisher": { "@id": "https://www.microsoft.com/en-us/ai/ai-for-good#organization" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": config.site_url ~ "#software",
+        "name": "MegaDetector",
+        "description": config.site_description,
+        "url": config.site_url,
+        "mainEntityOfPage": config.site_url,
+        "codeRepository": config.repo_url,
+        "programmingLanguage": "Python",
+        "runtimePlatform": "Python",
+        "isAccessibleForFree": true,
+        "license": "https://github.com/microsoft/MegaDetector/blob/main/LICENSE",
+        "creator": { "@id": "https://www.microsoft.com/en-us/ai/ai-for-good#organization" },
+        "maintainer": { "@id": "https://www.microsoft.com/en-us/ai/ai-for-good#organization" },
+        "sameAs": ["https://github.com/microsoft/MegaDetector"],
+        "citation": "https://arxiv.org/abs/1907.06772",
+        "keywords": ["MegaDetector", "camera trap AI", "wildlife detection", "animal detection", "conservation AI", "blank frame filtering", "PyTorch-Wildlife"]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.microsoft.com/en-us/ai/ai-for-good#organization",
+        "name": "Microsoft AI for Good Lab",
+        "url": "https://www.microsoft.com/en-us/ai/ai-for-good"
+      }
+    ]
   } | tojson -}}
   </script>
   {%- endif %}
