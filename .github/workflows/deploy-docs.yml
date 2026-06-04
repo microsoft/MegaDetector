@@ -6,8 +6,10 @@ on:
       - main
     paths:
       - 'docs/**'
+      - 'overrides/**'
       - 'mkdocs.yml'
       - 'requirements.txt'
+  workflow_dispatch:
 
 jobs:
   deploy:
