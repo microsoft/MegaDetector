@@ -1,5 +1,5 @@
 """
-MegaDetector: AI-powered wildlife detection for camera trap images.
+MegaDetector: AI-enabled wildlife detection for camera trap images.
 
 This package provides a simplified interface to MegaDetector models
 via PyTorch Wildlife. MegaDetector detects animals, people, and vehicles
