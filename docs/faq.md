@@ -19,6 +19,11 @@ MegaDetector is the [Microsoft AI for Good Lab](https://www.microsoft.com/en-us/
 It is a **detector**, not a classifier. It tells you *something is there*, not which species. That is a deliberate choice: one detector generalizes across ecosystems far better than a species classifier, which is usually region-specific. For species identification, pair MegaDetector with a downstream classifier.
 
 
+## How do I get started with MegaDetector?
+
+Start with the [Getting Started](getting-started.md) guide, which takes you from a folder of images to your first detections in four steps: decide whether the model fits, pick how to run it, process a small batch, and read the output. If you would rather not write code, run it through [SPARROW Studio](https://github.com/microsoft/SPARROW), [AddaxAI](https://addaxdatascience.com/addaxai/), or the [Hugging Face demo](https://huggingface.co/spaces/ai-for-good-lab/pytorch-wildlife). For the three-line Python version, see [How do I run MegaDetector?](#how-do-i-run-megadetector) below.
+
+
 ## What does MegaDetector detect?
 
 MegaDetector detects three categories:
