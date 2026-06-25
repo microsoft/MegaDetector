@@ -95,6 +95,14 @@
       },
       {
         "@type": "Question",
+        "name": "How do I get started with MegaDetector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start with the Getting Started guide, which takes you from a folder of images to your first detections in four steps: decide whether the model fits, pick how to run it, process a small batch, and read the output. If you would rather not write code, run it through SPARROW Studio, AddaxAI, or the Hugging Face demo. For the three-line Python version, see How do I run MegaDetector."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "What does MegaDetector detect?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -212,6 +220,44 @@
           "@type": "Answer",
           "text": "Get help through GitHub Issues at microsoft/MegaDetector/issues for bug reports and feature requests, the PyTorch-Wildlife Discord server for community support, or email zhongqimiao@microsoft.com. For contributions, see the contributing guide covering issue routing, pull requests, and security reporting."
         }
+      }
+    ]
+  } | tojson -}}
+  </script>
+  {%- endif %}
+
+  {%- if page and page.file and page.file.src_path == "getting-started.md" and page.canonical_url %}
+  {#- Getting Started page only: HowTo. Steps mirror the visible getting-started.md headings. -#}
+  <script type="application/ld+json">
+  {{- {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Getting Started with MegaDetector",
+    "description": "How to get started with MegaDetector: decide whether it fits your project, pick how to run it, process a first small batch of camera-trap images, and read the detection output.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Pick how you want to run it",
+        "text": "Choose an entry point that matches how much code you want to write: a graphical app such as SPARROW Studio or AddaxAI, the Python package or the megadetector command line, or a free cloud GPU through the Google Colab notebook.",
+        "url": page.canonical_url ~ "#step-1-pick-how-you-want-to-run-it"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Run a first small batch",
+        "text": "Install PytorchWildlife with pip, load MegaDetectorV6, and run batch_image_detection on a small folder. The weights download on first use and a laptop CPU handles a trial run with no GPU required.",
+        "url": page.canonical_url ~ "#step-2-run-a-first-small-batch"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Read the output",
+        "text": "MegaDetector returns one record per image with a list of detections, each holding a category (animal, person, or vehicle), a confidence score from 0 to 1, and a bounding box. Apply a confidence threshold of about 0.15 to 0.3 on the animal category to separate detections from blanks.",
+        "url": page.canonical_url ~ "#step-3-read-the-output"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Scale up and add species",
+        "text": "Run the same code on a full deployment, using a GPU for speed, then add a downstream classifier for species identity or fine-tune the detector on your own labeled images.",
+        "url": page.canonical_url ~ "#step-4-scale-up-and-add-species"
       }
     ]
   } | tojson -}}

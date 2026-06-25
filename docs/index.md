@@ -23,7 +23,7 @@ MegaDetector is an **animal detector**, not a species classifier. For species re
 > [!TIP]
 > MegaDetector is part of the [microsoft/Biodiversity](https://github.com/microsoft/Biodiversity) umbrella, the hub for all AI for Good Lab wildlife tools. The full PyTorch-Wildlife framework and model zoo live at [microsoft/Pytorch-Wildlife](https://github.com/microsoft/Pytorch-Wildlife).
 
-This page is the practical user guide for the current release, **MegaDetectorV6**. If you want a one-screen reference, jump to [Quick start](#quick-start); if you're evaluating whether MegaDetector fits your project, the [FAQ](faq.md) answers the most common questions.
+This page is the practical user guide for the current release, **MegaDetectorV6**. New here? The [Getting Started](getting-started.md) guide walks you from a folder of images to your first detections step by step. If you want a one-screen reference, jump to [Quick start](#quick-start); if you're evaluating whether MegaDetector fits your project, the [FAQ](faq.md) answers the most common questions.
 
 
 ## Quick start
