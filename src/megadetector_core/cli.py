@@ -171,7 +171,7 @@ def inference(args):
 def main():
     parser = argparse.ArgumentParser(
         prog="megadetector",
-        description="MegaDetector: AI-powered wildlife detection for camera trap images",
+        description="MegaDetector: AI-enabled wildlife detection for camera trap images",
     )
     subparsers = parser.add_subparsers(dest="command")
 
