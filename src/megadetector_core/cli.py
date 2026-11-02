@@ -40,11 +40,11 @@ def detect(args):
         import torch
         device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-    print(f"Loading MegaDetector ({args.model}) on {device}...")
+    print(f"Loading MegaDetector ({args.model}) on {device}...", file=sys.stderr)
     model = MegaDetectorV6(device=device, pretrained=True, version=args.model)
 
     if input_path.is_file():
-        print(f"Processing {input_path}...")
+        print(f"Processing {input_path}...", file=sys.stderr)
         results = model.single_image_detection(str(input_path))
         detections = _format_detections(str(input_path), results, args.threshold)
         all_results = [detections]
@@ -57,14 +57,14 @@ def detect(args):
             print(f"No image files found in {input_path}", file=sys.stderr)
             sys.exit(1)
 
-        print(f"Found {len(image_files)} images in {input_path}")
+        print(f"Found {len(image_files)} images in {input_path}", file=sys.stderr)
         all_results = []
         for i, img_path in enumerate(image_files):
             results = model.single_image_detection(str(img_path))
             detections = _format_detections(str(img_path), results, args.threshold)
             all_results.append(detections)
             if (i + 1) % 100 == 0 or (i + 1) == len(image_files):
-                print(f"  Processed {i + 1}/{len(image_files)}")
+                print(f"  Processed {i + 1}/{len(image_files)}", file=sys.stderr)
     else:
         print(f"Error: {input_path} is not a file or directory", file=sys.stderr)
         sys.exit(1)
@@ -79,12 +79,12 @@ def detect(args):
         output_path = Path(args.output)
         with open(output_path, "w") as f:
             json.dump(all_results, f, indent=2)
-        print(f"\nResults saved to {output_path}")
+        print(f"\nResults saved to {output_path}", file=sys.stderr)
     else:
         print(json.dumps(all_results, indent=2))
 
     print(f"\nSummary: {len(all_results)} images, {total_detections} detections, "
-          f"{images_with_animals} images with animals")
+          f"{images_with_animals} images with animals", file=sys.stderr)
 
 
 def _format_detections(image_path, results, threshold):
