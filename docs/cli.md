@@ -44,6 +44,18 @@ megadetector detect --input ./images/ --output results.json --model MDV6-yolov10
 megadetector detect --input ./images/ --device cpu
 ```
 
+The wrapper writes JSON results to stdout when `--output` is omitted. Its
+loading, progress and summary messages go to stderr, so they stay separate
+from the JSON data:
+
+```bash
+megadetector detect --input ./images/ > results.json
+```
+
+Messages printed by the underlying model or inference framework are outside
+this wrapper's output-stream handling. `--output results.json` remains the
+safer choice when using a backend that prints its own output.
+
 ### Options
 
 | Flag | Default | Description |
